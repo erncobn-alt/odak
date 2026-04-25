@@ -2569,12 +2569,29 @@ function playStopSound() {
 }
 // ── Haptic (Titreşim) ──
 function haptic(type='light') {
-  if(!navigator.vibrate) return;
-  if(type === 'light')  navigator.vibrate(8);
-  else if(type === 'medium') navigator.vibrate(18);
-  else if(type === 'heavy')  navigator.vibrate([30, 10, 30]);
-  else if(type === 'success') navigator.vibrate([10, 20, 40]);
-  else if(type === 'error')   navigator.vibrate([40, 20, 40, 20, 40]);
+  // Android Chrome PWA için kullanıcı etkileşimi ile vibrate
+  try {
+    if(navigator.vibrate) {
+      if(type === 'light')   { navigator.vibrate(10); return; }
+      if(type === 'medium')  { navigator.vibrate(25); return; }
+      if(type === 'heavy')   { navigator.vibrate([40, 15, 40]); return; }
+      if(type === 'success') { navigator.vibrate([15, 30, 50]); return; }
+      if(type === 'error')   { navigator.vibrate([50, 30, 50, 30, 50]); return; }
+    }
+  } catch(e) {}
+  // Fallback: AudioContext ile çok kısa ses (titreşim hissi verir)
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = 'sine';
+    o.frequency.value = type === 'error' ? 100 : type === 'success' ? 200 : 150;
+    o.connect(g); g.connect(ctx.destination);
+    const vol = type === 'light' ? 0.001 : 0.002;
+    g.gain.setValueAtTime(vol, ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.05);
+    o.start(); o.stop(ctx.currentTime + 0.05);
+  } catch(e) {}
 }
 function vibrateDevice() {
   if(!state.pomodoroVibe) return;
