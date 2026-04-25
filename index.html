@@ -1,0 +1,2774 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Odak</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Odak">
+<meta name="theme-color" content="#ECE9E4" id="metaThemeColor">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
+<link rel="apple-touch-icon" sizes="144x144" href="icons/icon-144.png">
+<link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png">
+<meta name="msapplication-TileImage" content="icons/icon-144.png">
+<meta name="msapplication-TileColor" content="#007AFF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ECE9E4;--bg-surface:#ECE9E4;--card:#EFECE7;--card2:#E6E2DC;--primary:#6B7C8C;--primary-light:rgba(107,124,140,0.14);--green:#7A9080;--red:#B8766A;--orange:#B8926A;--purple:#8E82A0;--teal:#7A95A0;--yellow:#B8A66A;--label:#2D2A27;--label2:#4A4641;--label3:#86817A;--label4:#B5AFA6;--separator:#D6D1C8;--fill:#E6E2DC;--fill2:#DDD8CF;--nav-bg:rgba(236,233,228,0.92);--nm-light:rgba(255,255,255,0.85);--nm-dark:rgba(163,157,146,0.35);--nm-shadow:6px 6px 14px rgba(163,157,146,0.28),-6px -6px 14px rgba(255,255,255,0.85);--nm-shadow-sm:3px 3px 7px rgba(163,157,146,0.22),-3px -3px 7px rgba(255,255,255,0.75);--nm-inset:inset 3px 3px 6px rgba(163,157,146,0.22),inset -3px -3px 6px rgba(255,255,255,0.7);--nm-inset-sm:inset 2px 2px 4px rgba(163,157,146,0.18),inset -2px -2px 4px rgba(255,255,255,0.6);--shadow:var(--nm-shadow);--shadow-sm:var(--nm-shadow-sm);--radius:20px;--radius-sm:14px;--font-display:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;--font:'Manrope',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;}body.bg-paper{--bg:#ECE9E4;--card:#EFECE7;--card2:#E6E2DC;--separator:#D6D1C8;--fill:#E6E2DC;--fill2:#DDD8CF;--nav-bg:rgba(236,233,228,0.92);--nm-light:rgba(255,255,255,0.85);--nm-dark:rgba(163,157,146,0.35);--nm-shadow:6px 6px 14px rgba(163,157,146,0.28),-6px -6px 14px rgba(255,255,255,0.85);--nm-shadow-sm:3px 3px 7px rgba(163,157,146,0.22),-3px -3px 7px rgba(255,255,255,0.75);--nm-inset:inset 3px 3px 6px rgba(163,157,146,0.22),inset -3px -3px 6px rgba(255,255,255,0.7);--nm-inset-sm:inset 2px 2px 4px rgba(163,157,146,0.18),inset -2px -2px 4px rgba(255,255,255,0.6);--shadow:var(--nm-shadow);--shadow-sm:var(--nm-shadow-sm);}body.bg-plain{--bg:#F2F2F2;--card:#F5F5F5;--card2:#EBEBEB;--separator:#DDDDDD;--fill:#EBEBEB;--fill2:#E0E0E0;--nav-bg:rgba(242,242,242,0.92);--label:#2A2A2A;--label2:#484848;--label3:#8A8A8A;--label4:#B5B5B5;--nm-light:rgba(255,255,255,0.9);--nm-dark:rgba(150,150,150,0.28);--nm-shadow:6px 6px 14px rgba(150,150,150,0.22),-6px -6px 14px rgba(255,255,255,0.9);--nm-shadow-sm:3px 3px 7px rgba(150,150,150,0.18),-3px -3px 7px rgba(255,255,255,0.8);--nm-inset:inset 3px 3px 6px rgba(150,150,150,0.18),inset -3px -3px 6px rgba(255,255,255,0.75);--nm-inset-sm:inset 2px 2px 4px rgba(150,150,150,0.14),inset -2px -2px 4px rgba(255,255,255,0.65);--shadow:var(--nm-shadow);--shadow-sm:var(--nm-shadow-sm);}body.bg-cool{--bg:#E8EAED;--card:#ECEEF1;--card2:#DEE1E5;--separator:#D0D3D7;--fill:#DEE1E5;--fill2:#D5D8DC;--nav-bg:rgba(232,234,237,0.92);--label:#292B2E;--label2:#464A4E;--label3:#7E8186;--label4:#B3B7BC;--nm-light:rgba(255,255,255,0.8);--nm-dark:rgba(155,160,170,0.32);--nm-shadow:6px 6px 14px rgba(155,160,170,0.28),-6px -6px 14px rgba(255,255,255,0.8);--nm-shadow-sm:3px 3px 7px rgba(155,160,170,0.22),-3px -3px 7px rgba(255,255,255,0.7);--nm-inset:inset 3px 3px 6px rgba(155,160,170,0.22),inset -3px -3px 6px rgba(255,255,255,0.65);--nm-inset-sm:inset 2px 2px 4px rgba(155,160,170,0.18),inset -2px -2px 4px rgba(255,255,255,0.55);--shadow:var(--nm-shadow);--shadow-sm:var(--nm-shadow-sm);}body.bg-lavender{--bg:#E8E6ED;--card:#ECEAF1;--card2:#DED9E5;--separator:#D2CCDB;--fill:#DED9E5;--fill2:#D4CEDC;--nav-bg:rgba(232,230,237,0.92);--label:#2A272E;--label2:#47434E;--label3:#7E7B86;--label4:#B4B0BC;--nm-light:rgba(255,255,255,0.8);--nm-dark:rgba(140,130,165,0.32);--nm-shadow:6px 6px 14px rgba(140,130,165,0.25),-6px -6px 14px rgba(255,255,255,0.8);--nm-shadow-sm:3px 3px 7px rgba(140,130,165,0.2),-3px -3px 7px rgba(255,255,255,0.7);--nm-inset:inset 3px 3px 6px rgba(140,130,165,0.2),inset -3px -3px 6px rgba(255,255,255,0.65);--nm-inset-sm:inset 2px 2px 4px rgba(140,130,165,0.16),inset -2px -2px 4px rgba(255,255,255,0.55);--shadow:var(--nm-shadow);--shadow-sm:var(--nm-shadow-sm);}body.bg-sage{--bg:#E5E9E3;--card:#E9EDE7;--card2:#DAE0D8;--separator:#CAD2C7;--fill:#DAE0D8;--fill2:#D1D8CE;--nav-bg:rgba(229,233,227,0.92);--label:#252B24;--label2:#434841;--label3:#7B817A;--label4:#B0B5AE;--nm-light:rgba(255,255,255,0.8);--nm-dark:rgba(130,150,125,0.32);--nm-shadow:6px 6px 14px rgba(130,150,125,0.26),-6px -6px 14px rgba(255,255,255,0.8);--nm-shadow-sm:3px 3px 7px rgba(130,150,125,0.2),-3px -3px 7px rgba(255,255,255,0.7);--nm-inset:inset 3px 3px 6px rgba(130,150,125,0.2),inset -3px -3px 6px rgba(255,255,255,0.65);--nm-inset-sm:inset 2px 2px 4px rgba(130,150,125,0.16),inset -2px -2px 4px rgba(255,255,255,0.55);--shadow:var(--nm-shadow);--shadow-sm:var(--nm-shadow-sm);}body.bg-rose{--bg:#EDE5E5;--card:#F1EAE9;--card2:#E4D8D7;--separator:#D8CAC8;--fill:#E4D8D7;--fill2:#DBCECC;--nav-bg:rgba(237,229,229,0.92);--label:#2C2424;--label2:#4A4040;--label3:#847A7A;--label4:#BAB0B0;--nm-light:rgba(255,255,255,0.8);--nm-dark:rgba(165,130,130,0.3);--nm-shadow:6px 6px 14px rgba(165,130,130,0.26),-6px -6px 14px rgba(255,255,255,0.8);--nm-shadow-sm:3px 3px 7px rgba(165,130,130,0.2),-3px -3px 7px rgba(255,255,255,0.7);--nm-inset:inset 3px 3px 6px rgba(165,130,130,0.2),inset -3px -3px 6px rgba(255,255,255,0.65);--nm-inset-sm:inset 2px 2px 4px rgba(165,130,130,0.16),inset -2px -2px 4px rgba(255,255,255,0.55);--shadow:var(--nm-shadow);--shadow-sm:var(--nm-shadow-sm);}body.bg-sand{--bg:#EDE7DC;--card:#F1ECE1;--card2:#E4DCCD;--separator:#D7CEBB;--fill:#E4DCCD;--fill2:#DBD3C2;--nav-bg:rgba(237,231,220,0.92);--label:#2C2820;--label2:#4A443A;--label3:#847E72;--label4:#BAB3A5;--nm-light:rgba(255,255,255,0.82);--nm-dark:rgba(170,150,115,0.32);--nm-shadow:6px 6px 14px rgba(170,150,115,0.28),-6px -6px 14px rgba(255,255,255,0.82);--nm-shadow-sm:3px 3px 7px rgba(170,150,115,0.22),-3px -3px 7px rgba(255,255,255,0.72);--nm-inset:inset 3px 3px 6px rgba(170,150,115,0.22),inset -3px -3px 6px rgba(255,255,255,0.68);--nm-inset-sm:inset 2px 2px 4px rgba(170,150,115,0.18),inset -2px -2px 4px rgba(255,255,255,0.58);--shadow:var(--nm-shadow);--shadow-sm:var(--nm-shadow-sm);}body.bg-night{--bg:#252628;--card:#2D2E30;--card2:#36373A;--primary:#9AAABC;--primary-light:rgba(154,170,188,0.18);--green:#9AB8A6;--red:#D89A8E;--orange:#D8B68E;--purple:#B0A5C2;--teal:#9AB5C2;--yellow:#D8C28E;--label:#E8E8EA;--label2:#C8C8CA;--label3:#898A8D;--label4:#4A4B4E;--separator:#3A3B3E;--fill:#2D2E30;--fill2:#36373A;--nav-bg:rgba(37,38,40,0.92);--nm-light:rgba(65,66,70,0.55);--nm-dark:rgba(0,0,0,0.55);--nm-shadow:6px 6px 14px rgba(0,0,0,0.45),-6px -6px 14px rgba(65,66,70,0.45);--nm-shadow-sm:3px 3px 7px rgba(0,0,0,0.38),-3px -3px 7px rgba(65,66,70,0.38);--nm-inset:inset 3px 3px 6px rgba(0,0,0,0.4),inset -3px -3px 6px rgba(65,66,70,0.4);--nm-inset-sm:inset 2px 2px 4px rgba(0,0,0,0.35),inset -2px -2px 4px rgba(65,66,70,0.35);--shadow:var(--nm-shadow);--shadow-sm:var(--nm-shadow-sm);}body.bg-custom{}body.tex-dots::before,body.tex-lines::before,body.tex-noise::before,body.tex-grid::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.55;}body.tex-dots::before{background-image:radial-gradient(circle at 1px 1px,rgba(120,110,95,0.22) 1px,transparent 0);background-size:4px 4px;}body.tex-lines::before{background-image:repeating-linear-gradient(135deg,rgba(120,110,95,0.08) 0 1px,transparent 1px 6px);}body.tex-grid::before{background-image:linear-gradient(rgba(120,110,95,0.09) 1px,transparent 1px),linear-gradient(90deg,rgba(120,110,95,0.09) 1px,transparent 1px);background-size:16px 16px;}body.tex-noise::before{opacity:0.35;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.38 0 0 0 0 0.35 0 0 0 0.45 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");}body.bg-night.tex-dots::before,body.bg-night.tex-lines::before,body.bg-night.tex-grid::before{background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,0.08) 1px,transparent 0);}body.bg-night.tex-lines::before{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.04) 0 1px,transparent 1px 6px);}body.bg-night.tex-grid::before{background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:16px 16px;}body.bg-night.tex-noise::before{opacity:0.25;}body[class*="tex-"] .app-header,body[class*="tex-"] .bottom-nav{background:var(--bg) !important;-webkit-backdrop-filter:none !important;backdrop-filter:none !important;}body[class*="tex-"] .bg-picker-opt,body[class*="tex-"] .tex-picker-opt{isolation:isolate;}body.dark{--bg:#252628;--card:#2D2E30;--card2:#36373A;--primary:#9AAABC;--primary-light:rgba(154,170,188,0.18);--green:#9AB8A6;--red:#D89A8E;--orange:#D8B68E;--purple:#B0A5C2;--teal:#9AB5C2;--yellow:#D8C28E;--label:#E8E8EA;--label2:#C8C8CA;--label3:#898A8D;--label4:#4A4B4E;--separator:#3A3B3E;--fill:#2D2E30;--fill2:#36373A;--nav-bg:rgba(37,38,40,0.92);--nm-light:rgba(65,66,70,0.55);--nm-dark:rgba(0,0,0,0.55);--nm-shadow:6px 6px 14px rgba(0,0,0,0.45),-6px -6px 14px rgba(65,66,70,0.45);--nm-shadow-sm:3px 3px 7px rgba(0,0,0,0.38),-3px -3px 7px rgba(65,66,70,0.38);--nm-inset:inset 3px 3px 6px rgba(0,0,0,0.4),inset -3px -3px 6px rgba(65,66,70,0.4);--nm-inset-sm:inset 2px 2px 4px rgba(0,0,0,0.35),inset -2px -2px 4px rgba(65,66,70,0.35);--shadow:var(--nm-shadow);--shadow-sm:var(--nm-shadow-sm);}*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}body{font-family:var(--font);background:var(--bg);color:var(--label);min-height:100vh;max-width:430px;margin:0 auto;position:relative;overflow-x:hidden;padding-bottom:90px;transition:none;}.app-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 8px;background:var(--nav-bg);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;border-bottom:none;}.app-logo{display:flex;align-items:center;gap:8px;}.app-logo span{font-size:22px;}.app-title{font-size:17px;font-weight:600;letter-spacing:-0.3px;}.dark-btn{width:34px;height:34px;background:var(--fill2);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:transform 0.2s;}.dark-btn:active{transform:scale(0.9);}.page{display:none;padding:20px 16px;animation:fadeIn 0.25s ease;}.page.active{display:block;}@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}.page-title{font-size:34px;font-weight:700;letter-spacing:-0.5px;margin-bottom:24px;}.card{background:var(--card);border-radius:var(--radius);padding:18px;margin-bottom:12px;box-shadow:var(--shadow);transition:none;}.timer-card{background:var(--card);border-radius:28px;padding:24px 20px 22px;box-shadow:0 4px 32px rgba(0,0,0,0.10);margin-bottom:16px;text-align:center;position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;}.timer-card.running{background:var(--card);box-shadow:0 4px 32px rgba(0,0,0,0.10);}.timer-card.running .subject-name{color:var(--label);}.timer-card.running .subject-chevron{color:var(--label3);}.timer-card::after{content:'';position:absolute;bottom:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:transparent;pointer-events:none;transition:opacity 0.6s;opacity:0;}.timer-card.running::after{opacity:1;}.timer-mode-row{display:flex;background:var(--fill2);border-radius:10px;padding:2px;margin-bottom:18px;transition:none;}.timer-mode-btn{flex:1;border:none;background:transparent;border-radius:8px;padding:7px 0;font-size:13px;font-weight:500;color:var(--label3);cursor:pointer;transition:all 0.2s;font-family:var(--font);}.timer-mode-btn.active{background:var(--card);color:var(--label);font-weight:600;box-shadow:0 1px 6px rgba(0,0,0,0.12);}.timer-ring{width:210px;height:210px;margin:0 auto 20px;position:relative;}.timer-ring svg{width:100%;height:100%;transform:rotate(-90deg);}.timer-ring circle{fill:none;stroke-width:7;stroke-linecap:round;}.ring-bg{stroke:var(--fill2);transition:stroke 0.4s;}.ring-fill{stroke:url(#timerGradient);stroke-dasharray:553;stroke-dashoffset:553;}.timer-card.running .ring-fill{}.timer-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}.timer-digits{font-size:44px;font-weight:200;letter-spacing:-3px;font-variant-numeric:tabular-nums;color:var(--label);line-height:1;transition:color 0.4s;}.timer-card.running .timer-digits{color:var(--label);}.timer-label{font-size:11px;color:var(--label3);margin-top:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;transition:none;}.timer-card.running .timer-label{color:var(--label3);}.pomo-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.4px;margin-bottom:12px;transition:all 0.3s;}.pomo-badge.work{background:rgba(0,122,255,0.15);color:var(--primary);}.pomo-badge.work.running-badge{background:rgba(100,200,255,0.18);color:#64D2FF;}.pomo-badge.brk{background:rgba(52,199,89,0.15);color:var(--green);}.pomo-badge.brk.running-badge{background:rgba(52,199,89,0.2);color:#30D158;}.daily-progress-row{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--fill2);border-radius:12px;margin-bottom:12px;transition:background 0.4s;}.daily-prog-label{font-size:12px;color:var(--label3);flex-shrink:0;font-weight:500;transition:color 0.4s;}.daily-prog-bar{flex:1;height:4px;background:var(--fill);border-radius:2px;overflow:hidden;}.daily-prog-fill{height:100%;border-radius:2px;background:var(--primary);}.daily-prog-val{font-size:12px;font-weight:600;color:var(--primary);flex-shrink:0;transition:color 0.4s;}.timer-card.running .daily-prog-val{color:var(--primary);}.subject-selector{background:var(--fill2);border-radius:14px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;cursor:pointer;border:none;width:100%;text-align:left;transition:opacity 0.15s,background 0.4s;}.subject-selector:active{opacity:0.7;}.subject-selector-left{display:flex;align-items:center;gap:10px;}.subject-dot{width:14px;height:14px;border-radius:50%;background:var(--primary);flex-shrink:0;}.subject-name{font-size:15px;font-weight:500;color:var(--label);}.subject-chevron{color:var(--label3);font-size:11px;}.btn-row{display:flex;gap:10px;}.btn{flex:1;padding:15px;border:none;border-radius:14px;font-size:17px;font-weight:600;cursor:pointer;transition:transform 0.08s,box-shadow 0.1s;letter-spacing:-0.2px;-webkit-tap-highlight-color:transparent;}.btn-primary{background:var(--primary);color:white;box-shadow:0 1px 0 rgba(255,255,255,0.18) inset,0 -2px 0 rgba(0,0,0,0.25) inset,0 3px 6px rgba(0,0,0,0.2);text-shadow:0 -1px 0 rgba(0,0,0,0.2);}.btn-secondary{background:var(--fill2);color:var(--label);}.btn-danger{background:var(--red);color:white;box-shadow:0 1px 0 rgba(255,255,255,0.18) inset,0 -2px 0 rgba(0,0,0,0.25) inset,0 3px 6px rgba(0,0,0,0.2);text-shadow:0 -1px 0 rgba(0,0,0,0.2);}.btn-disabled{background:var(--fill2);color:var(--label3);cursor:not-allowed;}.section-title{font-size:20px;font-weight:700;letter-spacing:-0.3px;margin:8px 0 12px;}.history-item{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:0.5px solid var(--separator);position:relative;}.history-item:last-child{border-bottom:none;}.history-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;position:relative;overflow:hidden;}.history-icon::after{content:'';position:absolute;inset:0;background:inherit;opacity:0.15;border-radius:inherit;}.history-info{flex:1;min-width:0;}.history-subject{font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.history-time{font-size:12px;color:var(--label3);margin-top:2px;}.history-duration{font-size:14px;font-weight:700;color:var(--primary);background:var(--primary-light);padding:4px 9px;border-radius:10px;white-space:nowrap;flex-shrink:0;}.empty-state{text-align:center;padding:40px 20px;color:var(--label3);}.empty-state .empty-icon{font-size:48px;margin-bottom:12px;}.empty-state p{font-size:15px;}.dersler-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}.add-btn{width:36px;height:36px;background:var(--primary);color:white;border:none;border-radius:50%;font-size:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s;}.add-btn:active{transform:scale(0.9);}.ders-item{display:flex;align-items:center;gap:14px;padding:14px;background:var(--card);border-radius:var(--radius);margin-bottom:10px;box-shadow:var(--shadow);transition:background 0.3s;position:relative;}.ders-color-bar{width:5px;height:44px;border-radius:3px;flex-shrink:0;}.ders-info{flex:1;}.ders-name{font-size:16px;font-weight:600;}.ders-stats{font-size:13px;color:var(--label3);margin-top:3px;}.ders-actions{display:flex;gap:8px;}.ders-action-btn{width:30px;height:30px;border:none;border-radius:8px;background:var(--fill2);cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:opacity 0.15s;}.ders-action-btn:active{opacity:0.6;}.stats-toggle{display:flex;background:var(--card2);border-radius:var(--radius-sm);padding:4px;margin-bottom:20px;box-shadow:var(--nm-inset-sm);gap:3px;}.stats-tab{flex:1;padding:9px 4px;border:none;background:transparent;border-radius:10px;font-size:13px;font-weight:500;color:var(--label3);cursor:pointer;transition:box-shadow 0.18s,background 0.18s,color 0.18s;font-family:var(--font);letter-spacing:-0.1px;-webkit-tap-highlight-color:transparent;}.stats-tab.active{background:var(--card);color:var(--label);font-weight:700;box-shadow:var(--nm-shadow-sm);}.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}.stat-card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden;border:1.5px solid var(--separator);}.stat-card::after{content:'';position:absolute;bottom:-16px;right:-16px;width:60px;height:60px;border-radius:50%;background:transparent;}.stat-icon{font-size:24px;margin-bottom:10px;display:block;}.stat-value{font-size:30px;font-weight:800;letter-spacing:-0.8px;color:var(--label);}.stat-label{font-size:12px;color:var(--label3);margin-top:3px;font-weight:500;}.chart-card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);margin-bottom:12px;}.chart-title{font-size:16px;font-weight:700;margin-bottom:16px;letter-spacing:-0.2px;}.bar-chart-wrap{display:flex;gap:0;}.bar-chart-yaxis{display:flex;flex-direction:column;justify-content:space-between;padding-bottom:20px;margin-right:8px;}.bar-chart-yaxis span{font-size:10px;color:var(--label3);text-align:right;line-height:1;}.bar-chart{display:flex;align-items:flex-end;gap:5px;height:130px;flex:1;}.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%;}.bar-wrap{flex:1;display:flex;align-items:flex-end;width:100%;justify-content:center;position:relative;}.bar{width:100%;max-width:24px;border-radius:6px 6px 0 0;min-height:3px;transition:height 0.5s cubic-bezier(.34,1.56,.64,1);}.bar-day{font-size:10px;color:var(--label3);font-weight:500;}.bar-day.today{color:var(--primary);font-weight:800;}.subject-time-item{margin-bottom:16px;}.subject-time-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;}.subject-time-name{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;}.subject-time-dot{width:10px;height:10px;border-radius:50%;}.subject-time-val{font-size:13px;color:var(--label3);font-weight:600;}.subject-progress{height:6px;background:var(--fill2);border-radius:3px;overflow:hidden;}.subject-progress-fill{height:100%;border-radius:3px;}.header-date{font-size:12px;font-weight:500;color:var(--label3);background:var(--fill2);padding:4px 10px;border-radius:20px;}.hedef-card{background:var(--card);border-radius:var(--radius);padding:18px;margin-bottom:12px;box-shadow:var(--shadow);position:relative;overflow:hidden;}.hedef-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius) var(--radius) 0 0;}#gunlukHedefCard::before{background:var(--primary);}#haftalikHedefCard::before{background:var(--primary);}.hedef-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}.hedef-title-row{display:flex;align-items:center;gap:10px;}.hedef-icon{font-size:20px;}.hedef-name{font-size:16px;font-weight:600;}.hedef-edit-btn{width:30px;height:30px;border:none;background:transparent;font-size:16px;color:var(--label3);cursor:pointer;}.hedef-progress-text{font-size:13px;color:var(--label3);margin-bottom:10px;}.hedef-bar{height:10px;background:var(--fill2);border-radius:5px;overflow:hidden;margin-bottom:6px;}.hedef-bar-fill{height:100%;border-radius:5px;}#gunlukFill{background:var(--primary) !important;}#haftalikFill{background:var(--primary) !important;}.hedef-pct{font-size:13px;font-weight:700;color:var(--primary);text-align:right;}.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:var(--nav-bg);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-top:0.5px solid var(--separator);display:flex;z-index:100;padding:6px 0 calc(6px + env(safe-area-inset-bottom));transition:none;}.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;border:none;background:transparent;cursor:pointer;transition:transform 0.15s;-webkit-tap-highlight-color:transparent;}.nav-item:active{transform:scale(0.85);}.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:10px;font-weight:500;color:var(--label3);transition:color 0.2s;}.nav-item.active .nav-label{color:var(--primary);font-weight:700;}.nav-item.active .nav-icon-svg{color:var(--primary);}.nav-icon-svg{width:24px;height:24px;color:var(--label3);}.nav-item.active .nav-icon-svg{color:var(--primary);}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;display:none;align-items:flex-end;justify-content:center;animation:fadeOverlay 0.2s;}.modal-overlay.open{display:flex;}@keyframes fadeOverlay{from{opacity:0}to{opacity:1}}.modal{background:var(--card);border-radius:24px 24px 0 0;padding:0 20px 20px;width:100%;max-width:430px;max-height:85vh;overflow-y:auto;}@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}.modal-handle{width:44px;height:4px;background:var(--separator);border-radius:2px;margin:12px auto 20px;}.modal-title{font-size:20px;font-weight:700;margin-bottom:20px;letter-spacing:-0.3px;}.input-group{margin-bottom:16px;}.input-label{font-size:13px;color:var(--label3);font-weight:600;margin-bottom:7px;text-transform:uppercase;letter-spacing:0.3px;}.input-field{width:100%;padding:14px 15px;background:var(--fill2);border:none;border-radius:12px;font-size:16px;color:var(--label);font-family:var(--font);outline:none;transition:background 0.2s;}.input-field:focus{background:var(--primary-light);}.custom-color-picker{display:flex;flex-direction:column;gap:12px;}.color-preview-row{display:flex;flex-direction:row;align-items:center;gap:12px;width:100%;}.color-preview-circle{width:44px;height:44px;border-radius:50%;border:3px solid var(--separator);flex-shrink:0;transition:background 0.15s;}.color-hex-input{flex:1;min-width:0;padding:10px 12px;background:var(--fill2);border:none;border-radius:var(--radius-sm);font-size:15px;font-family:monospace;color:var(--label);outline:none;letter-spacing:1px;text-transform:uppercase;}.color-hex-input:focus{background:var(--primary-light);}.sb-wrap{position:relative;width:100%;height:160px;border-radius:12px;overflow:hidden;}.sb-canvas{display:block;width:100%;height:100%;cursor:crosshair;touch-action:none;border-radius:12px;}.sb-thumb{position:absolute;width:20px;height:20px;border-radius:50%;border:3px solid white;box-shadow:0 1px 6px rgba(0,0,0,0.4);transform:translate(-50%,-50%);pointer-events:none;transition:none;z-index:2;}.hue-slider-wrap{position:relative;height:28px;}.hue-track{width:100%;height:18px;border-radius:9px;margin-top:5px;background:linear-gradient(to right,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00);cursor:pointer;touch-action:none;}.hue-thumb{position:absolute;top:50%;width:22px;height:22px;border-radius:50%;border:3px solid white;box-shadow:0 1px 6px rgba(0,0,0,0.35);transform:translate(-50%,-50%);pointer-events:none;will-change:left;}.swatch-row{display:flex;flex-direction:row;flex-wrap:wrap;gap:7px;width:100%;}.swatch{width:30px;height:30px;border-radius:50%;cursor:pointer;flex-shrink:0;border:2.5px solid transparent;transition:border-color 0.15s;position:relative;}.swatch.active{border-color:var(--label);}.swatch.active::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;pointer-events:none;}.swatch:active{opacity:0.7;}.color-picker{display:none;}.color-opt{display:none;}.modal-actions{display:flex;gap:10px;margin-top:20px;}.subject-select-item{display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--radius-sm);cursor:pointer;transition:background 0.15s;margin-bottom:6px;}.subject-select-item:active{background:var(--fill2);}.subject-select-item.selected{background:var(--primary-light);}.subject-select-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;}.subject-select-name{font-size:16px;font-weight:500;}.subject-select-check{margin-left:auto;color:var(--primary);font-size:18px;}.time-input-row{display:flex;gap:10px;align-items:center;}.time-input{width:70px;text-align:center;}.toast{position:fixed;bottom:108px;left:50%;transform:translateX(-50%) translateY(12px);background:rgba(30,30,32,0.88);color:white;padding:11px 22px;border-radius:24px;font-size:14px;font-weight:600;z-index:300;opacity:0;transition:all 0.28s cubic-bezier(.34,1.3,.64,1);white-space:nowrap;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);pointer-events:none;border:0.5px solid rgba(255,255,255,0.12);}.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}.streak-card{background:var(--orange);border-radius:var(--radius);padding:16px 18px;margin-bottom:12px;color:white;display:flex;align-items:center;gap:14px;box-shadow:0 6px 24px rgba(255,149,0,0.38);position:relative;overflow:hidden;}.streak-card::after{content:'🔥';position:absolute;right:-4px;bottom:-12px;font-size:70px;opacity:0.10;pointer-events:none;transform:rotate(-15deg);}.streak-icon{font-size:34px;position:relative;z-index:1;}.streak-info{position:relative;z-index:1;}.streak-val{font-size:26px;font-weight:800;letter-spacing:-0.5px;}.streak-label{font-size:12px;opacity:0.88;margin-top:2px;font-weight:500;}#page-takvim{padding:0 !important;overflow:hidden;}#page-takvim.active{display:flex !important;flex-direction:column;height:calc(100vh - 90px);}.takvim-toprow{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 0;}.takvim-month-label{font-size:18px;font-weight:700;letter-spacing:-0.4px;color:var(--label);}.takvim-nav-btn{width:36px;height:36px;border:none;background:var(--card);border-radius:50%;font-size:20px;cursor:pointer;color:var(--label2);display:flex;align-items:center;justify-content:center;font-weight:400;transition:box-shadow 0.12s,transform 0.1s;box-shadow:var(--nm-shadow-sm);-webkit-tap-highlight-color:transparent;}.takvim-nav-btn:active{box-shadow:var(--nm-inset-sm);transform:scale(0.93);color:var(--primary);}.cal-view-toggle{display:flex;background:var(--card2);border-radius:var(--radius-sm);padding:4px;margin:10px 16px 0;box-shadow:var(--nm-inset-sm);gap:3px;}.cal-vtab{flex:1;padding:8px 0;border:none;background:transparent;border-radius:10px;font-size:13px;font-weight:500;color:var(--label3);cursor:pointer;transition:box-shadow 0.18s,background 0.18s,color 0.18s;letter-spacing:-0.1px;font-family:var(--font);-webkit-tap-highlight-color:transparent;}.cal-vtab.active{background:var(--card);color:var(--label);font-weight:700;box-shadow:var(--nm-shadow-sm);}#cal-monthly-view{padding:12px 16px 16px;overflow-y:auto;flex:1;}.cal-dow-row{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;margin-bottom:8px;}.cal-dow-row span{font-size:11px;font-weight:600;color:var(--label3);padding:2px 0;letter-spacing:0.3px;}.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}.cal-cell{border-radius:10px;background:var(--card);display:flex;flex-direction:column;align-items:center;padding:6px 2px 5px;cursor:pointer;transition:background 0.1s;position:relative;min-height:56px;box-shadow:0 1px 3px rgba(0,0,0,0.06);}.cal-cell:active{background:var(--fill2);transform:scale(0.97);}.cal-cell.empty{background:transparent;box-shadow:none;cursor:default;}.cal-cell.today .cal-day-num{background:var(--primary);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:13px;}.cal-day-num{font-size:13px;font-weight:600;line-height:1;margin-bottom:4px;color:var(--label);}.cal-blocks{display:flex;flex-direction:column;gap:2px;width:100%;padding:0 4px;}.cal-block{height:4px;border-radius:2px;width:100%;}.cal-note-icon{font-size:8px;margin-top:2px;}.cal-has-todo{position:absolute;top:4px;right:4px;width:5px;height:5px;border-radius:50%;}#cal-weekly-view{flex-direction:column;flex:1;overflow:hidden;border-top:0.5px solid var(--separator);margin-top:10px;}.week-sticky-top{display:flex;flex-direction:row;flex-shrink:0;border-bottom:0.5px solid var(--separator);background:var(--nav-bg);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);}.week-gutter-corner{width:44px;flex-shrink:0;border-right:0.5px solid var(--separator);}.week-day-headers{flex:1;display:grid;grid-template-columns:repeat(7,1fr);}.week-day-head{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 2px;gap:3px;border-right:0.5px solid var(--separator);}.week-day-head:last-child{border-right:none;}.wdh-label{font-size:10px;font-weight:600;color:var(--label3);text-transform:uppercase;letter-spacing:0.6px;}.wdh-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:var(--label);transition:background 0.2s;}.wdh-num.today{background:var(--primary);color:white;}.week-scroll-body{flex:1;display:flex;flex-direction:row;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;}.week-time-gutter{width:44px;flex-shrink:0;border-right:0.5px solid var(--separator);position:relative;}.week-time-slot{height:56px;display:flex;align-items:flex-start;justify-content:flex-end;padding:3px 8px 0 0;font-size:9px;color:var(--label3);font-weight:500;line-height:1;}.week-cols-wrap{flex:1;display:grid;grid-template-columns:repeat(7,1fr);position:relative;}.week-col{position:relative;border-right:0.5px solid var(--separator);}.week-col:last-child{border-right:none;}.week-col.today-col{background:rgba(0,122,255,0.025);}.week-hour-line{position:absolute;left:0;right:0;height:0.5px;background:var(--separator);pointer-events:none;}.week-half-line{position:absolute;left:4px;right:0;height:0.5px;background:var(--fill2);pointer-events:none;}.week-block{position:absolute;left:2px;right:2px;border-radius:6px;padding:4px 5px;overflow:hidden;cursor:pointer;z-index:2;display:flex;flex-direction:column;box-shadow:0 1px 4px rgba(0,0,0,0.18);transition:opacity 0.1s,transform 0.1s;}.week-block:active{opacity:0.75;transform:scale(0.98);}.week-block-time{font-size:9px;color:rgba(255,255,255,0.8);font-weight:500;white-space:nowrap;}.week-block-name{font-size:10px;font-weight:700;color:white;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.week-block-dur{font-size:9px;color:rgba(255,255,255,0.75);}.week-event-block{position:absolute;left:2px;right:2px;border-radius:7px;overflow:hidden;cursor:pointer;z-index:3;display:flex;flex-direction:column;padding:3px 5px;box-shadow:0 2px 6px rgba(0,0,0,0.22);transition:opacity 0.1s,transform 0.1s;touch-action:none;}.week-event-block:active{opacity:0.8;transform:scale(0.98);}.week-event-block.dragging-source{opacity:0.25 !important;}.week-event-title{font-size:10px;font-weight:600;color:white;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.week-event-time{font-size:9px;color:rgba(255,255,255,0.8);}.ev-drag-handle{position:absolute;left:50%;bottom:2px;transform:translateX(-50%);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;background:rgba(0,0,0,0.12);border-radius:3px;padding:1px 2px;line-height:0;display:flex;align-items:center;}.week-event-block.ghost-active{opacity:0.93 !important;transform:scale(1.05) !important;box-shadow:0 10px 36px rgba(0,0,0,0.4) !important;z-index:99 !important;}.week-now-line{position:absolute;left:0;right:0;height:2px;background:var(--red);z-index:6;pointer-events:none;}.week-now-dot{position:absolute;left:-4px;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--red);}.day-sessions-section{margin-bottom:4px;}.day-section-label{font-size:11px;font-weight:700;color:var(--label3);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.8px;}.day-session-item{display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--fill2);border-radius:12px;margin-bottom:8px;}.day-session-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}.day-session-name{font-size:15px;font-weight:500;flex:1;}.day-session-dur{font-size:14px;color:var(--label3);font-weight:500;}.day-note-input{width:100%;min-height:72px;padding:12px 14px;background:var(--fill2);border:none;border-radius:12px;font-size:15px;color:var(--label);font-family:var(--font);outline:none;resize:none;transition:background 0.2s;line-height:1.5;}.day-note-input:focus{background:var(--primary-light);}.day-todo-add-row{display:flex;gap:8px;margin-top:10px;}.day-todo-input{flex:1;padding:12px 14px;background:var(--fill2);border:none;border-radius:12px;font-size:15px;color:var(--label);font-family:var(--font);outline:none;}.day-todo-input:focus{background:var(--primary-light);}.day-todo-add-btn{width:44px;height:44px;background:var(--primary);color:white;border:none;border-radius:12px;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:300;}.day-todo-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:0.5px solid var(--separator);}.day-todo-item:last-child{border-bottom:none;}.day-todo-cb{width:22px;height:22px;border-radius:50%;border:2px solid var(--label4);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}.day-todo-cb.checked{background:var(--green);border-color:var(--green);}.day-todo-cb.checked::after{content:'✓';color:white;font-size:12px;font-weight:700;}.day-todo-text{flex:1;font-size:15px;}.day-todo-text.done{text-decoration:line-through;color:var(--label3);}.day-todo-del{color:var(--label4);background:none;border:none;font-size:18px;cursor:pointer;padding:2px 6px;}.day-empty{text-align:center;color:var(--label3);font-size:14px;padding:10px 0;}.event-time-row{display:flex;gap:10px;align-items:center;}.event-time-input{flex:1;padding:11px 12px;background:var(--fill2);border:none;border-radius:12px;font-size:15px;color:var(--label);font-family:var(--font);outline:none;text-align:center;}.event-time-input:focus{background:var(--primary-light);}.event-time-sep{color:var(--label3);font-size:18px;font-weight:300;}.hw-item{display:flex;align-items:center;gap:12px;padding:14px;background:var(--card);border-radius:var(--radius);margin-bottom:10px;box-shadow:var(--shadow);}.hw-cb{width:24px;height:24px;border-radius:50%;border:2px solid var(--label4);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}.hw-cb.done{background:var(--green);border-color:var(--green);}.hw-cb.done::after{content:'✓';color:white;font-size:13px;font-weight:700;}.hw-cb.exam{border-color:var(--red);}.hw-cb.exam.done{background:var(--red);border-color:var(--red);}.hw-info{flex:1;min-width:0;}.hw-title{font-size:15px;font-weight:600;}.hw-title.done{text-decoration:line-through;color:var(--label3);}.hw-meta{font-size:12px;color:var(--label3);margin-top:3px;display:flex;gap:8px;align-items:center;}.hw-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;}.hw-badge.exam{background:rgba(255,59,48,0.12);color:var(--red);}.hw-badge.hw{background:rgba(0,122,255,0.12);color:var(--primary);}.hw-due{font-size:11px;}.hw-due.overdue{color:var(--red);font-weight:700;}.type-chips{display:flex;gap:8px;margin-bottom:4px;}.type-chip{flex:1;padding:12px 8px;border:none;border-radius:12px;background:var(--card2);font-size:22px;font-weight:600;cursor:pointer;text-align:center;color:var(--label3);transition:box-shadow 0.15s,background 0.15s,color 0.15s;font-family:var(--font);box-shadow:var(--nm-shadow-sm);-webkit-tap-highlight-color:transparent;}.type-chip:active{box-shadow:var(--nm-inset-sm);transform:scale(0.96);}.type-chip.active{background:var(--card);color:var(--primary);font-weight:700;box-shadow:var(--nm-inset-sm),0 0 0 1.5px color-mix(in srgb,var(--primary) 40%,transparent);}.type-chip.exam-active{background:var(--card);color:var(--red);font-weight:700;box-shadow:var(--nm-inset-sm),0 0 0 1.5px color-mix(in srgb,var(--red) 40%,transparent);}.repeat-chips{display:flex;gap:6px;flex-wrap:wrap;}.repeat-chip{padding:8px 13px;border:none;border-radius:10px;background:var(--card2);font-size:12px;font-weight:600;cursor:pointer;color:var(--label3);transition:box-shadow 0.15s,background 0.15s,color 0.15s;font-family:var(--font);box-shadow:var(--nm-shadow-sm);-webkit-tap-highlight-color:transparent;}.repeat-chip:active{box-shadow:var(--nm-inset-sm);transform:scale(0.95);}.repeat-chip.active{background:var(--card);color:var(--primary);font-weight:700;box-shadow:var(--nm-inset-sm),0 0 0 1.5px color-mix(in srgb,var(--primary) 40%,transparent);}.summary-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:0.5px solid var(--separator);}.summary-row:last-child{border-bottom:none;}.summary-label{font-size:15px;color:var(--label3);}.summary-val{font-size:15px;font-weight:700;color:var(--label);}.ders-icon-btn{width:28px;height:28px;border:none;border-radius:8px;background:var(--fill2);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;}.ders-icon-btn:active{opacity:0.6;}.notes-body:focus{background:var(--primary-light);}.week-block.exam-block{border-left-width:4px;}.cal-exam-dot{width:6px;height:6px;border-radius:50%;background:var(--red);position:absolute;top:4px;left:4px;}.settings-section-label{font-size:11px;font-weight:700;color:var(--label3);text-transform:uppercase;letter-spacing:0.8px;margin:18px 0 8px;padding:0 2px;}.settings-row{background:var(--fill2);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:10px;}.settings-item{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:0.5px solid var(--separator);}.settings-item:last-child{border-bottom:none;}.settings-item-icon{font-size:20px;width:28px;text-align:center;flex-shrink:0;}.settings-item-label{flex:1;font-size:15px;font-weight:500;}.toggle-switch{width:51px;height:31px;border-radius:16px;background:var(--label4);position:relative;cursor:pointer;border:none;transition:background 0.25s;flex-shrink:0;}.toggle-switch.on{background:var(--green);}.toggle-switch::after{content:'';position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:white;box-shadow:0 2px 6px rgba(0,0,0,0.25);transition:transform 0.25s cubic-bezier(.34,1.2,.64,1);}.toggle-switch.on::after{transform:translateX(20px);}.accent-chips{display:grid;grid-template-columns:repeat(9,1fr);gap:8px;padding:12px 14px;background:var(--fill2);border-radius:var(--radius-sm);margin-bottom:10px;}.accent-chip{width:100%;aspect-ratio:1;border-radius:50%;border:3px solid transparent;cursor:pointer;transition:transform 0.15s,border-color 0.15s;position:relative;}.accent-chip.active{border-color:var(--label);transform:scale(1.18);}.accent-chip:active{transform:scale(0.9);}.accent-chip.active::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:14px;font-weight:700;pointer-events:none;}.settings-slider-row{padding:12px 16px 14px;background:var(--fill2);border-radius:var(--radius-sm);margin-bottom:10px;}.settings-slider-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}.settings-slider-title{font-size:15px;font-weight:500;display:flex;align-items:center;gap:8px;}.settings-slider-badge{font-size:12px;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:8px;}.settings-slider-reset{font-size:12px;font-weight:600;color:var(--label3);background:none;border:none;cursor:pointer;padding:2px 6px;}.app-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:var(--separator);outline:none;cursor:pointer;}.app-range::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:white;box-shadow:0 2px 8px rgba(0,0,0,0.22);cursor:pointer;border:none;}#hueSlider{background:linear-gradient(to right,hsl(0,100%,50%),hsl(60,100%,50%),hsl(120,100%,50%),hsl(180,100%,50%),hsl(240,100%,50%),hsl(300,100%,50%),hsl(360,100%,50%)) !important;}.theme-preview{border-radius:14px;overflow:hidden;margin-bottom:4px;box-shadow:var(--shadow);}.theme-preview-bar{height:8px;background:var(--primary);}.theme-preview-body{background:var(--card);padding:14px 16px;display:flex;align-items:center;gap:12px;}.theme-preview-circle{width:36px;height:36px;border-radius:50%;background:var(--primary);flex-shrink:0;}.theme-preview-lines{flex:1;}.theme-preview-line1{height:10px;border-radius:5px;background:var(--label);opacity:0.85;margin-bottom:6px;width:70%;}.theme-preview-line2{height:8px;border-radius:4px;background:var(--label3);width:45%;}.theme-preview-btn{background:var(--primary);color:white;border-radius:10px;padding:7px 14px;font-size:13px;font-weight:600;border:none;flex-shrink:0;}body{background:var(--bg);font-family:var(--font);color:var(--label);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}body > *{position:relative;z-index:1;}.page-title,.section-title,.modal-title,.chart-title,.takvim-month-label,.stat-value,.timer-digits,.streak-val,.hedef-name,.app-title{font-family:var(--font-display);font-weight:600;font-variation-settings:normal;letter-spacing:-0.01em;}.page-title{font-weight:700;font-size:30px;letter-spacing:-0.02em;}.section-title{font-weight:700;font-size:19px;}.timer-digits{font-weight:600 !important;letter-spacing:-0.02em !important;font-size:44px !important;font-variation-settings:normal !important;width:100% !important;text-align:center !important;color:var(--label) !important;}.timer-text{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;text-align:center !important;}.stat-value{font-weight:700;font-size:28px;}.streak-val{font-weight:700;}.app-header{background:var(--nav-bg);border-bottom:none;box-shadow:none;padding:14px 20px 12px;}.app-title{font-size:20px;font-weight:400;}.header-date{background:var(--card2);color:var(--label2);border:none;box-shadow:var(--nm-inset-sm);font-weight:500;font-family:var(--font);}.dark-btn{background:var(--card);border:none;box-shadow:var(--nm-shadow-sm);color:var(--label);}.dark-btn:active{box-shadow:var(--nm-inset-sm);transform:scale(0.96);}.card,.stat-card,.chart-card,.hedef-card{background:var(--card);border:none;box-shadow:var(--nm-shadow);border-radius:var(--radius);}.timer-card{background:var(--card);border:none;box-shadow:var(--nm-shadow);border-radius:24px;padding:28px 22px 24px;}.ring-bg{stroke:var(--fill2);}.ring-fill{stroke:var(--primary) !important;}.timer-ring{border-radius:50%;padding:12px;box-shadow:var(--nm-inset);width:234px;height:234px;margin:0 auto 20px;background:var(--card);}.timer-ring svg{width:100%;height:100%;}.timer-mode-row{background:var(--card2);border:none;box-shadow:var(--nm-inset-sm);border-radius:12px;padding:4px;}.timer-mode-btn{color:var(--label3);}.timer-mode-btn.active{background:var(--card);box-shadow:var(--nm-shadow-sm);color:var(--label);font-weight:600;}.subject-selector{background:var(--card2);border:none;box-shadow:var(--nm-inset-sm);border-radius:14px;}.subject-selector:active{box-shadow:var(--nm-inset);}.daily-progress-row{background:var(--card2);border:none;box-shadow:var(--nm-inset-sm);}.daily-prog-bar{background:var(--fill2);box-shadow:var(--nm-inset-sm);}.daily-prog-fill{background:var(--primary);box-shadow:0 0 4px var(--primary-light);}.daily-prog-val{color:var(--primary);font-weight:700;}.btn{font-family:var(--font);font-weight:600;letter-spacing:-0.01em;border-radius:14px;padding:15px;transition:box-shadow 0.12s,transform 0.12s;}.btn-primary{background:color-mix(in srgb,var(--primary) 88%,black 12%);color:rgba(255,255,255,0.92);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset,0 -2px 0 rgba(0,0,0,0.28) inset,2px 0 0 rgba(255,255,255,0.06) inset,0 3px 6px rgba(0,0,0,0.22),0 1px 2px rgba(0,0,0,0.18);text-shadow:0 -1px 0 rgba(0,0,0,0.25);transition:box-shadow 0.1s,transform 0.08s;}.btn-primary:active{box-shadow:0 2px 0 rgba(0,0,0,0.3) inset,0 -1px 0 rgba(255,255,255,0.08) inset,0 1px 2px rgba(0,0,0,0.15);transform:scale(0.975) translateY(1px);}.btn-secondary{background:var(--card);color:var(--label);border:none;box-shadow:var(--nm-shadow-sm);}.btn-secondary:active{box-shadow:var(--nm-inset-sm);transform:translateY(1px);}.btn-danger{background:color-mix(in srgb,var(--red) 85%,black 15%);color:rgba(255,255,255,0.92);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset,0 -2px 0 rgba(0,0,0,0.28) inset,2px 0 0 rgba(255,255,255,0.06) inset,0 3px 6px rgba(0,0,0,0.22),0 1px 2px rgba(0,0,0,0.18);text-shadow:0 -1px 0 rgba(0,0,0,0.25);transition:box-shadow 0.1s,transform 0.08s;-webkit-tap-highlight-color:transparent;}.btn-danger:active{background:color-mix(in srgb,var(--red) 85%,black 15%);box-shadow:0 2px 0 rgba(0,0,0,0.3) inset,0 -1px 0 rgba(255,255,255,0.08) inset,0 1px 2px rgba(0,0,0,0.12);transform:scale(0.975) translateY(1px);}.btn-primary:active{background:color-mix(in srgb,var(--primary) 88%,black 12%);}.bottom-nav{border-top:none;box-shadow:0 -1px 0 var(--separator);background:var(--nav-bg);}.nav-label{font-weight:500;letter-spacing:0.02em;}.nav-item.active .nav-label{font-weight:700;color:var(--primary);}.history-item{border-bottom:1px solid var(--separator);}.history-subject{font-weight:600;}.history-duration{background:var(--primary-light);color:var(--primary);font-weight:700;border-radius:10px;box-shadow:var(--nm-inset-sm);}.history-icon{box-shadow:var(--nm-shadow-sm);}.ders-item{background:var(--card);border:none;box-shadow:var(--nm-shadow-sm);border-radius:var(--radius);}.ders-name{font-weight:600;}.ders-action-btn{background:var(--card);box-shadow:var(--nm-shadow-sm);}.ders-action-btn:active{box-shadow:var(--nm-inset-sm);}.add-btn{background:color-mix(in srgb,var(--primary) 88%,black 12%);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset,0 -2px 0 rgba(0,0,0,0.28) inset,0 3px 6px rgba(0,0,0,0.22),0 1px 2px rgba(0,0,0,0.15);transition:box-shadow 0.1s,transform 0.08s;}.add-btn:active{box-shadow:0 2px 0 rgba(0,0,0,0.3) inset,0 -1px 0 rgba(255,255,255,0.08) inset,0 1px 2px rgba(0,0,0,0.12);transform:scale(0.92) translateY(1px);}.bar{background:linear-gradient(180deg,var(--primary),color-mix(in srgb,var(--primary) 85%,black));box-shadow:1px 0 0 rgba(255,255,255,0.25) inset;}.subject-progress{background:var(--fill2);box-shadow:var(--nm-inset-sm);}.subject-progress-fill{background:var(--primary);}.streak-card{background:linear-gradient(135deg,var(--orange),var(--red));box-shadow:0 1px 0 rgba(255,255,255,0.2) inset,0 6px 16px color-mix(in srgb,var(--red) 30%,transparent);border:none;}.input-field,.day-note-input,.day-todo-input,.event-time-input{background:var(--card2);border:none;box-shadow:var(--nm-inset-sm);color:var(--label);}.input-field:focus,.day-note-input:focus,.day-todo-input:focus,.event-time-input:focus{background:var(--card2);box-shadow:var(--nm-inset-sm),0 0 0 2px var(--primary-light);}.modal{background:var(--card);border-top:none;box-shadow:0 -8px 32px rgba(0,0,0,0.12);}.modal-handle{background:var(--label4);}.cal-view-toggle{background:var(--card2);border:none;box-shadow:var(--nm-inset-sm);border-radius:12px;padding:4px;}.cal-vtab.active{background:var(--card);color:var(--label);box-shadow:var(--nm-shadow-sm);}.takvim-month-label{font-size:24px;font-weight:400;}.takvim-nav-btn{color:var(--primary);background:var(--card);box-shadow:var(--nm-shadow-sm);width:36px;height:36px;}.takvim-nav-btn:active{box-shadow:var(--nm-inset-sm);}#cal-monthly-view{padding:14px 14px 20px;}.cal-dow-row{margin-bottom:10px;}.cal-dow-row span{font-size:10px;color:var(--label3);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}.cal-grid{gap:6px;}.cal-cell{background:var(--card);border:none;box-shadow:var(--nm-shadow-sm);min-height:54px;border-radius:14px;padding:7px 3px 6px;}.cal-cell:active{box-shadow:var(--nm-inset-sm);transform:scale(0.97);}.cal-cell.empty{background:transparent;box-shadow:none;}.cal-cell.today{background:linear-gradient(180deg,var(--card),var(--card2));}.cal-cell.today .cal-day-num{background:var(--primary);color:white;width:26px;height:26px;font-size:13px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,0.15);}.cal-day-num{font-size:13px;font-weight:500;color:var(--label2);font-family:var(--font-display);}.week-day-head{border-right:1px solid var(--separator);}.wdh-label{color:var(--label3);font-weight:600;letter-spacing:0.06em;}.wdh-num{font-family:var(--font-display);font-weight:400;}.wdh-num.today{background:var(--primary);color:white;font-weight:500;box-shadow:0 1px 3px rgba(0,0,0,0.15);}.week-col.today-col{background:var(--primary-light);}.week-hour-line{background:var(--separator);}.week-now-line{background:color-mix(in srgb,var(--primary) 70%,transparent) !important;height:1.5px !important;box-shadow:none !important;}.week-now-dot{background:color-mix(in srgb,var(--primary) 70%,transparent) !important;box-shadow:none !important;width:8px !important;height:8px !important;left:-3px !important;top:-3px !important;}.hedef-bar{background:var(--fill2);box-shadow:var(--nm-inset-sm);}.hedef-bar-fill{background:var(--primary) !important;box-shadow:0 0 6px var(--primary-light);}.hedef-pct{color:var(--primary);font-weight:700;}.hedef-card{background:var(--card);box-shadow:var(--nm-shadow);border-radius:var(--radius);padding:20px;}.hedef-card::before{height:4px;border-radius:var(--radius) var(--radius) 0 0;}#gunlukHedefCard::before,#haftalikHedefCard::before{background:var(--primary);}#gunlukFill,#haftalikFill{background:var(--primary) !important;}.pomo-badge.work{background:var(--primary-light);color:var(--primary);}.pomo-badge.brk{background:rgba(122,144,128,0.18);color:var(--green);}.empty-state p{font-family:var(--font-display);font-style:italic;color:var(--label3);}.empty-state .empty-icon{opacity:0.5;}.toast{background:rgba(45,42,39,0.94);border:none;box-shadow:0 4px 14px rgba(0,0,0,0.25);font-family:var(--font);font-weight:500;color:#F5F3EF;}body.dark .toast{background:rgba(232,232,234,0.96);color:#252628;}::-webkit-scrollbar{width:0;height:0;}.bg-picker-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 10px;row-gap:26px;margin-top:8px;}.bg-picker-opt{aspect-ratio:1;border-radius:14px;cursor:pointer;position:relative;box-shadow:var(--nm-shadow-sm);transition:transform 0.1s;border:2px solid transparent;overflow:hidden;}.bg-picker-opt:active{transform:scale(0.95);}.bg-picker-opt.active{border-color:var(--primary);box-shadow:var(--nm-inset-sm);}.bg-picker-opt::after{content:attr(data-name);position:absolute;bottom:-22px;left:0;right:0;text-align:center;font-size:11px;color:var(--label3);font-weight:500;}.bg-opt-paper{background:#ECE9E4;}.bg-opt-plain{background:#F2F2F2;}.bg-opt-cool{background:#E8EAED;}.bg-opt-lavender{background:#E8E6ED;}.bg-opt-sage{background:#E5E9E3;}.bg-opt-rose{background:#EDE5E5;}.bg-opt-sand{background:#EDE7DC;}.bg-opt-night{background:linear-gradient(135deg,#2D2E30,#1A1B1D);}.bg-opt-custom{background:conic-gradient(from 0deg,#E8766A,#D8B68E,#D9C28E,#9AB8A6,#9AB5C2,#6B7C8C,#B0A5C2,#E8766A);display:flex;align-items:center;justify-content:center;}.bg-opt-custom::before{content:'🎨';font-size:22px;background:rgba(255,255,255,0.8);width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,0.2);}.tex-picker-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;row-gap:22px;margin-top:10px;}.tex-picker-opt{aspect-ratio:1;border-radius:12px;cursor:pointer;position:relative;background:var(--card);box-shadow:var(--nm-shadow-sm);border:2px solid transparent;overflow:hidden;}.tex-picker-opt:active{transform:scale(0.94);}.tex-picker-opt.active{border-color:var(--primary);}.tex-picker-opt::after{content:attr(data-name);position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-size:10px;color:var(--label3);font-weight:500;}.tex-opt-none::before{content:'';position:absolute;inset:12%;background:var(--card);border-radius:8px;}.tex-opt-dots::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(120,110,95,0.45) 1px,transparent 0);background-size:5px 5px;}.tex-opt-lines::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(120,110,95,0.22) 0 1px,transparent 1px 6px);}.tex-opt-grid::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(120,110,95,0.22) 1px,transparent 1px),linear-gradient(90deg,rgba(120,110,95,0.22) 1px,transparent 1px);background-size:10px 10px;}.tex-opt-noise::before{content:'';position:absolute;inset:0;opacity:0.65;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.38 0 0 0 0 0.35 0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");}.custom-bg-input-row{display:none;gap:10px;margin-top:12px;align-items:center;}.custom-bg-input-row.open{display:flex;}.custom-bg-color{width:44px;height:44px;border-radius:12px;border:2px solid var(--separator);padding:0;cursor:pointer;background:none;}.custom-bg-hex{flex:1;padding:10px 14px;background:var(--card2);border:none;box-shadow:var(--nm-inset-sm);border-radius:12px;font-family:monospace;font-size:14px;color:var(--label);outline:none;letter-spacing:1px;text-transform:uppercase;}.bg-picker-opt{aspect-ratio:1;border-radius:18px;box-shadow:var(--nm-shadow-sm);border:2px solid transparent;transition:transform 0.1s,border-color 0.15s;}.bg-picker-opt.active{border-color:var(--primary);box-shadow:var(--nm-inset-sm);}.bg-opt-plain{background:#F2F2F2;}.bg-opt-night{background:#1F2024;}.bg-opt-custom-thumb{background:conic-gradient(from 0deg,#E8766A,#D8B68E,#D9C28E,#9AB8A6,#9AB5C2,#6B7C8C,#B0A5C2,#E8766A);display:flex;align-items:center;justify-content:center;position:relative;}.bg-opt-custom-thumb .custom-bg-plus{width:38px;height:38px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:300;color:#555;box-shadow:0 2px 6px rgba(0,0,0,0.15);}.timer-card{text-align:center;}.timer-ring{width:220px;height:220px;margin:0 auto 20px;box-shadow:inset 5px 5px 10px var(--nm-dark),inset -5px -5px 10px var(--nm-light);background:var(--bg);padding:0;}.timer-text{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;text-align:center !important;width:100% !important;}.timer-digits{font-family:var(--font-display) !important;font-weight:700 !important;font-size:42px !important;letter-spacing:-0.02em !important;line-height:1 !important;font-variant-numeric:tabular-nums !important;width:100% !important;text-align:center !important;color:color-mix(in srgb,var(--label) 60%,var(--bg)) !important;text-shadow:1px 1px 0 rgba(255,255,255,0.7),-1px -1px 1px rgba(0,0,0,0.18);-webkit-text-stroke:0;}body.bg-night .timer-digits,body.dark .timer-digits{color:color-mix(in srgb,var(--label) 50%,var(--bg)) !important;text-shadow:1px 1px 1px rgba(255,255,255,0.06),-1px -1px 2px rgba(0,0,0,0.6);}.timer-label{font-family:var(--font);color:var(--label3);margin-top:8px;text-align:center;width:100%;}.app-logo{gap:10px;}.app-logo span{font-size:24px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:var(--bg);box-shadow:var(--nm-inset-sm);}.app-title{font-family:var(--font-display);font-size:22px;font-weight:400;color:color-mix(in srgb,var(--label) 45%,var(--bg));text-shadow:1px 1px 1px var(--nm-light),-1px -1px 1px rgba(0,0,0,0.15);}body.bg-night .app-title,body.dark .app-title{color:color-mix(in srgb,var(--label) 40%,var(--bg));text-shadow:1px 1px 1px rgba(255,255,255,0.06),-1px -1px 1px rgba(0,0,0,0.4);}.week-hour-line{background:var(--label4) !important;opacity:0.5;height:1px !important;}.week-half-line{background:var(--label4) !important;opacity:0.22;height:1px !important;}.week-col{border-right:1px solid var(--label4) !important;border-right-color:color-mix(in srgb,var(--label4) 50%,transparent) !important;}.week-day-head{border-right:1px solid var(--label4) !important;border-right-color:color-mix(in srgb,var(--label4) 50%,transparent) !important;}.week-time-gutter{border-right:1px solid var(--label4) !important;border-right-color:color-mix(in srgb,var(--label4) 50%,transparent) !important;}.week-sticky-top{border-bottom:1px solid var(--label4) !important;border-bottom-color:color-mix(in srgb,var(--label4) 50%,transparent) !important;}.cal-cell{border:1px solid color-mix(in srgb,var(--label4) 40%,transparent) !important;}.toggle-switch{background:var(--card2);box-shadow:var(--nm-inset-sm);}.toggle-switch.on{background:var(--primary);box-shadow:0 0 0 2px color-mix(in srgb,var(--primary) 25%,transparent);}.accent-chip{box-shadow:var(--nm-shadow-sm);}.accent-chip.active{box-shadow:var(--nm-inset-sm),0 0 0 2px var(--primary);}@keyframes timerPulse{0%{box-shadow:inset 5px 5px 10px var(--nm-dark),inset -5px -5px 10px var(--nm-light),0 0 0 0 color-mix(in srgb,var(--primary) 35%,transparent);}50%{box-shadow:inset 5px 5px 10px var(--nm-dark),inset -5px -5px 10px var(--nm-light),0 0 0 12px color-mix(in srgb,var(--primary) 0%,transparent);}100%{box-shadow:inset 5px 5px 10px var(--nm-dark),inset -5px -5px 10px var(--nm-light),0 0 0 0 color-mix(in srgb,var(--primary) 0%,transparent);}}.timer-card.running .timer-ring{animation:timerPulse 2.4s ease-in-out infinite;}.timer-card.running .timer-digits{color:var(--primary) !important;text-shadow:1px 1px 0 rgba(255,255,255,0.5),0 0 20px color-mix(in srgb,var(--primary) 20%,transparent) !important;transition:color 0.6s,text-shadow 0.6s;}body.bg-night .timer-card.running .timer-digits,body.dark .timer-card.running .timer-digits{text-shadow:1px 1px 1px rgba(255,255,255,0.04),0 0 20px color-mix(in srgb,var(--primary) 30%,transparent) !important;}.ders-item{background:var(--card);overflow:hidden;}.ders-item[data-color]{background:linear-gradient(
+ 105deg,color-mix(in srgb,var(--card) 94%,var(--ders-tint,var(--primary))),var(--card) 60%
+ ) !important;}.ders-color-bar{width:6px !important;height:48px !important;border-radius:4px !important;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,0.15);}.nav-item{position:relative;border-radius:14px;margin:3px 4px;transition:transform 0.15s,background 0.2s;}.nav-item.active{background:var(--primary-light);box-shadow:var(--nm-inset-sm);}.nav-item.active .nav-icon-svg{filter:drop-shadow(0 0 4px color-mix(in srgb,var(--primary) 40%,transparent));transform:scale(1.08);transition:transform 0.2s,filter 0.2s;}.nav-item.active::before{content:'';position:absolute;top:-3px;left:50%;transform:translateX(-50%);width:24px;height:3px;background:var(--primary);border-radius:0 0 3px 3px;opacity:0.8;}.week-col.today-col{background:color-mix(in srgb,var(--primary) 7%,transparent) !important;border-right:none !important;}.week-day-head.today-head .wdh-label{color:var(--primary) !important;font-weight:700 !important;}.cal-cell.today{box-shadow:var(--nm-shadow-sm),0 0 0 1.5px var(--primary) !important;}.theme-preview{border-radius:18px;overflow:hidden;margin-bottom:8px;box-shadow:var(--nm-shadow);}.theme-preview-bar{height:4px;background:linear-gradient(90deg,var(--primary),color-mix(in srgb,var(--primary) 70%,var(--purple)));}.theme-preview-body{background:var(--card);padding:16px 18px;display:flex;align-items:center;gap:14px;}.theme-preview-circle{width:42px;height:42px;border-radius:50%;background:transparent;border:3px solid var(--primary);position:relative;display:flex;align-items:center;justify-content:center;box-shadow:var(--nm-inset-sm);flex-shrink:0;}.theme-preview-circle::after{content:'▶';font-size:9px;color:var(--primary);margin-left:1px;}.theme-preview-lines{flex:1;display:flex;flex-direction:column;gap:7px;}.theme-preview-line1{height:9px;border-radius:5px;background:var(--label);opacity:0.7;width:65%;box-shadow:var(--nm-shadow-sm);}.theme-preview-line2{height:7px;border-radius:4px;background:var(--label3);width:42%;}.theme-preview::after{display:none;}.theme-preview-nav{display:flex;justify-content:center;gap:10px;padding:10px 18px 14px;background:var(--card);border-top:0.5px solid var(--separator);}.theme-preview-dot{width:28px;height:28px;border-radius:8px;background:var(--fill2);box-shadow:var(--nm-shadow-sm);display:flex;align-items:center;justify-content:center;}.theme-preview-dot.active-dot{background:var(--primary-light);box-shadow:var(--nm-inset-sm);}.theme-preview-dot-icon{width:14px;height:14px;border-radius:50%;background:var(--label4);}.theme-preview-dot.active-dot .theme-preview-dot-icon{background:var(--primary);}.empty-state{display:flex;flex-direction:column;align-items:center;padding:48px 20px;gap:0;}.empty-state-svg{width:80px;height:80px;margin-bottom:16px;opacity:0.45;color:var(--label3);}.empty-state-title{font-size:16px;font-weight:600;color:var(--label2);margin-bottom:6px;font-family:var(--font-display);letter-spacing:-0.2px;}.empty-state-sub{font-size:13px;color:var(--label3);text-align:center;line-height:1.5;max-width:220px;}.empty-state .empty-icon{font-size:52px;margin-bottom:14px;opacity:0.4;filter:grayscale(0.3);}.empty-state p{font-size:15px;font-style:normal !important;color:var(--label3);line-height:1.5;}.empty-state p + p{margin-top:4px;font-size:13px;opacity:0.75;}body.bg-night.tex-noise::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.38 0 0 0 0 0.35 0 0 0 0.45 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),radial-gradient(1px 1px at 15% 25%,rgba(255,255,255,0.7) 0%,transparent 100%),radial-gradient(1px 1px at 72% 8%,rgba(255,255,255,0.5) 0%,transparent 100%),radial-gradient(1px 1px at 38% 62%,rgba(255,255,255,0.6) 0%,transparent 100%),radial-gradient(1px 1px at 85% 44%,rgba(255,255,255,0.4) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 55% 78%,rgba(255,255,255,0.5) 0%,transparent 100%),radial-gradient(1px 1px at 6% 90%,rgba(255,255,255,0.35) 0%,transparent 100%),radial-gradient(1px 1px at 92% 70%,rgba(255,255,255,0.45) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 28% 15%,rgba(255,255,255,0.6) 0%,transparent 100%),radial-gradient(1px 1px at 65% 52%,rgba(255,255,255,0.3) 0%,transparent 100%),radial-gradient(1px 1px at 47% 37%,rgba(255,255,255,0.4) 0%,transparent 100%);opacity:0.55 !important;}body.bg-night.tex-dots::before{background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,0.14) 1px,transparent 0) !important;background-size:4px 4px !important;opacity:0.7 !important;}body.bg-night.tex-grid::before{background-image:linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px) !important;background-size:20px 20px !important;opacity:0.8 !important;}
+</style>
+</head>
+<body>
+<div class="app-header" style="justify-content:center;position:relative;">
+  <button class="dark-btn" onclick="openModal('settingsModal')" title="Ayarlar" style="position:absolute;right:20px;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+  </button>
+</div>
+<div class="page active" id="page-sayac">
+  <div style="height:12px"></div>
+  <div class="timer-card" id="timerCard">
+    <div class="timer-mode-row">
+      <button class="timer-mode-btn active" id="modeFreebtn" onclick="setTimerMode('free',this)">⏱ Serbest</button>
+      <button class="timer-mode-btn" id="modePomobtn" onclick="setTimerMode('pomo',this)">🍅 Pomodoro</button>
+    </div>
+    <div class="pomo-badge work" id="pomoBadge" style="display:none">● ÇALIŞMA • 25:00</div>
+    <div class="timer-ring">
+      <svg viewBox="0 0 200 200">
+        <defs>
+          <linearGradient id="timerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#007AFF"/>
+            <stop offset="100%" stop-color="#AF52DE"/>
+          </linearGradient>
+          <linearGradient id="timerGradientGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#64D2FF"/>
+            <stop offset="100%" stop-color="#BF5AF2"/>
+          </linearGradient>
+        </defs>
+        <circle class="ring-bg" cx="100" cy="100" r="88"/>
+        <circle class="ring-fill" id="ringFill" cx="100" cy="100" r="88"/>
+      </svg>
+      <div class="timer-text">
+        <div class="timer-digits" id="timerDisplay">00:00:00</div>
+        <div class="timer-label" id="timerStatus">Hazır</div>
+      </div>
+    </div>
+    <div class="daily-progress-row">
+      <span class="daily-prog-label">Bugün</span>
+      <div class="daily-prog-bar"><div class="daily-prog-fill" id="dailyProgFill" style="width:0%"></div></div>
+      <span class="daily-prog-val" id="dailyProgVal">0%</span>
+    </div>
+    <button class="subject-selector" onclick="openSubjectSelect()" id="subjectSelector">
+      <div class="subject-selector-left">
+        <div class="subject-dot" id="selectedSubjectDot"></div>
+        <span class="subject-name" id="selectedSubjectName">Ders Seç</span>
+      </div>
+      <span class="subject-chevron">▼</span>
+    </button>
+    <div class="btn-row" id="timerBtns">
+      <button class="btn btn-primary" id="mainBtn" onclick="handleMainBtn()">Başlat</button>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+    <div class="section-title" style="margin-bottom:0">Geçmiş</div>
+    <button onclick="clearAllHistory()" style="font-size:12px;font-weight:500;color:var(--label3);background:var(--fill2);border:none;cursor:pointer;padding:5px 10px;border-radius:10px">Temizle</button>
+  </div>
+  <div id="todaySummary" style="background:var(--card);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow);display:none;align-items:center;gap:12px">
+    <div style="font-size:22px">📊</div>
+    <div style="flex:1">
+      <div style="font-size:12px;color:var(--label3);font-weight:600;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:2px">Bugün toplamda</div>
+      <div style="font-size:18px;font-weight:800;letter-spacing:-0.3px;color:var(--label)" id="todayTotalText">—</div>
+    </div>
+    <div style="font-size:11px;color:var(--primary);font-weight:700;background:var(--primary-light);padding:4px 9px;border-radius:10px" id="todaySessionCount">0 oturum</div>
+  </div>
+  <div class="card" id="historyContainer">
+    <div class="empty-state">
+      <svg class="empty-state-svg" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="40" cy="40" r="28" stroke-width="2.5"/>
+        <polyline points="40 24 40 40 50 47" stroke-width="2.5"/>
+        <circle cx="40" cy="40" r="3" fill="currentColor" stroke="none"/>
+      </svg>
+      <div class="empty-state-title">Henüz çalışma yok</div>
+      <div class="empty-state-sub">Sayacı başlatarak ilk oturumunu oluştur</div>
+    </div>
+  </div>
+</div>
+<div class="page" id="page-dersler">
+  <div class="dersler-header">
+    <div class="page-title" style="margin-bottom:0" id="derslerPageTitle">Dersler</div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button id="derslerAddBtn" class="add-btn" onclick="openAddDers()">+</button>
+    </div>
+  </div>
+</div>
+<div class="page" id="page-istatistik">
+  <div class="page-title">İstatistik</div>
+  <div class="stats-toggle">
+    <button class="stats-tab active" onclick="setStatsTab('week',this)">Bu Hafta</button>
+    <button class="stats-tab" onclick="setStatsTab('month',this)">Son 30 Gün</button>
+    <button class="stats-tab" onclick="setStatsTab('summary',this)">Özet</button>
+  </div>
+  <div id="statsMainView">
+    <div class="chart-card">
+      <div class="chart-title">Günlük Aktivite</div>
+      <div class="bar-chart-wrap">
+        <div class="bar-chart-yaxis" id="barYAxis"><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span></div>
+        <div class="bar-chart" id="barChart"></div>
+      </div>
+    </div>
+    <div id="streakSection"></div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-icon">🕐</div><div class="stat-value" id="statTotalTime">0dk</div><div class="stat-label">Toplam Süre</div></div>
+      <div class="stat-card"><div class="stat-icon">📅</div><div class="stat-value" id="statSessions">0</div><div class="stat-label">Oturum</div></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Konuya Göre Süre</div>
+      <div id="subjectTimeChart"><div class="empty-state" style="padding:20px"><svg class="empty-state-svg" style="width:56px;height:56px" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="20" y1="60" x2="20" y2="30" stroke-width="2.5"/><line x1="36" y1="60" x2="36" y2="18" stroke-width="2.5"/><line x1="52" y1="60" x2="52" y2="40" stroke-width="2.5"/><line x1="14" y1="60" x2="60" y2="60" stroke-width="2"/></svg><div class="empty-state-title">Henüz veri yok</div></div></div>
+    </div>
+  </div>
+  <div id="statsSummaryView" style="display:none">
+    <div class="chart-card" style="margin-bottom:12px">
+      <div class="chart-title">📊 Haftalık Özet</div>
+      <div id="weeklySummaryContent"></div>
+    </div>
+  </div>
+</div>
+<div class="page" id="page-hedefler">
+  <div class="page-title">Hedefler</div>
+  <div class="hedef-card" id="gunlukHedefCard">
+    <div class="hedef-header">
+      <div class="hedef-title-row">
+        <span class="hedef-icon">☀️</span>
+        <span class="hedef-name">Günlük Hedef</span>
+      </div>
+      <button class="hedef-edit-btn" onclick="openHedefEdit('daily')">✏️</button>
+    </div>
+    <div class="hedef-progress-text" id="gunlukText">0dk / 2s 30dk</div>
+    <div class="hedef-bar"><div class="hedef-bar-fill" id="gunlukFill" style="width:0%"></div></div>
+    <div class="hedef-pct" id="gunlukPct">0%</div>
+  </div>
+  <div class="hedef-card" id="haftalikHedefCard">
+    <div class="hedef-header">
+      <div class="hedef-title-row">
+        <span class="hedef-icon">📆</span>
+        <span class="hedef-name">Haftalık Hedef</span>
+      </div>
+      <button class="hedef-edit-btn" onclick="openHedefEdit('weekly')">✏️</button>
+    </div>
+    <div class="hedef-progress-text" id="haftalikText">0dk / 10s 0dk</div>
+    <div class="hedef-bar"><div class="hedef-bar-fill" id="haftalikFill" style="width:0%"></div></div>
+    <div class="hedef-pct" id="haftalikPct">0%</div>
+  </div>
+</div>
+<div class="page" id="page-takvim" ontouchstart="takSwipeStart(event)" ontouchend="takSwipeEnd(event)">
+  <div class="takvim-toprow">
+    <div style="display:flex;align-items:center;gap:8px">
+      <button class="takvim-nav-btn" onclick="calPrev()">&#8249;</button>
+      <button id="calTodayBtn" onclick="calGoToday()" style="
+          font-size:12px;font-weight:700;color:var(--primary);
+          background:var(--card);border:none;cursor:pointer;
+          padding:6px 14px;border-radius:12px;font-family:var(--font);
+          box-shadow:var(--nm-shadow-sm);
+          transition:opacity 0.2s, box-shadow 0.12s, transform 0.1s;
+          opacity:0.35;pointer-events:none;
+          -webkit-tap-highlight-color:transparent;
+        " onpointerdown="this.style.boxShadow='var(--nm-inset-sm)';this.style.transform='scale(0.93)'" onpointerup="this.style.boxShadow='var(--nm-shadow-sm)';this.style.transform='scale(1)'" onpointerleave="this.style.boxShadow='var(--nm-shadow-sm)';this.style.transform='scale(1)'">Bugün</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px">
+      <button class="takvim-nav-btn" style="font-size:22px;font-weight:300;color:var(--primary)" onclick="openAddEvent(null,null)">+</button>
+      <button class="takvim-nav-btn" onclick="calNext()">&#8250;</button>
+    </div>
+  </div>
+  <div id="calMonthLabel" class="takvim-month-label" style="padding:6px 16px 0;font-size:22px;"></div>
+  <div class="cal-view-toggle">
+    <button class="cal-vtab active" id="vtab-week" onclick="setCalView('week',this)">Haftalık</button>
+    <button class="cal-vtab" id="vtab-month" onclick="setCalView('month',this)">Aylık</button>
+  </div>
+  <div id="cal-monthly-view" style="display:none">
+    <div class="cal-dow-row">
+      <span>Pt</span><span>Sa</span><span>Ça</span><span>Pe</span><span>Cu</span><span>Ct</span><span>Pz</span>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+  </div>
+  <div id="cal-weekly-view" style="display:none">
+    <div class="week-sticky-top">
+      <div class="week-gutter-corner"></div>
+      <div class="week-day-headers" id="weekDayHeaders"></div>
+    </div>
+    <div class="week-scroll-body" id="weekScrollBody">
+      <div class="week-time-gutter" id="weekTimeGutter"></div>
+      <div class="week-cols-wrap" id="weekColsWrap"></div>
+    </div>
+  </div>
+</div>
+<nav class="bottom-nav">
+  <button class="nav-item active" onclick="navigate('sayac',this)">
+    <svg class="nav-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span class="nav-label">Sayaç</span>
+  </button>
+  <button class="nav-item" onclick="navigate('dersler',this)">
+    <svg class="nav-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    <span class="nav-label">Dersler</span>
+  </button>
+  <button class="nav-item" onclick="navigate('istatistik',this)">
+    <svg class="nav-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    <span class="nav-label">İstatistik</span>
+  </button>
+  <button class="nav-item" onclick="navigate('hedefler',this)">
+    <svg class="nav-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+    <span class="nav-label">Hedefler</span>
+  </button>
+  <button class="nav-item" onclick="navigate('takvim',this)">
+    <svg class="nav-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span class="nav-label">Takvim</span>
+  </button>
+</nav>
+<div class="modal-overlay" id="settingsModal">
+  <div class="modal" style="padding-bottom:32px">
+    <div class="modal-handle"></div>
+    <div class="modal-title">⚙️ Ayarlar</div>
+    <div class="theme-preview">
+      <div class="theme-preview-bar"></div>
+      <div class="theme-preview-body">
+        <div class="theme-preview-circle"></div>
+        <div class="theme-preview-lines">
+          <div class="theme-preview-line1"></div>
+          <div class="theme-preview-line2"></div>
+        </div>
+      </div>
+      <div class="theme-preview-nav" style="display:none">
+        <div class="theme-preview-dot active-dot"><div class="theme-preview-dot-icon"></div></div>
+        <div class="theme-preview-dot"><div class="theme-preview-dot-icon"></div></div>
+        <div class="theme-preview-dot"><div class="theme-preview-dot-icon"></div></div>
+        <div class="theme-preview-dot"><div class="theme-preview-dot-icon"></div></div>
+        <div class="theme-preview-dot"><div class="theme-preview-dot-icon"></div></div>
+      </div>
+    </div>
+    <div class="settings-section-label">Görünüm</div>
+    <div class="settings-row" style="padding:16px 16px 28px">
+      <div style="font-size:13px;color:var(--label3);font-weight:500;margin-bottom:12px">Arkaplan</div>
+      <div class="bg-picker-row" id="bgPickerRow" style="grid-template-columns:repeat(3,1fr)">
+        <div class="bg-picker-opt bg-opt-plain" data-bg="plain" data-name="Beyaz" onclick="setBgVariant('plain')"></div>
+        <div class="bg-picker-opt bg-opt-night" data-bg="night" data-name="Siyah" onclick="setBgVariant('night')"></div>
+        <div class="bg-picker-opt bg-opt-custom-thumb" data-bg="custom" data-name="Özel" onclick="openCustomBgPicker()">
+          <span class="custom-bg-plus">+</span>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--label3);font-weight:500;margin:22px 0 4px">Doku</div>
+      <div class="tex-picker-row" id="texPickerRow">
+        <div class="tex-picker-opt tex-opt-none"  data-tex="none"  data-name="Yok"     onclick="setTexVariant('none')"></div>
+        <div class="tex-picker-opt tex-opt-dots"  data-tex="dots"  data-name="Nokta"   onclick="setTexVariant('dots')"></div>
+        <div class="tex-picker-opt tex-opt-lines" data-tex="lines" data-name="Çizgi"   onclick="setTexVariant('lines')"></div>
+        <div class="tex-picker-opt tex-opt-grid"  data-tex="grid"  data-name="Izgara"  onclick="setTexVariant('grid')"></div>
+        <div class="tex-picker-opt tex-opt-noise" data-tex="noise" data-name="Parazit" onclick="setTexVariant('noise')"></div>
+      </div>
+    </div>
+    <div class="settings-section-label">Pomodoro</div>
+    <div class="settings-row">
+      <div class="settings-item">
+        <span class="settings-item-icon">🔔</span>
+        <span class="settings-item-label">Mola Sesi</span>
+        <button class="toggle-switch" id="pomoSoundBtn" onclick="togglePomoSound()"></button>
+      </div>
+      <div class="settings-item">
+        <span class="settings-item-icon">📳</span>
+        <span class="settings-item-label">Titreşim</span>
+        <button class="toggle-switch" id="pomoVibeBtn" onclick="togglePomoVibe()"></button>
+      </div>
+    </div>
+    <div class="settings-section-label">Veri</div>
+    <div class="settings-row">
+      <div class="settings-item" onclick="exportCSV()" style="cursor:pointer">
+        <span class="settings-item-icon">📤</span>
+        <span class="settings-item-label">Geçmişi CSV Olarak Dışa Aktar</span>
+        <span style="color:var(--primary);font-size:13px">›</span>
+      </div>
+    </div>
+    <div class="settings-section-label">Vurgu Rengi</div>
+    <div class="accent-chips" id="accentChips"></div>
+  </div>
+</div>
+<div class="modal-overlay" id="addDersModal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="dersModalTitle">Ders Ekle</div>
+    <div class="input-group">
+      <div class="input-label">Ders Adı</div>
+      <input class="input-field" id="dersNameInput" placeholder="Örn: Matematik" maxlength="30">
+    </div>
+    <div class="input-group">
+      <div class="input-label">Renk</div>
+      <div class="custom-color-picker">
+        <div class="color-preview-row">
+          <div class="color-preview-circle" id="colorPreviewCircle" style="background:#007AFF"></div>
+          <input class="color-hex-input" id="colorHexInput" maxlength="7" placeholder="#007AFF" oninput="onHexInput(this.value)">
+        </div>
+        <div class="sb-wrap" id="sbWrap"><canvas class="sb-canvas" id="sbCanvas" height="160"></canvas></div>
+        <div class="hue-slider-wrap">
+          <div class="hue-track" id="hueTrack"></div>
+          <div class="hue-thumb" id="hueThumb"></div>
+        </div>
+        <div class="swatch-row" id="swatchRow"></div>
+      </div>
+      <div class="color-picker" id="colorPicker"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('addDersModal')" style="flex:1">İptal</button>
+      <button class="btn btn-primary" onclick="saveDers()" style="flex:2">Kaydet</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="subjectSelectModal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Ders Seç</div>
+    <div id="subjectSelectList"></div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('subjectSelectModal')" style="flex:1">İptal</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="hedefModal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="hedefModalTitle">Hedefi Düzenle</div>
+    <div class="input-group">
+      <div class="input-label">Süre</div>
+      <div class="time-input-row">
+        <input class="input-field time-input" id="hedefHour" type="number" min="0" max="24" placeholder="Saat">
+        <span style="color:var(--label3)">saat</span>
+        <input class="input-field time-input" id="hedefMin" type="number" min="0" max="59" placeholder="Dk">
+        <span style="color:var(--label3)">dk</span>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('hedefModal')" style="flex:1">İptal</button>
+      <button class="btn btn-primary" onclick="saveHedef()" style="flex:2">Kaydet</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="deleteConfirmModal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Dersi Sil</div>
+    <p style="color:var(--label3);font-size:15px;margin-bottom:20px">Bu dersi ve tüm çalışma geçmişini silmek istediğinden emin misin?</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('deleteConfirmModal')" style="flex:1">İptal</button>
+      <button class="btn btn-danger" id="deleteConfirmBtn" style="flex:1">Sil</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="clearHistoryModal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Geçmişi Temizle</div>
+    <p style="color:var(--label3);font-size:15px;margin-bottom:20px">Tüm çalışma geçmişi silinsin mi? Bu işlem geri alınamaz.</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('clearHistoryModal')" style="flex:1">İptal</button>
+      <button class="btn btn-danger" onclick="confirmClearHistory()" style="flex:1">Temizle</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="dayModal">
+  <div class="modal" style="max-height:85vh;padding-bottom:28px">
+    <div class="modal-handle"></div>
+    <div id="dayModalTitle" style="font-size:13px;font-weight:600;color:var(--label3);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:6px"></div>
+    <div id="dayModalSummary" style="font-size:26px;font-weight:700;letter-spacing:-0.5px;color:var(--label);margin-bottom:20px;line-height:1.2"></div>
+    <div id="daySessionsList" style="margin-bottom:16px"></div>
+    <div class="day-section-label" style="margin-top:4px">Not</div>
+    <textarea class="day-note-input" id="dayNoteInput" placeholder="Bu gün için not ekle..."></textarea>
+    <div class="day-section-label" style="margin-top:14px">Yapılacaklar</div>
+    <div id="dayTodoList"></div>
+    <div class="day-todo-add-row">
+      <input class="day-todo-input" id="dayTodoInput" placeholder="Yeni görev ekle..." onkeydown="if(event.key==='Enter')addDayTodo()">
+      <button class="day-todo-add-btn" onclick="addDayTodo()">+</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('dayModal')" style="flex:1">Kapat</button>
+      <button class="btn btn-primary" onclick="saveDayData()" style="flex:2">Kaydet</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="eventModal">
+  <div class="modal" style="max-height:85vh">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="eventModalTitle">Etkinlik Ekle</div>
+    <div class="input-group">
+      <div class="input-label">Başlık</div>
+      <input class="input-field" id="eventTitleInput" placeholder="Örn: Matematik çalışma" maxlength="40">
+    </div>
+    <div class="input-group">
+      <div class="input-label">Saat Aralığı</div>
+      <div class="event-time-row">
+        <input class="event-time-input" id="eventStartInput" type="time" value="09:00">
+        <span class="event-time-sep">→</span>
+        <input class="event-time-input" id="eventEndInput" type="time" value="10:00">
+      </div>
+    </div>
+    <div class="input-group">
+      <div class="input-label">Tekrarlama</div>
+      <div class="repeat-chips">
+        <button class="repeat-chip active" id="repeatNone" onclick="setRepeat('none',this)">Yok</button>
+        <button class="repeat-chip" id="repeatDaily" onclick="setRepeat('daily',this)">Her Gün</button>
+        <button class="repeat-chip" id="repeatWeekly" onclick="setRepeat('weekly',this)">Her Hafta</button>
+        <button class="repeat-chip" id="repeatWeekday" onclick="setRepeat('weekday',this)">Haftaiçi</button>
+      </div>
+    </div>
+    <div class="input-group">
+      <div class="input-label">Renk</div>
+      <div class="custom-color-picker" id="eventColorPicker">
+        <div class="color-preview-row">
+          <div class="color-preview-circle" id="evColorCircle" style="background:#007AFF"></div>
+          <input class="color-hex-input" id="evColorHex" maxlength="7" placeholder="#007AFF" oninput="onEvHexInput(this.value)">
+        </div>
+        <div class="sb-wrap" id="evSbWrap"><canvas class="sb-canvas" id="evSbCanvas" height="160"></canvas></div>
+        <div class="hue-slider-wrap">
+          <div class="hue-track" id="evHueTrack"></div>
+          <div class="hue-thumb" id="evHueThumb"></div>
+        </div>
+        <div class="swatch-row" id="evSwatchRow"></div>
+      </div>
+    </div>
+    <div class="input-group">
+      <div class="input-label">Not</div>
+      <textarea class="day-note-input" id="eventNoteInput" placeholder="Notunu buraya yaz..." style="min-height:60px"></textarea>
+    </div>
+    <div id="eventDeleteRow" style="display:none;margin-top:20px">
+      <button class="btn btn-danger" id="eventDeleteBtn" onclick="deleteEvent()" style="width:100%">Sil</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('eventModal')" style="flex:1">İptal</button>
+      <button class="btn btn-primary" onclick="saveEvent()" style="flex:2">Kaydet</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="sessionDetailModal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="sdTitle">Çalışma Detayı</div>
+    <div id="sdBody"></div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('sessionDetailModal')" style="flex:1">Kapat</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<div class="modal-overlay" id="customAccentModal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">🔬 Özel Vurgu Rengi</div>
+    <div class="custom-color-picker">
+      <div class="color-preview-row">
+        <div class="color-preview-circle" id="accentColorCircle" style="background:#007AFF"></div>
+        <input class="color-hex-input" id="accentColorHex" maxlength="7" placeholder="#007AFF" oninput="onAccentHexInput(this.value)">
+      </div>
+      <div class="sb-wrap" id="accentSbWrap"><canvas class="sb-canvas" id="accentSbCanvas" height="160"></canvas></div>
+      <div class="hue-slider-wrap">
+        <div class="hue-track" id="accentHueTrack"></div>
+        <div class="hue-thumb" id="accentHueThumb"></div>
+      </div>
+      <div class="swatch-row" id="accentSwatchRow"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('customAccentModal')" style="flex:1">İptal</button>
+      <button class="btn btn-primary" onclick="applyCustomAccent()" style="flex:2">Uygula</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="customBgModal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">🎨 Özel Arkaplan Rengi</div>
+    <div class="custom-color-picker">
+      <div class="color-preview-row">
+        <div class="color-preview-circle" id="bgColorCircle" style="background:#ECE9E4"></div>
+        <input class="color-hex-input" id="bgColorHex" maxlength="7" placeholder="#ECE9E4" oninput="onBgHexInput(this.value)">
+      </div>
+      <div class="sb-wrap" id="bgSbWrap"><canvas class="sb-canvas" id="bgSbCanvas" height="160"></canvas></div>
+      <div class="hue-slider-wrap">
+        <div class="hue-track" id="bgHueTrack"></div>
+        <div class="hue-thumb" id="bgHueThumb"></div>
+      </div>
+      <div class="swatch-row" id="bgSwatchRow"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('customBgModal')" style="flex:1">İptal</button>
+      <button class="btn btn-primary" onclick="applyCustomBg()" style="flex:2">Uygula</button>
+    </div>
+  </div>
+</div>
+<script>
+const COLORS = ['#007AFF','#34C759','#FF3B30','#FF9500','#AF52DE','#5AC8FA','#FF2D55','#FFCC00','#00C7BE','#FF6B35','#8B4513','#FF69B4','#20B2AA','#9370DB','#DC143C','#228B22','#FF8C00','#4169E1','#C71585','#2E8B57'];
+let state = JSON.parse(localStorage.getItem('derstakip') || 'null') || {
+  dark: false,
+  dersler: [],
+  sessions: [],
+  goals: { daily: 150, weekly: 600 },
+  selectedDersId: null,
+  dayNotes: {},
+  calEvents: [],
+  notes: {},
+  badges: [],
+  pomodoroSound: true,
+  pomodoroVibe: true,
+  reminderTime: null
+};
+if(!state.dayNotes)   state.dayNotes = {};
+if(!state.calEvents)  state.calEvents = [];
+if(!state.badges)     state.badges = [];
+if(state.pomodoroSound === undefined) state.pomodoroSound = true;
+if(state.pomodoroVibe === undefined)  state.pomodoroVibe = true;
+let timer = { running: false, paused: false, seconds: 0, interval: null, startTime: null, accumulated: 0, pomoStartRem: 0 };
+let editingDersId = null;
+let editingHedef = null;
+let statsTab = 'week';
+let editingNotesId = null;
+let hwType = 'hw';
+let currentEventType = 'event';
+let currentRepeat = 'none';
+let _saveTimer = null;
+let _saveQuotaWarned = false;
+function _doSave() {
+  try {
+    localStorage.setItem('derstakip', JSON.stringify(state));
+  } catch(e) {
+    if(!_saveQuotaWarned) {
+      _saveQuotaWarned = true;
+      showToast('⚠️ Depolama dolu! Eski oturumları sil veya CSV olarak dışa aktar.');
+    }
+    console.error('localStorage save failed:', e);
+  }
+}
+function save() {
+  if(_saveTimer) clearTimeout(_saveTimer);
+  _saveTimer = setTimeout(_doSave, 150);
+}
+window.addEventListener('beforeunload', () => {
+  if(_saveTimer) { clearTimeout(_saveTimer); _doSave(); }
+});
+window.addEventListener('pagehide', () => {
+  if(_saveTimer) { clearTimeout(_saveTimer); _doSave(); }
+});
+const _pendingRenders = new Map(); // name -> originalFn
+let _renderFlushScheduled = false;
+function _coalesce(name, fn) {
+  return function(...args) {
+    _pendingRenders.set(name, () => fn.apply(this, args));
+    if(_renderFlushScheduled) return;
+    _renderFlushScheduled = true;
+    requestAnimationFrame(() => {
+      _renderFlushScheduled = false;
+      const fns = Array.from(_pendingRenders.values());
+      _pendingRenders.clear();
+      fns.forEach(f => { try { f(); } catch(e) { console.error('render error:', e); } });
+    });
+  };
+}
+let calYear       = new Date().getFullYear();
+let calMonth      = new Date().getMonth();
+let calView       = 'week';
+let calWeekOffset = 0;
+let openDayKey    = null;
+let editingTodos  = [];
+let editingEventId = null;
+let editingEventKey = null;
+let editingEventColor = '#007AFF';
+const TR_MONTHS     = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+const TR_DAYS_SHORT = ['Pt','Sa','Ça','Pe','Cu','Ct','Pz'];
+const EVENT_COLORS  = ['#007AFF','#34C759','#FF9500','#AF52DE','#FF3B30','#5AC8FA','#FF2D55','#FF6B35','#FFCC00','#00C7BE'];
+const HOUR_H    = 56;
+const DAY_START = 6;
+const DAY_END   = 24;
+const HOURS     = DAY_END - DAY_START;
+function dateKey(y,m,d){ return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`; }
+function fmtDur(secs){ const h=Math.floor(secs/3600),m=Math.floor((secs%3600)/60); return h>0?`${h}s ${m}dk`:(m>0?`${m}dk`:`${secs}sn`); }
+function fmtH(h){ return `${String(Math.floor(h)).padStart(2,'0')}:${String(Math.round((h%1)*60)).padStart(2,'0')}`; }
+function hexAlpha(hex,a){ const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16); return `rgba(${r},${g},${b},${a})`; }
+function setCalView(v, btn) {
+  calView = v;
+  document.querySelectorAll('.cal-vtab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('cal-monthly-view').style.display = v==='month' ? 'block' : 'none';
+  document.getElementById('cal-weekly-view').style.display  = v==='week'  ? 'flex'  : 'none';
+  renderCalendar();
+  updateTodayBtn();
+}
+function calPrev() {
+  if(calView==='month'){ if(calMonth===0){calMonth=11;calYear--;} else calMonth--; }
+  else calWeekOffset--;
+  renderCalendar();
+  updateTodayBtn();
+}
+function calNext() {
+  if(calView==='month'){ if(calMonth===11){calMonth=0;calYear++;} else calMonth++; }
+  else calWeekOffset++;
+  renderCalendar();
+  updateTodayBtn();
+}
+function calGoToday() {
+  const n = new Date();
+  calYear = n.getFullYear();
+  calMonth = n.getMonth();
+  calWeekOffset = 0;
+  renderCalendar();
+  updateTodayBtn();
+}
+function updateTodayBtn() {
+  const btn = document.getElementById('calTodayBtn');
+  if(!btn) return;
+  const isToday = calWeekOffset === 0 && calView === 'week';
+  const isThisMonth = calView === 'month' && calMonth === new Date().getMonth() && calYear === new Date().getFullYear();
+  btn.style.opacity = (isToday || isThisMonth) ? '0.35' : '1';
+  btn.style.pointerEvents = (isToday || isThisMonth) ? 'none' : 'auto';
+}
+function renderCalendar() {
+  const mv = document.getElementById('cal-monthly-view');
+  const wv = document.getElementById('cal-weekly-view');
+  if(mv) mv.style.display = calView==='month' ? 'block' : 'none';
+  if(wv) wv.style.display = calView==='week'  ? 'flex'  : 'none';
+  if(calView==='month') renderMonthly(); else renderWeekly();
+}
+function renderMonthly() {
+  document.getElementById('calMonthLabel').textContent = TR_MONTHS[calMonth] + ' ' + calYear;
+  const today=new Date();
+  const firstDow=(new Date(calYear,calMonth,1).getDay()+6)%7;
+  const dim=new Date(calYear,calMonth+1,0).getDate();
+  let html='';
+  for(let i=0;i<firstDow;i++) html+='<div class="cal-cell empty"></div>';
+  for(let d=1;d<=dim;d++){
+    const key=dateKey(calYear,calMonth,d);
+    const isToday=today.getFullYear()===calYear&&today.getMonth()===calMonth&&today.getDate()===d;
+    const ds=state.sessions.filter(s=>{const sd=new Date(s.date);return sd.getFullYear()===calYear&&sd.getMonth()===calMonth&&sd.getDate()===d;});
+    const byDers={};
+    ds.forEach(s=>{byDers[s.dersId]=(byDers[s.dersId]||0)+s.duration;});
+    const blocks=Object.entries(byDers).map(([id])=>{
+      const dr=state.dersler.find(x=>x.id===Number(id));
+      return `<div class="cal-block" style="background:${dr?dr.color:'#8E8E93'}"></div>`;
+    }).slice(0,3).join('');
+    const dd=state.dayNotes[key]||{};
+    const hasTodo=dd.todos&&dd.todos.length>0;
+    const allDone=hasTodo&&dd.todos.every(t=>t.done);
+    html+=`<div class="cal-cell${isToday?' today':''}" onclick="openDayModal('${key}',${d})">
+      ${hasTodo?`<div class="cal-has-todo" style="background:${allDone?'var(--green)':'var(--orange)'}"></div>`:''}
+      <div class="cal-day-num">${d}</div>
+      <div class="cal-blocks">${blocks}</div>
+      ${dd.note&&dd.note.trim()?'<div class="cal-note-icon">·</div>':''}
+    </div>`;
+  }
+  document.getElementById('calGrid').innerHTML=html;
+}
+function getWeekDates() {
+  const today=new Date(), dow=(today.getDay()+6)%7;
+  const mon=new Date(today);
+  mon.setDate(today.getDate()-dow+calWeekOffset*7); mon.setHours(0,0,0,0);
+  return Array.from({length:7},(_,i)=>{const d=new Date(mon);d.setDate(mon.getDate()+i);return d;});
+}
+function renderWeekly() {
+  const dates=getWeekDates(), today=new Date();
+  const d0=dates[0], d6=dates[6];
+  document.getElementById('calMonthLabel').textContent=
+    d0.getMonth()===d6.getMonth()
+      ?`${d0.getDate()}–${d6.getDate()} ${TR_MONTHS[d0.getMonth()]} ${d0.getFullYear()}`
+      :`${d0.getDate()} ${TR_MONTHS[d0.getMonth()]} – ${d6.getDate()} ${TR_MONTHS[d6.getMonth()]}`;
+  document.getElementById('weekDayHeaders').innerHTML=dates.map((d,i)=>{
+    const isT=d.toDateString()===today.toDateString();
+    return `<div class="week-day-head${isT?' today-head':''}">
+      <span class="wdh-label">${TR_DAYS_SHORT[i]}</span>
+      <span class="wdh-num${isT?' today':''}">${d.getDate()}</span>
+    </div>`;
+  }).join('');
+  let thtml='';
+  for(let h=DAY_START;h<DAY_END;h++)
+    thtml+=`<div class="week-time-slot">${String(h).padStart(2,'0')}:00</div>`;
+  const gutter=document.getElementById('weekTimeGutter');
+  gutter.innerHTML=thtml; gutter.style.height=(HOURS*HOUR_H)+'px';
+  const wrap=document.getElementById('weekColsWrap');
+  wrap.style.height=(HOURS*HOUR_H)+'px';
+  let cols='';
+  dates.forEach((dayDate,di)=>{
+    const yk=dayDate.getFullYear(),mk=dayDate.getMonth(),dk=dayDate.getDate();
+    const key=dateKey(yk,mk,dk);
+    const isT=dayDate.toDateString()===today.toDateString();
+    const sessions=state.sessions.filter(s=>{
+      const sd=new Date(s.date);
+      return sd.getFullYear()===yk&&sd.getMonth()===mk&&sd.getDate()===dk;
+    });
+    const events=state.calEvents.filter(e=>e.key===key);
+    let lines='';
+    for(let h=0;h<HOURS;h++){
+      lines+=`<div class="week-hour-line" style="top:${h*HOUR_H}px"></div>`;
+      if(h<HOURS-1) lines+=`<div class="week-half-line" style="top:${h*HOUR_H+HOUR_H/2}px"></div>`;
+    }
+    const allItems=[];
+    sessions.forEach(s=>{
+      const sd=new Date(s.date);
+      const endH=sd.getHours()+sd.getMinutes()/60+sd.getSeconds()/3600;
+      const rawStart=endH-s.duration/3600;
+      const startH=Math.max(rawStart,DAY_START);
+      const clampE=Math.min(endH,DAY_END);
+      if(clampE<=DAY_START||endH<=DAY_START) return;
+      const dr=state.dersler.find(x=>x.id===s.dersId);
+      allItems.push({type:'session',startH,endH:clampE,s,dr,color:dr?dr.color:'#8E8E93',name:dr?dr.name:'Ders'});
+    });
+    events.forEach(ev=>{
+      if(ev.startH==null||ev.endH==null) return;
+      const startH=Math.max(ev.startH,DAY_START);
+      const endH=Math.min(ev.endH,DAY_END);
+      if(endH<=startH) return;
+      allItems.push({type:'event',startH,endH,ev,color:ev.color||'#007AFF'});
+    });
+    allItems.sort((a,b)=>a.startH-b.startH);
+    const slotEnds=[];
+    allItems.forEach(item=>{
+      let placed=false;
+      for(let c=0;c<slotEnds.length;c++){
+        if(slotEnds[c]<=item.startH+0.01){
+          item.colIdx=c; slotEnds[c]=item.endH; placed=true; break;
+        }
+      }
+      if(!placed){ item.colIdx=slotEnds.length; slotEnds.push(item.endH); }
+    });
+    const totalCols=slotEnds.length||1;
+    allItems.forEach(item=>{ item.totalCols=totalCols; });
+    let sBlocks='', eBlocks='';
+    allItems.forEach(item=>{
+      const top=(item.startH-DAY_START)*HOUR_H;
+      const height=Math.max((item.endH-item.startH)*HOUR_H,16);
+      const pct=100/item.totalCols;
+      const leftPct=item.colIdx*pct;
+      const posStyle=`left:calc(${leftPct}% + 2px);width:calc(${pct}% - 4px);right:auto;`;
+      if(item.type==='session'){
+        const {s,color,name}=item;
+        const sh=Math.floor(item.startH),sm=Math.round((item.startH%1)*60);
+        const eh=Math.floor(item.endH),em=Math.round((item.endH%1)*60);
+        const tStr=`${String(sh).padStart(2,'0')}:${String(sm).padStart(2,'0')}–${String(eh).padStart(2,'0')}:${String(em).padStart(2,'0')}`;
+        sBlocks+=`<div class="week-block"
+          style="top:${top}px;height:${height}px;${posStyle}background:${hexAlpha(color,0.85)};border-left:3px solid ${color}"
+          onclick="openSessionDetail(${JSON.stringify(s.id)})">
+          ${height>=13?`<div class="week-block-name" style="white-space:normal;word-break:break-word;line-height:1.2;overflow:hidden;max-height:100%">${name}</div>`:''}
+        </div>`;
+      } else {
+        const {ev,color}=item;
+        eBlocks+=`<div class="week-event-block"
+          data-evid="${ev.id}"
+          style="top:${top}px;height:${height}px;${posStyle}background:${hexAlpha(color,0.88)};border-left:3px solid ${color}"
+          ontouchstart="evTouchStart(event,'${ev.id}')"
+          ontouchend="evTouchEnd(event,'${ev.id}')"
+          onclick="evBlockClick(event,'${ev.id}')">
+          ${height>=13?`<div class="week-event-title" style="white-space:normal;word-break:break-word;line-height:1.2;overflow:hidden;max-height:calc(100% - 16px)">${ev.title||'Etkinlik'}</div>`:''}
+          ${height>=22?`<div class="ev-drag-handle" ontouchstart="handleDragHandleStart(event,'${ev.id}')" onmousedown="handleDragHandleMouseDown(event,'${ev.id}')" onclick="ev=>ev.stopPropagation()"><svg width="11" height="7" viewBox="0 0 11 7" fill="rgba(255,255,255,0.75)"><circle cx="1.5" cy="1.5" r="1.5"/><circle cx="5.5" cy="1.5" r="1.5"/><circle cx="9.5" cy="1.5" r="1.5"/><circle cx="1.5" cy="5.5" r="1.5"/><circle cx="5.5" cy="5.5" r="1.5"/><circle cx="9.5" cy="5.5" r="1.5"/></svg></div>`:''}
+        </div>`;
+      }
+    });
+    let nowLine='';
+    if(isT){
+      const nowH=today.getHours()+today.getMinutes()/60;
+      if(nowH>=DAY_START&&nowH<DAY_END)
+        nowLine=`<div class="week-now-line" style="top:${(nowH-DAY_START)*HOUR_H}px"><div class="week-now-dot"></div></div>`;
+    }
+    cols+=`<div class="week-col${isT?' today-col':''}"
+      data-key="${key}"
+      onclick="handleColTap(event,'${key}')"
+    >${lines}${sBlocks}${eBlocks}${nowLine}</div>`;
+  });
+  wrap.innerHTML=cols;
+  const body=document.getElementById('weekScrollBody');
+  if(body&&body.scrollTop===0) body.scrollTop=(8-DAY_START)*HOUR_H;
+  attachEventDrag();
+}
+let evDrag = { active:false, evId:null, longTimer:null, ghostEl:null, startEl:null, touchOffsetY:0 };
+function _startDragFromEl(el, evId, startX, startY) {
+  evDrag.active = true;
+  el.classList.add('dragging-source');
+  const ghost = el.cloneNode(true);
+  ghost.id = 'evDragGhost';
+  ghost.style.cssText += ';opacity:0;transform:scale(1.05);box-shadow:0 10px 36px rgba(0,0,0,0.4);z-index:99;pointer-events:none;transition:opacity 0.15s,transform 0.15s;';
+  ghost.classList.add('ghost-active');
+  el.parentElement.appendChild(ghost);
+  evDrag.ghostEl = ghost;
+  evDrag.startEl = el;
+  evDrag.touchOffsetY = startY - el.getBoundingClientRect().top;
+  if(navigator.vibrate) navigator.vibrate(25);
+  requestAnimationFrame(()=>{ ghost.style.opacity='0.93'; });
+  showToast('Sürükleyerek taşı ✦');
+}
+function handleDragHandleStart(e, evId) {
+  e.stopPropagation();
+  const touch = e.touches[0];
+  const blockEl = e.currentTarget.closest('.week-event-block') || e.currentTarget.parentElement;
+  evDrag.evId = evId;
+  evDrag._startEl = blockEl;
+  _startDragFromEl(blockEl, evId, touch.clientX, touch.clientY);
+}
+function handleDragHandleMouseDown(e, evId) {
+  e.stopPropagation(); e.preventDefault();
+  const blockEl = e.currentTarget.closest('.week-event-block') || e.currentTarget.parentElement;
+  evDrag.evId = evId;
+  evDrag._startEl = blockEl;
+  _startDragFromEl(blockEl, evId, e.clientX, e.clientY);
+}
+function evTouchStart(e, evId) {
+  const t0 = e.touches[0];
+  const startX = t0.clientX, startY = t0.clientY;
+  evDrag.evId = evId;
+  evDrag._startEl = e.currentTarget;
+  function cancelOnMove(ev) {
+    const t = ev.touches[0];
+    if(Math.abs(t.clientX-startX)>8 || Math.abs(t.clientY-startY)>8) {
+      clearTimeout(evDrag.longTimer); evDrag.longTimer = null;
+      if(e.currentTarget) e.currentTarget.removeEventListener('touchmove', cancelOnMove);
+    }
+  }
+  if(e.currentTarget) e.currentTarget.addEventListener('touchmove', cancelOnMove, {passive:true});
+  evDrag.longTimer = setTimeout(() => {
+    if(e.currentTarget) e.currentTarget.removeEventListener('touchmove', cancelOnMove);
+    const el = evDrag._startEl;
+    if(!el || evDrag.active) return;
+    evDrag.evId = evId;
+    _startDragFromEl(el, evId, startX, startY);
+  }, 450);
+}
+function evTouchMove(e, evId) {
+  if(!evDrag.active || evDrag.evId !== evId) return;
+}
+function evTouchEnd(e, evId) {
+  clearTimeout(evDrag.longTimer);
+  if(!evDrag.active) { evDrag = {active:false,evId:null,longTimer:null,ghostEl:null,startEl:null,touchOffsetY:0}; return; }
+}
+function evBlockClick(e, evId) {
+  if(evDrag.active) { e.stopPropagation(); return; }
+  openEditEvent(evId);
+}
+function attachEventDrag() {
+  if(window._evDragDocBound) return;
+  window._evDragDocBound = true;
+  document.addEventListener('touchmove', docDragMove, {passive:false});
+  document.addEventListener('touchend', docDragEnd, {passive:false});
+  document.addEventListener('mousemove', e => {
+    if(!evDrag.active || !evDrag.ghostEl) return;
+    const wrap = document.getElementById('weekColsWrap');
+    if(!wrap) return;
+    const cols = Array.from(wrap.querySelectorAll('.week-col'));
+    let targetCol = null;
+    for(const col of cols) {
+      const r = col.getBoundingClientRect();
+      if(e.clientX >= r.left && e.clientX <= r.right) { targetCol = col; break; }
+    }
+    if(!targetCol) return;
+    const colRect = targetCol.getBoundingClientRect();
+    const adjustedRelY = (e.clientY - colRect.top) - evDrag.touchOffsetY;
+    const snappedPx = Math.round(adjustedRelY / (HOUR_H/2)) * (HOUR_H/2);
+    const clampedPx = Math.max(0, Math.min((DAY_END-DAY_START)*HOUR_H - 28, snappedPx));
+    if(evDrag.ghostEl.parentElement !== targetCol) targetCol.appendChild(evDrag.ghostEl);
+    evDrag.ghostEl.style.top = clampedPx + 'px';
+    evDrag.ghostEl._dropKey = targetCol.dataset.key;
+    evDrag.ghostEl._dropPx = clampedPx;
+  });
+  document.addEventListener('mouseup', e => {
+    if(!evDrag.active) return;
+    docDragEnd({changedTouches: null, _mouse: e});
+  });
+}
+function docDragMove(e) {
+  if(!evDrag.active || !evDrag.ghostEl) return;
+  e.preventDefault();
+  const touch = e.touches[0];
+  const wrap = document.getElementById('weekColsWrap');
+  if(!wrap) return;
+  const cols = Array.from(wrap.querySelectorAll('.week-col'));
+  let targetCol = null;
+  for(const col of cols) {
+    const r = col.getBoundingClientRect();
+    if(touch.clientX >= r.left && touch.clientX <= r.right) { targetCol = col; break; }
+  }
+  if(!targetCol) return;
+  const colRect = targetCol.getBoundingClientRect();
+  const adjustedRelY = (touch.clientY - colRect.top) - evDrag.touchOffsetY;
+  const snappedPx = Math.round(adjustedRelY / (HOUR_H/2)) * (HOUR_H/2);
+  const clampedPx = Math.max(0, Math.min((DAY_END-DAY_START)*HOUR_H - 28, snappedPx));
+  if(evDrag.ghostEl.parentElement !== targetCol) targetCol.appendChild(evDrag.ghostEl);
+  evDrag.ghostEl.style.top = clampedPx + 'px';
+  evDrag.ghostEl._dropKey = targetCol.dataset.key;
+  evDrag.ghostEl._dropPx = clampedPx;
+}
+function docDragEnd(e) {
+  if(!evDrag.active) return;
+  const newKey = evDrag.ghostEl ? evDrag.ghostEl._dropKey : null;
+  const newPx  = evDrag.ghostEl ? evDrag.ghostEl._dropPx  : null;
+  if(newKey != null && newPx != null) {
+    const ev = state.calEvents.find(x => x.id === evDrag.evId);
+    if(ev) {
+      const dur = ev.endH - ev.startH;
+      const raw = DAY_START + newPx / HOUR_H;
+      const snapped = Math.round(raw * 2) / 2;
+      ev.startH = Math.max(DAY_START, Math.min(DAY_END - dur, snapped));
+      ev.endH   = ev.startH + dur;
+      ev.key    = newKey;
+      save(); renderCalendar(); showToast('✓ Etkinlik taşındı');
+    }
+  }
+  if(evDrag.ghostEl) evDrag.ghostEl.remove();
+  if(evDrag.startEl) { evDrag.startEl.classList.remove('dragging-source'); }
+  evDrag = {active:false, evId:null, longTimer:null, ghostEl:null, startEl:null, touchOffsetY:0};
+}
+function handleColTap(e, key){
+  if(e.target.classList.contains('week-block')||
+     e.target.classList.contains('week-event-block')||
+     e.target.classList.contains('week-block-name')||
+     e.target.classList.contains('week-block-time')||
+     e.target.classList.contains('week-block-dur')||
+     e.target.classList.contains('week-event-title')||
+     e.target.classList.contains('week-event-time')) return;
+  const col=e.currentTarget;
+  const rect=col.getBoundingClientRect();
+  const relY=e.clientY-rect.top;
+  const tapH=DAY_START+relY/HOUR_H;
+  const snappedH=Math.round(tapH*2)/2; // snap to 30min
+  openAddEvent(key, snappedH);
+}
+function initEvPicker(preselect) {
+  editingEventColor = preselect || '#007AFF';
+  const hsb = hexToHsb(editingEventColor.replace('#','').padEnd(6,'0'));
+  if(hsb){ evHue=hsb.h; evSat=hsb.s; evBri=hsb.b; }
+  const row = document.getElementById('evSwatchRow');
+  if(row) row.innerHTML = SWATCHES.map(c=>`<div class="swatch${c.toLowerCase()===editingEventColor.toLowerCase()?' active':''}" style="background:${c}" onclick="evPickSwatch('${c}')"></div>`).join('');
+  const canvas = document.getElementById('evSbCanvas');
+  if(canvas) { canvas._bound = false; }
+  const track = document.getElementById('evHueTrack');
+  if(track) { track._bound = false; }
+  const oldThumb = document.getElementById('evSbThumb');
+  if(oldThumb) oldThumb.remove();
+  const t=document.createElement('div'); t.id='evSbThumb'; t.className='sb-thumb';
+  const wrap = document.getElementById('evSbWrap');
+  if(wrap) wrap.appendChild(t);
+  setTimeout(()=>{ drawEvCanvas(); updateEvHueThumb(); updateEvPreview(); initEvSBEvents(); initEvHueEvents(); }, 200);
+}
+function evPickSwatch(color){
+  editingEventColor=color;
+  const hsb=hexToHsb(color.replace('#',''));
+  if(hsb){evHue=hsb.h;evSat=hsb.s;evBri=hsb.b;}
+  drawEvCanvas(); updateEvHueThumb(); updateEvPreview();
+  document.querySelectorAll('#evSwatchRow .swatch').forEach(s=>s.classList.toggle('active', rgbToHexStr(s.style.background)===color.toLowerCase()));
+}
+function drawEvCanvas(){
+  const canvas=document.getElementById('evSbCanvas'); if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=600,H=160; canvas.width=W; canvas.height=H;
+  const [hr,hg,hb]=hsbToRgb(evHue,1,1);
+  ctx.fillStyle=`rgb(${hr},${hg},${hb})`; ctx.fillRect(0,0,W,H);
+  const sg=ctx.createLinearGradient(0,0,W,0);
+  sg.addColorStop(0,'rgba(255,255,255,1)'); sg.addColorStop(1,'rgba(255,255,255,0)');
+  ctx.fillStyle=sg; ctx.fillRect(0,0,W,H);
+  const bg=ctx.createLinearGradient(0,0,0,H);
+  bg.addColorStop(0,'rgba(0,0,0,0)'); bg.addColorStop(1,'rgba(0,0,0,1)');
+  ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+  const thumb=document.getElementById('evSbThumb');
+  if(thumb){ thumb.style.left=(evSat*100)+'%'; thumb.style.top=((1-evBri)*100)+'%'; }
+}
+function updateEvHueThumb(){
+  const thumb=document.getElementById('evHueThumb'); if(!thumb)return;
+  thumb.style.left=(evHue/360*100)+'%';
+  const [r,g,b]=hsbToRgb(evHue,1,1); thumb.style.background=`rgb(${r},${g},${b})`;
+}
+function updateEvPreview(){
+  const [r,g,b]=hsbToRgb(evHue,evSat,evBri);
+  const hex=rgbToHex(r,g,b); editingEventColor=hex;
+  const circle=document.getElementById('evColorCircle');
+  const hexInp=document.getElementById('evColorHex');
+  if(circle) circle.style.background=hex;
+  if(hexInp) hexInp.value=hex.toUpperCase();
+  document.querySelectorAll('#evSwatchRow .swatch').forEach(s=>s.classList.toggle('active', rgbToHexStr(s.style.backgroundColor)===hex.toLowerCase()));
+}
+function onEvHexInput(val){
+  val=val.trim(); if(!val.startsWith('#')) val='#'+val;
+  if(val.length===7&&/^#[0-9a-fA-F]{6}$/.test(val)){
+    const hsb=hexToHsb(val.replace('#',''));
+    if(hsb){evHue=hsb.h;evSat=hsb.s;evBri=hsb.b;}
+    editingEventColor=val.toLowerCase();
+    drawEvCanvas(); updateEvHueThumb();
+    const c=document.getElementById('evColorCircle'); if(c) c.style.background=val;
+  }
+}
+function initEvSBEvents(){
+  const canvas=document.getElementById('evSbCanvas'); if(!canvas||canvas._bound)return;
+  canvas._bound=true;
+  function onSB(e){
+    const wrap=document.getElementById('evSbWrap');
+    const rect=(wrap||canvas).getBoundingClientRect();
+    const src=e.touches?e.touches[0]:e;
+    evSat=Math.max(0,Math.min(1,(src.clientX-rect.left)/rect.width));
+    evBri=Math.max(0,Math.min(1,1-(src.clientY-rect.top)/rect.height));
+    drawEvCanvas(); updateEvPreview();
+  }
+  canvas.addEventListener('mousedown',e=>{ onSB(e); const mm=ev=>onSB(ev); const mu=()=>{document.removeEventListener('mousemove',mm);document.removeEventListener('mouseup',mu);}; document.addEventListener('mousemove',mm); document.addEventListener('mouseup',mu); });
+  canvas.addEventListener('touchstart',e=>{e.preventDefault();onSB(e);},{passive:false});
+  canvas.addEventListener('touchmove', e=>{e.preventDefault();onSB(e);},{passive:false});
+  canvas.addEventListener('touchend',  e=>{e.preventDefault(); const wrap=document.getElementById('evSbWrap'); const rect=(wrap||canvas).getBoundingClientRect(); const t=e.changedTouches[0]; evSat=Math.max(0,Math.min(1,(t.clientX-rect.left)/rect.width)); evBri=Math.max(0,Math.min(1,1-(t.clientY-rect.top)/rect.height)); drawEvCanvas(); updateEvPreview();},{passive:false});
+}
+function initEvHueEvents(){
+  const track=document.getElementById('evHueTrack'); if(!track||track._bound)return;
+  track._bound=true;
+  function onHue(e){
+    const rect=track.getBoundingClientRect();
+    const src=e.touches?e.touches[0]:e;
+    evHue=Math.max(0,Math.min(360,((src.clientX-rect.left)/rect.width)*360));
+    updateEvHueThumb(); drawEvCanvas(); updateEvPreview();
+  }
+  track.addEventListener('mousedown',e=>{ onHue(e); const mm=ev=>onHue(ev); const mu=()=>{document.removeEventListener('mousemove',mm);document.removeEventListener('mouseup',mu);}; document.addEventListener('mousemove',mm); document.addEventListener('mouseup',mu); });
+  track.addEventListener('touchstart',e=>{e.preventDefault();onHue(e);},{passive:false});
+  track.addEventListener('touchmove', e=>{e.preventDefault();onHue(e);},{passive:false});
+  track.addEventListener('touchend',  e=>{e.preventDefault(); const rect=track.getBoundingClientRect(); const t=e.changedTouches[0]; evHue=Math.max(0,Math.min(360,((t.clientX-rect.left)/rect.width)*360)); updateEvHueThumb(); drawEvCanvas(); updateEvPreview();},{passive:false});
+}
+function openAddEvent(key, startH){
+  editingEventId=null;
+  editingEventKey=key;
+  editingEventColor='#007AFF';
+  currentEventType='event';
+  currentRepeat='none';
+  document.getElementById('eventModalTitle').textContent='Etkinlik Ekle';
+  document.getElementById('eventTitleInput').value='';
+  document.getElementById('eventNoteInput').value='';
+  document.getElementById('eventDeleteRow').style.display='none';
+  ['event','hw','exam'].forEach(t=>{
+    const b=document.getElementById('typeChip'+t.charAt(0).toUpperCase()+t.slice(1));
+    if(!b)return;
+    b.style.cssText='';
+    b.className = t==='event' ? 'type-chip active' : 'type-chip';
+  });
+  document.querySelectorAll('.repeat-chip').forEach(b=>b.classList.remove('active'));
+  const rn=document.getElementById('repeatNone'); if(rn) rn.classList.add('active');
+  const sh = startH!=null ? Math.max(DAY_START, Math.min(DAY_END-1, startH)) : 9;
+  const eh = Math.min(sh+1, DAY_END);
+  document.getElementById('eventStartInput').value=`${String(Math.floor(sh)).padStart(2,'0')}:${String(Math.round((sh%1)*60)).padStart(2,'0')}`;
+  document.getElementById('eventEndInput').value  =`${String(Math.floor(eh)).padStart(2,'0')}:${String(Math.round((eh%1)*60)).padStart(2,'0')}`;
+  if(!editingEventKey){ const t=new Date(); editingEventKey=dateKey(t.getFullYear(),t.getMonth(),t.getDate()); }
+  openModal('eventModal');
+  initEvPicker('#007AFF');
+}
+function openEditEvent(id){
+  const ev=state.calEvents.find(e=>e.id===id);
+  if(!ev) return;
+  editingEventId=id;
+  editingEventKey=ev.key;
+  editingEventColor=ev.color||'#007AFF';
+  currentEventType = ev.type || 'event';
+  currentRepeat = ev.repeat || 'none';
+  document.getElementById('eventModalTitle').textContent='Etkinliği Düzenle';
+  document.getElementById('eventTitleInput').value=ev.title||'';
+  document.getElementById('eventNoteInput').value=ev.note||'';
+  document.getElementById('eventDeleteRow').style.display='block';
+  const sh=ev.startH||9, eh=ev.endH||10;
+  document.getElementById('eventStartInput').value=`${String(Math.floor(sh)).padStart(2,'0')}:${String(Math.round((sh%1)*60)).padStart(2,'0')}`;
+  document.getElementById('eventEndInput').value  =`${String(Math.floor(eh)).padStart(2,'0')}:${String(Math.round((eh%1)*60)).padStart(2,'0')}`;
+  ['event','hw','exam'].forEach(t=>{
+    const b=document.getElementById('typeChip'+t.charAt(0).toUpperCase()+t.slice(1));
+    if(!b)return;
+    b.style.cssText='';
+    b.className = t===currentEventType ? (t==='exam'?'type-chip exam-active':'type-chip active') : 'type-chip';
+  });
+  document.querySelectorAll('.repeat-chip').forEach(b=>b.classList.remove('active'));
+  const rb=document.getElementById('repeat'+currentRepeat.charAt(0).toUpperCase()+currentRepeat.slice(1));
+  if(rb) rb.classList.add('active');
+  openModal('eventModal');
+  initEvPicker(editingEventColor);
+}
+function parseTimeInput(val){
+  const [h,m]=(val||'09:00').split(':').map(Number);
+  return h+m/60;
+}
+function openSessionDetail(sessionId){
+  const s=state.sessions.find(x=>x.id===sessionId);
+  if(!s) return;
+  const dr=state.dersler.find(x=>x.id===s.dersId);
+  const sd=new Date(s.date);
+  const endH=sd.getHours()+sd.getMinutes()/60;
+  const startH=endH-s.duration/3600;
+  const color=dr?dr.color:'#8E8E93';
+  document.getElementById('sdTitle').textContent=dr?dr.name+' çalışıldı':'Çalışma Seansı';
+  document.getElementById('sdBody').innerHTML=`
+    <div style="
+      background:var(--card2);border-radius:18px;
+      box-shadow:var(--nm-inset-sm);
+      padding:18px 16px;margin-bottom:12px;
+      display:flex;align-items:center;gap:16px;
+    ">
+      <div style="width:4px;height:52px;border-radius:3px;background:${color};flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.2)"></div>
+      <div style="flex:1">
+        <div style="font-size:32px;font-weight:800;letter-spacing:-1px;color:var(--label);line-height:1">${fmtDur(s.duration)}</div>
+        <div style="font-size:13px;color:var(--label3);margin-top:6px;font-weight:500">${fmtH(startH)} – ${fmtH(endH)}</div>
+      </div>
+    </div>
+    <div style="font-size:13px;color:var(--label3);text-align:center;padding:4px 0 8px">
+      ${sd.toLocaleDateString('tr-TR',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}
+    </div>`;
+  openModal('sessionDetailModal');
+}
+function openDayModal(key,d){
+  openDayKey=key;
+  const [y,m]=key.split('-').map(Number);
+  const dateStr=`${d} ${TR_MONTHS[m-1]} ${y}`;
+  const isToday=key===dateKey(new Date().getFullYear(),new Date().getMonth(),new Date().getDate());
+  document.getElementById('dayModalTitle').textContent = isToday ? 'BUGÜN · '+dateStr : dateStr;
+  const ky=y,km=m-1,kd=d;
+  const ds=state.sessions.filter(s=>{const sd=new Date(s.date);return sd.getFullYear()===ky&&sd.getMonth()===km&&sd.getDate()===kd;});
+  const totalSecs=ds.reduce((a,s)=>a+s.duration,0);
+  const byDers={};
+  ds.forEach(s=>{byDers[s.dersId]=(byDers[s.dersId]||0)+s.duration;});
+  const summaryEl=document.getElementById('dayModalSummary');
+  if(totalSecs>0){
+    const dersNames=Object.keys(byDers).map(id=>{const dr=state.dersler.find(x=>x.id===Number(id));return dr?dr.name:'?';});
+    summaryEl.textContent = dersNames.length===1
+      ? `${dersNames[0]} çalışıldı`
+      : `${dersNames.length} ders çalışıldı`;
+  } else {
+    summaryEl.textContent='Çalışma yok';
+    summaryEl.style.color='var(--label3)';
+  }
+  const sHTML=Object.entries(byDers).map(([id,secs])=>{
+    const dr=state.dersler.find(x=>x.id===Number(id));
+    const color=dr?dr.color:'#8E8E93';
+    const name=dr?dr.name:'Silindi';
+    const pct=totalSecs>0?Math.round(secs/totalSecs*100):0;
+    return `<div style="
+      display:flex;align-items:center;gap:14px;
+      padding:14px 16px;
+      background:var(--card2);
+      border-radius:16px;
+      box-shadow:var(--nm-inset-sm);
+      margin-bottom:8px;
+    ">
+      <div style="width:4px;height:40px;border-radius:3px;background:${color};flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,0.2)"></div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:15px;font-weight:700;color:var(--label);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${name}</div>
+        <div style="height:4px;background:var(--fill);border-radius:2px;overflow:hidden">
+          <div style="height:100%;width:${pct}%;background:${color};border-radius:2px;transition:width 0.6s cubic-bezier(.34,1.3,.64,1)"></div>
+        </div>
+      </div>
+      <div style="text-align:right;flex-shrink:0">
+        <div style="font-size:16px;font-weight:700;color:var(--label)">${fmtDur(secs)}</div>
+        <div style="font-size:11px;color:var(--label3);font-weight:500;margin-top:1px">${pct}%</div>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('daySessionsList').innerHTML = sHTML ||
+    `<div style="text-align:center;padding:16px 0;color:var(--label3);font-size:14px">Bu gün çalışma yok</div>`;
+  const dd=state.dayNotes[key]||{};
+  document.getElementById('dayNoteInput').value=dd.note||'';
+  editingTodos=(dd.todos||[]).map(t=>({...t}));
+  renderDayTodos();
+  openModal('dayModal');
+}
+function renderDayTodos(){
+  const list=document.getElementById('dayTodoList');
+  if(!editingTodos.length){list.innerHTML='<div class="day-empty">Henüz görev yok</div>';return;}
+  list.innerHTML=editingTodos.map((t,i)=>`
+    <div class="day-todo-item">
+      <div class="day-todo-cb${t.done?' checked':''}" onclick="toggleDayTodo(${i})"></div>
+      <div class="day-todo-text${t.done?' done':''}">${t.text}</div>
+      <button class="day-todo-del" onclick="deleteDayTodo(${i})">✕</button>
+    </div>`).join('');
+}
+function addDayTodo(){
+  const inp=document.getElementById('dayTodoInput');
+  const text=inp.value.trim();if(!text)return;
+  editingTodos.push({id:Date.now(),text,done:false});inp.value='';renderDayTodos();
+}
+function toggleDayTodo(i){editingTodos[i].done=!editingTodos[i].done;renderDayTodos();}
+function deleteDayTodo(i){editingTodos.splice(i,1);renderDayTodos();}
+function saveDayData(){
+  if(!openDayKey)return;
+  const note=document.getElementById('dayNoteInput').value.trim();
+  if(note||editingTodos.length>0) state.dayNotes[openDayKey]={note,todos:editingTodos};
+  else delete state.dayNotes[openDayKey];
+  save();closeModal('dayModal');renderCalendar();showToast('Kaydedildi');
+}
+let _swX=null, _swY=null;
+function takSwipeStart(e){
+  _swX = e.touches[0].clientX;
+  _swY = e.touches[0].clientY;
+}
+function takSwipeEnd(e){
+  if(_swX===null) return;
+  if(document.querySelector('.modal-overlay.open')) { _swX=null; return; }
+  const dx = e.changedTouches[0].clientX - _swX;
+  const dy = e.changedTouches[0].clientY - _swY;
+  _swX=null; _swY=null;
+  if(Math.abs(dx) < 45 || Math.abs(dy) > Math.abs(dx)*0.8) return;
+  if(dx < 0) calNext(); else calPrev();
+}
+function clearAllHistory() {
+  if(state.sessions.length === 0) { showToast('Geçmiş zaten boş'); return; }
+  openModal('clearHistoryModal');
+}
+function confirmClearHistory() {
+  state.sessions = [];
+  save();
+  closeModal('clearHistoryModal');
+  renderHistory();
+  renderStats();
+  renderHedefler();
+  updateDailyProgress();
+  showToast('Geçmiş temizlendi');
+}
+function init() {
+  const now = new Date();
+  const el = document.getElementById('headerDate');
+  if(el) el.textContent = now.toLocaleDateString('tr-TR',{weekday:'short',day:'numeric',month:'short'});
+  renderDersler();
+  renderHistory();
+  renderStats();
+  renderHedefler();
+  updateSelectedSubject();
+  updateDailyProgress();
+  initSettingsUI();
+}
+const ACCENT_PRESETS = [
+  {name:'Kırmızı', h:4,   hex:'#FF3B30'},
+  {name:'Turuncu', h:28,  hex:'#FF9500'},
+  {name:'Sarı',    h:48,  hex:'#FFCC00'},
+  {name:'Yeşil',   h:142, hex:'#34C759'},
+  {name:'Turkuaz', h:199, hex:'#5AC8FA'},
+  {name:'Mavi',    h:211, hex:'#007AFF'},
+  {name:'Mor',     h:280, hex:'#AF52DE'},
+  {name:'Pembe',   h:340, hex:'#FF2D55'},
+];
+let themeSettings = (function() {
+  try { return JSON.parse(localStorage.getItem('dersTheme')) || {}; } catch(e) { return {}; }
+})();
+themeSettings.hue          = themeSettings.hue          ?? 210;
+themeSettings.brightness   = themeSettings.brightness   ?? 90;
+themeSettings.dark         = themeSettings.dark         ?? false;
+themeSettings.selectedChip = themeSettings.selectedChip ?? 0;
+function hslToHex(h,s,l) {
+  s/=100; l/=100;
+  const a=s*Math.min(l,1-l);
+  const f=n=>{const k=(n+h/30)%12;const c=l-a*Math.max(Math.min(k-3,9-k,1),-1);return Math.round(255*c).toString(16).padStart(2,'0');};
+  return '#'+f(0)+f(8)+f(4);
+}
+function applyTheme() {
+  const h = themeSettings.hue;
+  const b = themeSettings.brightness;
+  const isDark = themeSettings.dark;
+  document.body.classList.toggle('dark', isDark);
+  const metaTheme = document.getElementById('metaThemeColor');
+  if(metaTheme) metaTheme.content = isDark ? '#252628' : '#ECE9E4';
+  const primLightness = Math.round(5 + (b - 50) * 0.9);
+  const primSat = isDark ? 65 : 60;
+  const primHex   = hslToHex(h, primSat, primLightness);
+  const primLight = `hsla(${h},${primSat}%,${primLightness}%,${isDark ? '0.22' : '0.14'})`;
+  const purp      = hslToHex((h + 70) % 360, Math.min(primSat * 0.75, 50), isDark ? 62 : 56);
+  const root = document.body.style;
+  root.setProperty('--primary', primHex);
+  root.setProperty('--primary-light', primLight);
+  root.setProperty('--purple', purp);
+  document.body.style.filter = '';
+  const tog = document.getElementById('darkToggleBtn');
+  if (tog) tog.classList.toggle('on', isDark);
+  const hBadge = document.getElementById('hueValBadge'); if(hBadge) hBadge.textContent = h+'°';
+  const bBadge = document.getElementById('brightValBadge'); if(bBadge) bBadge.textContent = b+'%';
+  const hSl = document.getElementById('hueSlider');
+  const bSl = document.getElementById('brightnessSlider');
+  if (hSl) { hSl.value = h; }
+  if (bSl) {
+    bSl.value = b;
+    bSl.style.background = `linear-gradient(to right, hsl(${h},100%,5%) 0%, hsl(${h},100%,50%) 50%, hsl(${h},100%,95%) 100%)`;
+  }
+  if (_lastChip !== themeSettings.selectedChip) {
+    _lastChip = themeSettings.selectedChip;
+    buildAccentChips();
+  }
+  if(themeSettings.selectedChip === 99 && themeSettings.customAccentHex) {
+    const hex = themeSettings.customAccentHex;
+    document.body.style.setProperty('--primary', hex);
+    const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+    document.body.style.setProperty('--primary-light',`rgba(${r},${g},${b},${isDark?0.22:0.14})`);
+  }
+  try { localStorage.setItem('dersTheme', JSON.stringify(themeSettings)); } catch(e) {}
+}
+let _lastChip = undefined;
+function buildAccentChips() {
+  const cont = document.getElementById('accentChips');
+  if (!cont) return;
+  const customActive = themeSettings.selectedChip === 99 ? 'active' : '';
+  const customBg = themeSettings.customAccentHex || '#8E8E93';
+  cont.innerHTML = ACCENT_PRESETS.map((p, i) => {
+    const active = themeSettings.selectedChip === i ? 'active' : '';
+    return `<div class="accent-chip ${active}" style="background:${p.hex}" onclick="pickAccent(${i})" title="${p.name}"></div>`;
+  }).join('') +
+  `<div class="accent-chip ${customActive}" style="background:#8E8E93;display:flex;align-items:center;justify-content:center;" onclick="openCustomAccentPicker()" title="Özel Renk"><svg width="55%" height="55%" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 5.63l-2.34-2.34a1 1 0 0 0-1.41 0l-3.12 3.12-1.41-1.42-1.42 1.42 1.41 1.41-6.6 6.6A2 2 0 0 0 5 16v3h3a2 2 0 0 0 1.42-.59l6.6-6.6 1.41 1.42 1.42-1.42-1.42-1.41 3.12-3.12a1 1 0 0 0 0-1.65zM8 17H7v-1l6.59-6.59 1 1z"/></svg></div>`;
+}
+let accentCpHue=211, accentCpSat=1, accentCpBri=0.5;
+let currentAccentPickedColor='#007AFF';
+function accentHexToHsb(hex){
+  let r=parseInt(hex.slice(1,3),16)/255,g=parseInt(hex.slice(3,5),16)/255,b=parseInt(hex.slice(5,7),16)/255;
+  const max=Math.max(r,g,b),min=Math.min(r,g,b),d=max-min;
+  let h=0;
+  if(d>0){if(max===r)h=((g-b)/d)%6;else if(max===g)h=(b-r)/d+2;else h=(r-g)/d+4;h=Math.round(h*60);if(h<0)h+=360;}
+  return {h,s:max>0?d/max:0,b:max};
+}
+function accentHsbToHex(h,s,b){
+  const f=(n)=>{const k=(n+h/60)%6;return b*(1-s*Math.max(0,Math.min(k,4-k,1)));};
+  return '#'+[f(5),f(3),f(1)].map(x=>Math.round(x*255).toString(16).padStart(2,'0')).join('');
+}
+function drawAccentSBCanvas(){
+  const canvas=document.getElementById('accentSbCanvas');if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  canvas.width=canvas.offsetWidth||300;canvas.height=canvas.offsetHeight||160;
+  const w=canvas.width,h=canvas.height;
+  const base=`hsl(${accentCpHue},100%,50%)`;
+  const gH=ctx.createLinearGradient(0,0,w,0);gH.addColorStop(0,'#fff');gH.addColorStop(1,base);
+  ctx.fillStyle=gH;ctx.fillRect(0,0,w,h);
+  const gV=ctx.createLinearGradient(0,0,0,h);gV.addColorStop(0,'rgba(0,0,0,0)');gV.addColorStop(1,'#000');
+  ctx.fillStyle=gV;ctx.fillRect(0,0,w,h);
+}
+function updateAccentSBThumb(){
+  const wrap=document.getElementById('accentSbWrap');if(!wrap)return;
+  let thumb=document.getElementById('accentSbThumb');
+  if(!thumb){thumb=document.createElement('div');thumb.id='accentSbThumb';thumb.className='sb-thumb';wrap.appendChild(thumb);}
+  thumb.style.left=(accentCpSat*100)+'%';
+  thumb.style.top=((1-accentCpBri)*100)+'%';
+}
+function updateAccentHueThumb(){
+  const track=document.getElementById('accentHueTrack');if(!track)return;
+  const thumb=document.getElementById('accentHueThumb');if(!thumb)return;
+  thumb.style.left=(accentCpHue/360*100)+'%';
+  thumb.style.background=`hsl(${accentCpHue},100%,50%)`;
+}
+function updateAccentPreview(){
+  currentAccentPickedColor=accentHsbToHex(accentCpHue,accentCpSat,accentCpBri);
+  const circle=document.getElementById('accentColorCircle');if(circle)circle.style.background=currentAccentPickedColor;
+  const hex=document.getElementById('accentColorHex');if(hex)hex.value=currentAccentPickedColor;
+  document.querySelectorAll('#accentSwatchRow .swatch').forEach(s=>{
+    s.classList.toggle('active',s.dataset.c===currentAccentPickedColor);
+  });
+}
+function onAccentHexInput(val){
+  if(!val.startsWith('#'))val='#'+val;
+  if(!/^#[0-9a-fA-F]{6}$/.test(val))return;
+  const {h,s,b}=accentHexToHsb(val);
+  accentCpHue=h;accentCpSat=s;accentCpBri=b;
+  drawAccentSBCanvas();updateAccentSBThumb();updateAccentHueThumb();updateAccentPreview();
+}
+function buildAccentSwatches(){
+  const row=document.getElementById('accentSwatchRow');if(!row)return;
+  const colors=['#FF3B30','#FF9500','#FFCC00','#34C759','#5AC8FA','#007AFF','#AF52DE','#FF2D55','#00C7BE','#FF6B35'];
+  row.innerHTML=colors.map(c=>`<div class="swatch" data-c="${c}" style="background:${c}" onclick="accentSwatchPick('${c}')"></div>`).join('');
+}
+function accentSwatchPick(hex){
+  const {h,s,b}=accentHexToHsb(hex);
+  accentCpHue=h;accentCpSat=s;accentCpBri=b;
+  drawAccentSBCanvas();updateAccentSBThumb();updateAccentHueThumb();updateAccentPreview();
+}
+function initAccentSBEvents(){
+  const canvas=document.getElementById('accentSbCanvas');if(!canvas||canvas._abound)return;
+  canvas._abound=true;
+  function applyXY(cx,cy){
+    const rect=canvas.getBoundingClientRect();
+    accentCpSat=Math.max(0,Math.min(1,(cx-rect.left)/rect.width));
+    accentCpBri=Math.max(0,Math.min(1,1-(cy-rect.top)/rect.height));
+    updateAccentSBThumb();updateAccentPreview();
+  }
+  canvas.addEventListener('mousedown',e=>{applyXY(e.clientX,e.clientY);const mm=ev=>applyXY(ev.clientX,ev.clientY);const mu=()=>{document.removeEventListener('mousemove',mm);document.removeEventListener('mouseup',mu);};document.addEventListener('mousemove',mm);document.addEventListener('mouseup',mu);});
+  canvas.addEventListener('touchstart',e=>{e.preventDefault();applyXY(e.touches[0].clientX,e.touches[0].clientY);},{passive:false});
+  canvas.addEventListener('touchmove',e=>{e.preventDefault();applyXY(e.touches[0].clientX,e.touches[0].clientY);},{passive:false});
+  canvas.addEventListener('touchend',e=>{e.preventDefault();const t=e.changedTouches[0];accentCpSat=Math.max(0,Math.min(1,(t.clientX-canvas.getBoundingClientRect().left)/canvas.getBoundingClientRect().width));accentCpBri=Math.max(0,Math.min(1,1-(t.clientY-canvas.getBoundingClientRect().top)/canvas.getBoundingClientRect().height));updateAccentSBThumb();updateAccentPreview();},{passive:false});
+}
+function initAccentHueEvents(){
+  const track=document.getElementById('accentHueTrack');if(!track||track._abound)return;
+  track._abound=true;
+  function applyHue(src){
+    const rect=track.getBoundingClientRect();
+    accentCpHue=Math.max(0,Math.min(360,((src.clientX-rect.left)/rect.width)*360));
+    updateAccentHueThumb();drawAccentSBCanvas();updateAccentPreview();
+  }
+  track.addEventListener('mousedown',e=>{applyHue(e);const mm=ev=>applyHue(ev);const mu=()=>{document.removeEventListener('mousemove',mm);document.removeEventListener('mouseup',mu);};document.addEventListener('mousemove',mm);document.addEventListener('mouseup',mu);});
+  track.addEventListener('touchstart',e=>{e.preventDefault();applyHue(e.touches[0]);},{passive:false});
+  track.addEventListener('touchmove',e=>{e.preventDefault();applyHue(e.touches[0]);},{passive:false});
+  track.addEventListener('touchend',e=>{e.preventDefault();applyHue(e.changedTouches[0]);},{passive:false});
+}
+function openCustomAccentPicker(){
+  const startHex = themeSettings.customAccentHex || '#007AFF';
+  const {h,s,b}=accentHexToHsb(startHex);
+  accentCpHue=h;accentCpSat=s;accentCpBri=b;
+  currentAccentPickedColor=startHex;
+  openModal('customAccentModal');
+  buildAccentSwatches();
+  setTimeout(()=>{
+    const canvas=document.getElementById('accentSbCanvas');
+    if(canvas){canvas._abound=false;}
+    const track=document.getElementById('accentHueTrack');
+    if(track){track._abound=false;}
+    if(!document.getElementById('accentSbThumb')){
+      const t=document.createElement('div');t.id='accentSbThumb';t.className='sb-thumb';
+      document.getElementById('accentSbWrap').appendChild(t);
+    }
+    drawAccentSBCanvas();updateAccentSBThumb();updateAccentHueThumb();updateAccentPreview();
+    initAccentSBEvents();initAccentHueEvents();
+  },120);
+}
+function applyCustomAccent(){
+  const hex=currentAccentPickedColor;
+  const {h}=accentHexToHsb(hex);
+  themeSettings.hue=Math.round(h);
+  themeSettings.brightness=100;
+  themeSettings.selectedChip=99;
+  themeSettings.customAccentHex=hex;
+  document.body.style.setProperty('--primary', hex);
+  const isDark=themeSettings.dark;
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  document.body.style.setProperty('--primary-light',`rgba(${r},${g},${b},${isDark?0.22:0.14})`);
+  try{localStorage.setItem('dersTheme',JSON.stringify(themeSettings));}catch(e){}
+  buildAccentChips();
+  closeModal('customAccentModal');
+  showToast('Vurgu rengi güncellendi');
+}
+let bgCpHue=30, bgCpSat=0.05, bgCpBri=0.93;
+let currentBgPickedColor='#ECE9E4';
+function drawBgSBCanvas(){
+  const canvas=document.getElementById('bgSbCanvas');if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  canvas.width=canvas.offsetWidth||300;canvas.height=canvas.offsetHeight||160;
+  const w=canvas.width,h=canvas.height;
+  const base=`hsl(${bgCpHue},100%,50%)`;
+  const gH=ctx.createLinearGradient(0,0,w,0);gH.addColorStop(0,'#fff');gH.addColorStop(1,base);
+  ctx.fillStyle=gH;ctx.fillRect(0,0,w,h);
+  const gV=ctx.createLinearGradient(0,0,0,h);gV.addColorStop(0,'rgba(0,0,0,0)');gV.addColorStop(1,'#000');
+  ctx.fillStyle=gV;ctx.fillRect(0,0,w,h);
+}
+function updateBgSBThumb(){
+  const wrap=document.getElementById('bgSbWrap');if(!wrap)return;
+  let thumb=document.getElementById('bgSbThumb');
+  if(!thumb){thumb=document.createElement('div');thumb.id='bgSbThumb';thumb.className='sb-thumb';wrap.appendChild(thumb);}
+  thumb.style.left=(bgCpSat*100)+'%';
+  thumb.style.top=((1-bgCpBri)*100)+'%';
+}
+function updateBgHueThumb(){
+  const track=document.getElementById('bgHueTrack');if(!track)return;
+  const thumb=document.getElementById('bgHueThumb');if(!thumb)return;
+  thumb.style.left=(bgCpHue/360*100)+'%';
+  thumb.style.background=`hsl(${bgCpHue},100%,50%)`;
+}
+function updateBgPreview(){
+  currentBgPickedColor=accentHsbToHex(bgCpHue,bgCpSat,bgCpBri);
+  const circle=document.getElementById('bgColorCircle');if(circle)circle.style.background=currentBgPickedColor;
+  const hex=document.getElementById('bgColorHex');if(hex)hex.value=currentBgPickedColor;
+  document.querySelectorAll('#bgSwatchRow .swatch').forEach(s=>{
+    s.classList.toggle('active',s.dataset.c===currentBgPickedColor);
+  });
+}
+function onBgHexInput(val){
+  if(!val.startsWith('#'))val='#'+val;
+  if(!/^#[0-9a-fA-F]{6}$/.test(val))return;
+  const {h,s,b}=accentHexToHsb(val);
+  bgCpHue=h;bgCpSat=s;bgCpBri=b;
+  drawBgSBCanvas();updateBgSBThumb();updateBgHueThumb();updateBgPreview();
+}
+function buildBgSwatches(){
+  const row=document.getElementById('bgSwatchRow');if(!row)return;
+  const colors=['#ECE9E4','#F2F2F2','#E8EAED','#EDE7DC','#E5E9E3','#E8E6ED','#EDE5E5','#1A1A1C','#2A231C','#1F2127'];
+  row.innerHTML=colors.map(c=>`<div class="swatch" data-c="${c}" style="background:${c}" onclick="bgSwatchPick('${c}')"></div>`).join('');
+}
+function bgSwatchPick(hex){
+  const {h,s,b}=accentHexToHsb(hex);
+  bgCpHue=h;bgCpSat=s;bgCpBri=b;
+  drawBgSBCanvas();updateBgSBThumb();updateBgHueThumb();updateBgPreview();
+}
+function initBgSBEvents(){
+  const canvas=document.getElementById('bgSbCanvas');if(!canvas||canvas._bbound)return;
+  canvas._bbound=true;
+  function applyXY(cx,cy){
+    const rect=canvas.getBoundingClientRect();
+    bgCpSat=Math.max(0,Math.min(1,(cx-rect.left)/rect.width));
+    bgCpBri=Math.max(0,Math.min(1,1-(cy-rect.top)/rect.height));
+    updateBgSBThumb();updateBgPreview();
+  }
+  canvas.addEventListener('mousedown',e=>{applyXY(e.clientX,e.clientY);const mm=ev=>applyXY(ev.clientX,ev.clientY);const mu=()=>{document.removeEventListener('mousemove',mm);document.removeEventListener('mouseup',mu);};document.addEventListener('mousemove',mm);document.addEventListener('mouseup',mu);});
+  canvas.addEventListener('touchstart',e=>{e.preventDefault();applyXY(e.touches[0].clientX,e.touches[0].clientY);},{passive:false});
+  canvas.addEventListener('touchmove',e=>{e.preventDefault();applyXY(e.touches[0].clientX,e.touches[0].clientY);},{passive:false});
+  canvas.addEventListener('touchend',e=>{e.preventDefault();const t=e.changedTouches[0];applyXY(t.clientX,t.clientY);},{passive:false});
+}
+function initBgHueEvents(){
+  const track=document.getElementById('bgHueTrack');if(!track||track._bbound)return;
+  track._bbound=true;
+  function applyHue(src){
+    const rect=track.getBoundingClientRect();
+    bgCpHue=Math.max(0,Math.min(360,((src.clientX-rect.left)/rect.width)*360));
+    updateBgHueThumb();drawBgSBCanvas();updateBgPreview();
+  }
+  track.addEventListener('mousedown',e=>{applyHue(e);const mm=ev=>applyHue(ev);const mu=()=>{document.removeEventListener('mousemove',mm);document.removeEventListener('mouseup',mu);};document.addEventListener('mousemove',mm);document.addEventListener('mouseup',mu);});
+  track.addEventListener('touchstart',e=>{e.preventDefault();applyHue(e.touches[0]);},{passive:false});
+  track.addEventListener('touchmove',e=>{e.preventDefault();applyHue(e.touches[0]);},{passive:false});
+  track.addEventListener('touchend',e=>{e.preventDefault();applyHue(e.changedTouches[0]);},{passive:false});
+}
+function openCustomBgPicker(){
+  const startHex = themeSettings.customBgHex || '#ECE9E4';
+  const {h,s,b}=accentHexToHsb(startHex);
+  bgCpHue=h;bgCpSat=s;bgCpBri=b;
+  currentBgPickedColor=startHex;
+  openModal('customBgModal');
+  buildBgSwatches();
+  setTimeout(()=>{
+    const canvas=document.getElementById('bgSbCanvas');
+    if(canvas){canvas._bbound=false;}
+    const track=document.getElementById('bgHueTrack');
+    if(track){track._bbound=false;}
+    if(!document.getElementById('bgSbThumb')){
+      const t=document.createElement('div');t.id='bgSbThumb';t.className='sb-thumb';
+      document.getElementById('bgSbWrap').appendChild(t);
+    }
+    drawBgSBCanvas();updateBgSBThumb();updateBgHueThumb();updateBgPreview();
+    initBgSBEvents();initBgHueEvents();
+  },120);
+}
+function applyCustomBg(){
+  themeSettings.customBgHex = currentBgPickedColor;
+  themeSettings.bgVariant = 'custom';
+  applyBgVariant('custom');
+  try{localStorage.setItem('dersTheme',JSON.stringify(themeSettings));}catch(e){}
+  closeModal('customBgModal');
+  showToast('Arkaplan rengi güncellendi');
+}
+function pickAccent(idx) {
+  themeSettings.hue = ACCENT_PRESETS[idx].h;
+  themeSettings.selectedChip = idx;
+  applyTheme();
+}
+function onThemeSlider() {
+  themeSettings.hue        = parseInt(document.getElementById('hueSlider').value);
+  themeSettings.brightness = parseInt(document.getElementById('brightnessSlider').value);
+  themeSettings.selectedChip = -1;
+  applyTheme();
+}
+function resetSlider(type) {
+  if(type==='hue')        { themeSettings.hue=211; themeSettings.selectedChip=0; }
+  if(type==='brightness') themeSettings.brightness=100;
+  applyTheme();
+}
+function resetAllTheme() {
+  themeSettings = { hue:211, brightness:100, dark:false, selectedChip:0 };
+  applyTheme();
+  showToast('Ayarlar sıfırlandı');
+}
+function toggleDark() {
+  themeSettings.dark=!themeSettings.dark;
+  applyTheme();
+}
+function navigate(page, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  btn.classList.add('active');
+  if(page === 'istatistik') renderStats();
+  if(page === 'hedefler') renderHedefler();
+  if(page === 'takvim') renderCalendar();
+}
+let timerMode = 'free'; // 'free' | 'pomo'
+const POMO_WORK = 25 * 60;
+const POMO_BREAK = 5 * 60;
+let pomoPhase = 'work'; // 'work' | 'break'
+let pomoRemaining = POMO_WORK;
+function setTimerMode(mode, btn) {
+  if(timer.running || timer.paused) { showToast('Önce sayacı durdur'); return; }
+  timerMode = mode;
+  document.querySelectorAll('.timer-mode-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  pomoPhase = 'work'; pomoRemaining = POMO_WORK;
+  document.getElementById('timerDisplay').textContent = mode==='pomo' ? '25:00:00'.replace('25:00:00','00:25:00') : '00:00:00';
+  document.getElementById('timerDisplay').textContent = mode==='pomo' ? '00:25:00' : '00:00:00';
+  const badge = document.getElementById('pomoBadge');
+  if(mode==='pomo') {
+    badge.style.display='inline-flex';
+    badge.textContent='● ÇALIŞMA  •  25:00';
+    badge.className='pomo-badge work';
+  } else {
+    badge.style.display='none';
+  }
+  updateRing(0);
+}
+function handleMainBtn() {
+  if(!timer.running && !timer.paused) {
+    if(!state.selectedDersId && state.dersler.length > 0) { showToast('Lütfen ders seç'); return; }
+    if(state.dersler.length === 0) { showToast("Önce 'Dersler' sekmesinde ders ekle"); return; }
+    startTimer();
+  } else if(timer.running) {
+    pauseTimer();
+  } else {
+    resumeTimer();
+  }
+}
+let _wakeLock = null;
+async function _requestWakeLock() {
+  try {
+    if ('wakeLock' in navigator) {
+      _wakeLock = await navigator.wakeLock.request('screen');
+      _wakeLock.addEventListener('release', () => { _wakeLock = null; });
+    }
+  } catch(e) {}
+}
+function _releaseWakeLock() {
+  if (_wakeLock) { _wakeLock.release(); _wakeLock = null; }
+}
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && timer.running && !timer.paused) {
+    _requestWakeLock();
+    if (timer.startTime) {
+      const elapsed = Math.floor((Date.now() - timer.startTime) / 1000);
+      timer.seconds = timer.accumulated + elapsed;
+    }
+  }
+});
+function startTimer() {
+  timer.running = true; timer.paused = false; timer.seconds = 0;
+  timer.accumulated = 0;
+  timer.startTime = Date.now();
+  timer.pomoStartRem = pomoRemaining;
+  _requestWakeLock();
+  timer.interval = setInterval(tickTimer, 1000);
+  document.getElementById('mainBtn').textContent = 'Durdur';
+  document.getElementById('mainBtn').className = 'btn btn-danger';
+  document.getElementById('timerStatus').textContent = getDersName(state.selectedDersId) || 'Çalışıyor';
+  const card = document.getElementById('timerCard');
+  card.classList.add('running');
+  card.style.background = '';
+  const badge = document.getElementById('pomoBadge');
+  if(timerMode==='pomo') { badge.classList.add('running-badge'); }
+  showStopBtn();
+}
+function pauseTimer() {
+  if(timer.startTime) {
+    timer.accumulated += Math.floor((Date.now() - timer.startTime) / 1000);
+  }
+  timer.startTime = null;
+  timer.running = false; timer.paused = true;
+  clearInterval(timer.interval);
+  document.getElementById('mainBtn').textContent = 'Devam Et';
+  document.getElementById('mainBtn').className = 'btn btn-primary';
+  document.getElementById('timerStatus').textContent = 'Duraklatıldı';
+  document.getElementById('timerCard').classList.remove('running');
+}
+function resumeTimer() {
+  timer.running = true; timer.paused = false;
+  timer.startTime = Date.now();
+  timer.pomoStartRem = pomoRemaining;
+  timer.interval = setInterval(tickTimer, 1000);
+  document.getElementById('mainBtn').textContent = 'Durdur';
+  document.getElementById('mainBtn').className = 'btn btn-danger';
+  document.getElementById('timerStatus').textContent = getDersName(state.selectedDersId) || 'Çalışıyor';
+  document.getElementById('timerCard').classList.add('running');
+}
+function stopTimer() {
+  _releaseWakeLock();
+  if(timer.seconds < 5) { resetTimer(); return; }
+  const session = {
+    id: Date.now(),
+    dersId: state.selectedDersId,
+    duration: timer.seconds,
+    date: new Date().toISOString()
+  };
+  state.sessions.push(session);
+  save();
+  showToast('Oturum kaydedildi! ' + formatDuration(timer.seconds));
+  resetTimer();
+  renderHistory();
+  renderHedefler();
+  updateDailyProgress();
+}
+function resetTimer() {
+  clearInterval(timer.interval);
+  timer = { running:false, paused:false, seconds:0, interval:null, startTime:null, accumulated:0, pomoStartRem:0 };
+  pomoPhase='work'; pomoRemaining=POMO_WORK;
+  document.getElementById('timerDisplay').textContent = timerMode==='pomo' ? '00:25:00' : '00:00:00';
+  document.getElementById('timerStatus').textContent = 'Hazır';
+  document.getElementById('mainBtn').textContent = 'Başlat';
+  document.getElementById('mainBtn').className = 'btn btn-primary';
+  document.getElementById('timerBtns').innerHTML = '<button class="btn btn-primary" id="mainBtn" onclick="handleMainBtn()">Başlat</button>';
+  const card = document.getElementById('timerCard');
+  card.classList.remove('running');
+  card.style.background = '';
+  const badge = document.getElementById('pomoBadge');
+  if(timerMode==='pomo') {
+    badge.textContent='● ÇALIŞMA  •  25:00';
+    badge.className='pomo-badge work';
+  }
+  updateRing(0);
+}
+function tickTimer() {
+  const segElapsed = timer.startTime ? Math.floor((Date.now() - timer.startTime) / 1000) : 0;
+  timer.seconds = timer.accumulated + segElapsed;
+  if(timerMode === 'pomo') {
+    pomoRemaining = Math.max(0, timer.pomoStartRem - segElapsed);
+    if(pomoRemaining <= 0) {
+      if(pomoPhase === 'work') {
+        if(timer.seconds > 5) {
+          state.sessions.push({ id:Date.now(), dersId:state.selectedDersId, duration:timer.seconds, date:new Date().toISOString() });
+          save(); renderHistory(); renderHedefler(); updateDailyProgress();
+        }
+        timer.seconds = 0;
+        timer.accumulated = 0;
+        timer.startTime = Date.now();
+        pomoPhase = 'break';
+        pomoRemaining = POMO_BREAK;
+        timer.pomoStartRem = POMO_BREAK;
+        const badge = document.getElementById('pomoBadge');
+        badge.textContent = '● MOLA  •  5:00';
+        badge.className = 'pomo-badge brk running-badge';
+        document.getElementById('timerStatus').textContent = 'Mola!';
+        if(navigator.vibrate) navigator.vibrate([100,50,100]);
+        playPomoSound(); vibrateDevice();
+        showToast('🎉 Pomodoro bitti! Mola zamanı');
+      } else {
+        pomoPhase = 'work';
+        pomoRemaining = POMO_WORK;
+        timer.pomoStartRem = POMO_WORK;
+        timer.seconds = 0;
+        timer.accumulated = 0;
+        timer.startTime = Date.now();
+        const badge = document.getElementById('pomoBadge');
+        badge.textContent = '● ÇALIŞMA  •  25:00';
+        badge.className = 'pomo-badge work running-badge';
+        document.getElementById('timerStatus').textContent = getDersName(state.selectedDersId)||'Çalışıyor';
+        if(navigator.vibrate) navigator.vibrate(50);
+        playPomoSound(); vibrateDevice();
+        showToast('Mola bitti! Çalışmaya devam');
+      }
+    }
+    const total = pomoPhase==='work' ? POMO_WORK : POMO_BREAK;
+    const rem = pomoRemaining;
+    const h = Math.floor(rem/3600), m = Math.floor((rem%3600)/60), s = rem%60;
+    document.getElementById('timerDisplay').textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
+    const badge = document.getElementById('pomoBadge');
+    const phase = pomoPhase==='work'?'● ÇALIŞMA':'● MOLA';
+    badge.textContent = `${phase}  •  ${pad(m)}:${pad(s)}`;
+    const pct = 1 - (rem / total);
+    updateRing(pct);
+  } else {
+    const h = Math.floor(timer.seconds/3600);
+    const m = Math.floor((timer.seconds%3600)/60);
+    const s = timer.seconds%60;
+    document.getElementById('timerDisplay').textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
+    const pct = Math.min(timer.seconds / (state.goals.daily * 60), 1);
+    updateRing(pct);
+  }
+}
+document.addEventListener('visibilitychange', () => {
+  if(!document.hidden && timer.running) tickTimer();
+});
+function updateRing(pct) {
+  const circ = 553;
+  document.getElementById('ringFill').style.strokeDashoffset = circ - (circ * pct);
+}
+function updateDailyProgress() {
+  const now = new Date();
+  const todayStr = now.toDateString();
+  const todaySessions = state.sessions.filter(s => new Date(s.date).toDateString() === todayStr);
+  const todaySecs = todaySessions.reduce((a,s) => a+s.duration, 0);
+  const todayMins = Math.floor(todaySecs/60);
+  const pct = Math.min(Math.round((todayMins/state.goals.daily)*100),100);
+  const fill = document.getElementById('dailyProgFill');
+  const val = document.getElementById('dailyProgVal');
+  if(fill) fill.style.width = pct+'%';
+  if(val) val.textContent = pct+'%';
+  const summaryEl = document.getElementById('todaySummary');
+  const totalTextEl = document.getElementById('todayTotalText');
+  const countEl = document.getElementById('todaySessionCount');
+  if(summaryEl && todaySessions.length > 0) {
+    summaryEl.style.display = 'flex';
+    totalTextEl.textContent = formatDuration(todaySecs) + ' çalışıldı';
+    countEl.textContent = todaySessions.length + ' oturum';
+  } else if(summaryEl) {
+    summaryEl.style.display = 'none';
+  }
+}
+function showStopBtn() {
+  document.getElementById('timerBtns').innerHTML = `
+    <button class="btn btn-secondary" onclick="stopTimer()">Kaydet</button>
+    <button class="btn btn-danger" id="mainBtn" onclick="handleMainBtn()">Durdur</button>
+  `;
+}
+function pad(n) { return n < 10 ? '0'+n : n; }
+function formatDuration(secs) {
+  const h = Math.floor(secs/3600);
+  const m = Math.floor((secs%3600)/60);
+  const s = secs%60;
+  if(h > 0) return `${h}s ${m}dk ${s}sn`;
+  if(m > 0) return `${m}dk ${s}sn`;
+  return `${s}sn`;
+}
+function formatDurationMins(mins) {
+  const h = Math.floor(mins/60);
+  const m = mins%60;
+  if(h > 0) return `${h}s ${m}dk`;
+  return `${m}dk`;
+}
+function openSubjectSelect() {
+  if(state.dersler.length === 0) { showToast("Önce ders ekle"); return; }
+  const list = document.getElementById('subjectSelectList');
+  list.innerHTML = state.dersler.map(d => `
+    <div class="subject-select-item ${d.id === state.selectedDersId ? 'selected':''}" onclick="selectSubject(${d.id})">
+      <div class="subject-select-dot" style="background:${d.color}"></div>
+      <span class="subject-select-name">${d.name}</span>
+      ${d.id === state.selectedDersId ? '<span class="subject-select-check">✓</span>' : ''}
+    </div>
+  `).join('');
+  openModal('subjectSelectModal');
+}
+function selectSubject(id) {
+  state.selectedDersId = id;
+  save();
+  updateSelectedSubject();
+  closeModal('subjectSelectModal');
+}
+function updateSelectedSubject() {
+  const d = state.dersler.find(x => x.id === state.selectedDersId);
+  if(d) {
+    document.getElementById('selectedSubjectName').textContent = d.name;
+    document.getElementById('selectedSubjectDot').style.background = d.color;
+  } else {
+    document.getElementById('selectedSubjectName').textContent = 'Ders Seç';
+    document.getElementById('selectedSubjectDot').style.background = 'var(--primary)';
+  }
+}
+function getDersName(id) { const d = state.dersler.find(x=>x.id===id); return d ? d.name : ''; }
+function getDersColor(id) { const d = state.dersler.find(x=>x.id===id); return d ? d.color : '#007AFF'; }
+let currentPickedColor = COLORS[0];
+let cpHue = 211, cpSat = 1, cpBri = 1; // HSB state — for ders picker
+let evHue = 211, evSat = 1, evBri = 1;
+const SWATCHES = [
+  '#FF3B30','#FF6B35','#FF9500','#FFCC00','#FFD60A',
+  '#34C759','#00C7BE','#5AC8FA','#007AFF','#5856D6',
+  '#AF52DE','#FF2D55','#8B572A','#636366','#1C1C1E'
+];
+function hsbToRgb(h,s,b){
+  const k=(n)=>(n+h/60)%6;
+  const f=(n)=>b-b*s*Math.max(0,Math.min(k(n),4-k(n),1));
+  return [Math.round(f(5)*255),Math.round(f(3)*255),Math.round(f(1)*255)];
+}
+function rgbToHex(r,g,b){return '#'+[r,g,b].map(x=>x.toString(16).padStart(2,'0')).join('');}
+function hexToHsb(hex){
+  hex=hex.replace('#','');
+  if(hex.length!==6)return null;
+  const r=parseInt(hex.slice(0,2),16)/255,g=parseInt(hex.slice(2,4),16)/255,b=parseInt(hex.slice(4,6),16)/255;
+  const max=Math.max(r,g,b),min=Math.min(r,g,b),d=max-min;
+  let h=0;
+  if(d){
+    if(max===r) h=((g-b)/d+6)%6;
+    else if(max===g) h=(b-r)/d+2;
+    else h=(r-g)/d+4;
+    h*=60;
+  }
+  return {h, s: max?d/max:0, b: max};
+}
+function buildColorPicker(preselect) {
+  currentPickedColor = preselect || COLORS[0];
+  const hsb = hexToHsb(currentPickedColor.replace('#','').padEnd(6,'0'));
+  if(hsb){ cpHue=hsb.h; cpSat=hsb.s; cpBri=hsb.b; }
+  buildSwatches();
+  setTimeout(()=>{ drawSBCanvas(); updateHueThumb(); updatePreview(); },50);
+}
+function buildSwatches(){
+  const row=document.getElementById('swatchRow');
+  if(!row)return;
+  row.innerHTML=SWATCHES.map(c=>`<div class="swatch${c.toLowerCase()===currentPickedColor.toLowerCase()?' active':''}" style="background:${c}" onclick="pickSwatch('${c}')"></div>`).join('');
+}
+function pickSwatch(color){
+  currentPickedColor=color;
+  const hsb=hexToHsb(color.replace('#',''));
+  if(hsb){cpHue=hsb.h;cpSat=hsb.s;cpBri=hsb.b;}
+  drawSBCanvas();updateHueThumb();updatePreview();
+  document.querySelectorAll('.swatch').forEach(s=>s.classList.toggle('active',s.style.background===color||rgbToHexStr(s.style.background)===color.toLowerCase()));
+}
+function rgbToHexStr(rgb){
+  const m=rgb.match(/\d+/g);
+  if(!m||m.length<3)return '';
+  return '#'+m.slice(0,3).map(x=>parseInt(x).toString(16).padStart(2,'0')).join('');
+}
+function drawSBCanvas(){
+  const canvas=document.getElementById('sbCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=600, H=160;
+  canvas.width=W; canvas.height=H;
+  const [hr,hg,hb]=hsbToRgb(cpHue,1,1);
+  ctx.fillStyle=`rgb(${hr},${hg},${hb})`; ctx.fillRect(0,0,W,H);
+  const satGrad=ctx.createLinearGradient(0,0,W,0);
+  satGrad.addColorStop(0,'rgba(255,255,255,1)'); satGrad.addColorStop(1,'rgba(255,255,255,0)');
+  ctx.fillStyle=satGrad; ctx.fillRect(0,0,W,H);
+  const briGrad=ctx.createLinearGradient(0,0,0,H);
+  briGrad.addColorStop(0,'rgba(0,0,0,0)'); briGrad.addColorStop(1,'rgba(0,0,0,1)');
+  ctx.fillStyle=briGrad; ctx.fillRect(0,0,W,H);
+  updateSBThumb();
+}
+function updateSBThumb(){
+  const thumb=document.getElementById('sbThumb');
+  if(thumb){
+    thumb.style.left=(cpSat*100)+'%';
+    thumb.style.top=((1-cpBri)*100)+'%';
+  }
+}
+function updateHueThumb(){
+  const thumb=document.getElementById('hueThumb');
+  if(!thumb)return;
+  thumb.style.left=(cpHue/360*100)+'%';
+  const [r,g,b]=hsbToRgb(cpHue,1,1);
+  thumb.style.background=`rgb(${r},${g},${b})`;
+}
+function updatePreview(){
+  const [r,g,b]=hsbToRgb(cpHue,cpSat,cpBri);
+  const hex=rgbToHex(r,g,b);
+  currentPickedColor=hex;
+  const circle=document.getElementById('colorPreviewCircle');
+  const hexInp=document.getElementById('colorHexInput');
+  if(circle) circle.style.background=hex;
+  if(hexInp) hexInp.value=hex.toUpperCase();
+  document.querySelectorAll('.swatch').forEach(s=>{
+    const sc=s.style.backgroundColor;
+    s.classList.toggle('active', rgbToHexStr(sc)===hex.toLowerCase());
+  });
+}
+function onHexInput(val){
+  val=val.trim();
+  if(!val.startsWith('#')) val='#'+val;
+  if(val.length===7 && /^#[0-9a-fA-F]{6}$/.test(val)){
+    const hsb=hexToHsb(val.replace('#',''));
+    if(hsb){cpHue=hsb.h;cpSat=hsb.s;cpBri=hsb.b;}
+    currentPickedColor=val.toLowerCase();
+    drawSBCanvas();updateHueThumb();
+    const circle=document.getElementById('colorPreviewCircle');
+    if(circle) circle.style.background=val;
+  }
+}
+function onWheelColor(){}
+function selectColor(){}
+function initSBEvents(){
+  const canvas=document.getElementById('sbCanvas');
+  if(!canvas||canvas._bound)return;
+  canvas._bound=true;
+  let rafId=null;
+  function getSBPos(e){
+    const wrap=document.getElementById('sbWrap');
+    const rect=(wrap||canvas).getBoundingClientRect();
+    const src=e.touches?e.touches[0]:e;
+    return {
+      s: Math.max(0,Math.min(1,(src.clientX-rect.left)/rect.width)),
+      b: Math.max(0,Math.min(1,1-(src.clientY-rect.top)/rect.height))
+    };
+  }
+  function applySB(e){
+    const {s,b}=getSBPos(e);
+    cpSat=s; cpBri=b;
+    if(rafId) cancelAnimationFrame(rafId);
+    rafId=requestAnimationFrame(()=>{ updateSBThumb(); updatePreview(); rafId=null; });
+  }
+  canvas.addEventListener('mousedown',e=>{
+    applySB(e);
+    const mm=ev=>applySB(ev);
+    const mu=()=>{ document.removeEventListener('mousemove',mm); document.removeEventListener('mouseup',mu); };
+    document.addEventListener('mousemove',mm);
+    document.addEventListener('mouseup',mu);
+  });
+  canvas.addEventListener('touchstart', e=>{ e.preventDefault(); applySB(e); }, {passive:false});
+  canvas.addEventListener('touchmove',  e=>{ e.preventDefault(); applySB(e); }, {passive:false});
+  canvas.addEventListener('touchend',   e=>{ e.preventDefault();
+    const wrap=document.getElementById('sbWrap');
+    const rect=(wrap||canvas).getBoundingClientRect();
+    const t=e.changedTouches[0];
+    cpSat=Math.max(0,Math.min(1,(t.clientX-rect.left)/rect.width));
+    cpBri=Math.max(0,Math.min(1,1-(t.clientY-rect.top)/rect.height));
+    updateSBThumb(); updatePreview();
+  }, {passive:false});
+}
+function initHueEvents(){
+  const track=document.getElementById('hueTrack');
+  if(!track||track._bound)return;
+  track._bound=true;
+  let rafId=null;
+  function getHueVal(src){
+    const rect=track.getBoundingClientRect();
+    return Math.max(0,Math.min(360,((src.clientX-rect.left)/rect.width)*360));
+  }
+  function applyHue(e){
+    const src=e.touches?e.touches[0]:e;
+    cpHue=getHueVal(src);
+    if(rafId) cancelAnimationFrame(rafId);
+    rafId=requestAnimationFrame(()=>{
+      updateHueThumb();
+      drawSBCanvas(); // must redraw gradient when hue changes
+      updatePreview();
+      rafId=null;
+    });
+  }
+  track.addEventListener('mousedown',e=>{
+    applyHue(e);
+    const mm=ev=>applyHue(ev);
+    const mu=()=>{ document.removeEventListener('mousemove',mm); document.removeEventListener('mouseup',mu); };
+    document.addEventListener('mousemove',mm);
+    document.addEventListener('mouseup',mu);
+  });
+  track.addEventListener('touchstart', e=>{ e.preventDefault(); applyHue(e); }, {passive:false});
+  track.addEventListener('touchmove',  e=>{ e.preventDefault(); applyHue(e); }, {passive:false});
+  track.addEventListener('touchend',   e=>{ e.preventDefault();
+    const t=e.changedTouches[0];
+    cpHue=getHueVal(t);
+    updateHueThumb(); drawSBCanvas(); updatePreview();
+  }, {passive:false});
+}
+function initPickerEvents(){
+  setTimeout(()=>{
+    const canvas=document.getElementById('sbCanvas');
+    if(canvas){
+      canvas._bound=false;
+      if(!document.getElementById('sbThumb')){
+        const t=document.createElement('div');t.id='sbThumb';t.className='sb-thumb';
+        document.getElementById('sbWrap').appendChild(t);
+      }
+    }
+    const track=document.getElementById('hueTrack');
+    if(track) track._bound=false;
+    initSBEvents();initHueEvents();
+    drawSBCanvas();updateHueThumb();updatePreview();
+  },120);
+}
+function openAddDers() {
+  editingDersId = null;
+  document.getElementById('dersModalTitle').textContent = 'Ders Ekle';
+  document.getElementById('dersNameInput').value = '';
+  buildColorPicker(COLORS[0]);
+  openModal('addDersModal');
+  initPickerEvents();
+  setTimeout(()=>document.getElementById('dersNameInput').focus(),400);
+}
+function openEditDers(id) {
+  editingDersId = id;
+  const d = state.dersler.find(x=>x.id===id);
+  document.getElementById('dersModalTitle').textContent = 'Dersi Düzenle';
+  document.getElementById('dersNameInput').value = d.name;
+  buildColorPicker(d.color);
+  openModal('addDersModal');
+  initPickerEvents();
+}
+function saveDers() {
+  const name = document.getElementById('dersNameInput').value.trim();
+  if(!name) { showToast('Ders adı gir'); return; }
+  const color = currentPickedColor;
+  if(editingDersId) {
+    const d = state.dersler.find(x=>x.id===editingDersId);
+    d.name = name; d.color = color;
+  } else {
+    state.dersler.push({ id: Date.now(), name, color });
+    if(!state.selectedDersId) state.selectedDersId = state.dersler[0].id;
+  }
+  save();
+  closeModal('addDersModal');
+  renderDersler();
+  updateSelectedSubject();
+  showToast(editingDersId ? 'Ders güncellendi' : 'Ders eklendi');
+}
+function deleteDers(id) {
+  openModal('deleteConfirmModal');
+  document.getElementById('deleteConfirmBtn').onclick = () => {
+    state.dersler = state.dersler.filter(x=>x.id!==id);
+    state.sessions = state.sessions.filter(x=>x.dersId!==id);
+    if(state.selectedDersId === id) state.selectedDersId = state.dersler[0]?.id || null;
+    save();
+    closeModal('deleteConfirmModal');
+    renderDersler();
+    renderHistory();
+    updateSelectedSubject();
+    showToast('Ders silindi');
+  };
+}
+function renderDersler() {
+  const cont = document.getElementById('derslerContainer');
+  if(state.dersler.length === 0) {
+    cont.innerHTML = `<div class="empty-state" style="padding:60px 20px"><svg class="empty-state-svg" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="12" width="48" height="58" rx="6" stroke-width="2.5"/><path d="M26 28h28M26 38h20M26 48h24" stroke-width="2.5"/></svg><div class="empty-state-title">Henüz ders eklenmedi</div><div class="empty-state-sub">Sağ üstteki + butonuna tıklayarak ilk dersini ekle</div></div>`;
+    return;
+  }
+  cont.innerHTML = state.dersler.map(d => {
+    const total = state.sessions.filter(s=>s.dersId===d.id).reduce((a,s)=>a+s.duration,0);
+    const sessions = state.sessions.filter(s=>s.dersId===d.id).length;
+    return `<div class="ders-item" data-color="${d.color}" style="--ders-tint:${d.color}">
+      <div class="ders-color-bar" style="background:${d.color}"></div>
+      <div class="ders-info">
+        <div class="ders-name">${d.name}</div>
+        <div class="ders-stats">${sessions} oturum · ${formatDuration(total)}</div>
+      </div>
+      <div class="ders-actions">
+        <button class="ders-action-btn" onclick="openEditDers(${d.id})">✏️</button>
+        <button class="ders-action-btn" onclick="deleteDers(${d.id})">🗑</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function renderHistory() {
+  const cont = document.getElementById('historyContainer');
+  const sorted = [...state.sessions].sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,20);
+  if(sorted.length === 0) {
+    cont.innerHTML = `<div class="empty-state"><svg class="empty-state-svg" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="40" r="28" stroke-width="2.5"/><polyline points="40 24 40 40 50 47" stroke-width="2.5"/></svg><div class="empty-state-title">Henüz çalışma yok</div><div class="empty-state-sub">Sayacı başlatarak ilk oturumunu oluştur</div></div>`;
+    return;
+  }
+  cont.innerHTML = sorted.map(s => {
+    const d = state.dersler.find(x=>x.id===s.dersId);
+    const name = d ? d.name : 'Silindi';
+    const color = d ? d.color : '#8E8E93';
+    const date = new Date(s.date);
+    const isToday = date.toDateString() === new Date().toDateString();
+    const dateStr = isToday
+      ? 'Bugün · ' + date.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'})
+      : date.toLocaleDateString('tr-TR',{day:'numeric',month:'short'}) + ' · ' + date.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'});
+    const initial = name.charAt(0).toUpperCase();
+    return `<div class="history-item">
+      <div class="history-icon" style="background:${color}22;color:${color};font-size:15px;font-weight:700">${initial}</div>
+      <div class="history-info">
+        <div class="history-subject" style="color:var(--label)">${name}</div>
+        <div class="history-time">${dateStr}</div>
+      </div>
+      <div class="history-duration">${formatDuration(s.duration)}</div>
+    </div>`;
+  }).join('');
+}
+function setStatsTab(tab, btn) {
+  statsTab = tab;
+  document.querySelectorAll('.stats-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const main = document.getElementById('statsMainView');
+  const summ = document.getElementById('statsSummaryView');
+  if(tab === 'summary') {
+    main.style.display = 'none';
+    summ.style.display = '';
+    renderWeeklySummary();
+  } else {
+    main.style.display = '';
+    summ.style.display = 'none';
+    renderStats();
+  }
+}
+function renderStats() {
+  const now = new Date();
+  let sessions;
+  if(statsTab === 'week') {
+    const weekStart = new Date(now);
+    weekStart.setDate(now.getDate() - now.getDay() + 1);
+    weekStart.setHours(0,0,0,0);
+    sessions = state.sessions.filter(s => new Date(s.date) >= weekStart);
+  } else {
+    const monthAgo = new Date(now);
+    monthAgo.setDate(now.getDate() - 30);
+    sessions = state.sessions.filter(s => new Date(s.date) >= monthAgo);
+  }
+  const totalSecs = sessions.reduce((a,s)=>a+s.duration,0);
+  const totalMins = Math.floor(totalSecs/60);
+  document.getElementById('statTotalTime').textContent = formatDurationMins(totalMins);
+  document.getElementById('statSessions').textContent = sessions.length;
+  renderStreak();
+  renderBarChart(sessions);
+  renderSubjectTime(sessions);
+}
+function renderStreak() {
+  const streak = calcStreak();
+  const el = document.getElementById('streakSection');
+  if(streak > 0) {
+    el.innerHTML = `<div class="streak-card">
+      <div class="streak-icon">🔥</div>
+      <div class="streak-info">
+        <div class="streak-val">${streak} Gün</div>
+        <div class="streak-label">Çalışma serisi devam ediyor!</div>
+      </div>
+    </div>`;
+  } else { el.innerHTML = ''; }
+}
+function calcStreak() {
+  if(state.sessions.length === 0) return 0;
+  const days = new Set(state.sessions.map(s => new Date(s.date).toDateString()));
+  let streak = 0;
+  const today = new Date();
+  for(let i=0; i<365; i++) {
+    const d = new Date(today);
+    d.setDate(today.getDate()-i);
+    if(days.has(d.toDateString())) streak++;
+    else break;
+  }
+  return streak;
+}
+function getDaySegments(sessions, dayStr) {
+  const daySessions = sessions.filter(s => new Date(s.date).toDateString() === dayStr);
+  if(daySessions.length === 0) return [];
+  const byDers = {};
+  daySessions.forEach(s => { byDers[s.dersId] = (byDers[s.dersId]||0) + s.duration; });
+  return Object.entries(byDers)
+    .sort((a,b)=>b[1]-a[1])
+    .map(([id,secs]) => {
+      const d = state.dersler.find(x=>x.id===Number(id));
+      return { color: d ? d.color : '#8E8E93', secs };
+    });
+}
+function buildStackedBar(segments, totalSecs, maxSecs) {
+  const BAR_H = 100; // px max height
+  if(totalSecs === 0) {
+    return `<div style="width:100%;max-width:22px;height:3px;background:var(--fill2);border-radius:3px"></div>`;
+  }
+  const totalH = Math.max(Math.round((totalSecs/maxSecs)*BAR_H), 6);
+  const segs = [...segments]; // biggest first = bottom
+  return segs.map((seg, i) => {
+    const h = Math.max(Math.round((seg.secs/totalSecs)*totalH), 2);
+    const isTop = i === segs.length - 1;
+    const r = isTop ? '5px 5px 0 0' : '0';
+    return `<div style="width:100%;max-width:22px;height:${h}px;background:${seg.color};border-radius:${r};flex-shrink:0;margin:0"></div>`;
+  }).join('');
+}
+function renderBarChart(sessions) {
+  const chart = document.getElementById('barChart');
+  const yAxis = document.getElementById('barYAxis');
+  let dateList = [];
+  const now = new Date();
+  if(statsTab === 'week') {
+    const days = ['Pzt','Sal','Çar','Per','Cum','Cts','Paz'];
+    const todayDow = (now.getDay()+6)%7;
+    dateList = days.map((_,i) => {
+      const d = new Date(now); d.setDate(now.getDate()-todayDow+i);
+      return { label: days[i], dayStr: d.toDateString(), today: i===todayDow };
+    });
+  } else {
+    for(let i=13;i>=0;i--) {
+      const d = new Date(now); d.setDate(now.getDate()-i);
+      dateList.push({ label: d.getDate(), dayStr: d.toDateString(), today: i===0 });
+    }
+  }
+  const allData = dateList.map(item => {
+    const segments = getDaySegments(sessions, item.dayStr);
+    const total = segments.reduce((a,s)=>a+s.secs, 0);
+    return { ...item, segments, total };
+  });
+  const maxSecs = Math.max(...allData.map(d=>d.total), 1);
+  if(yAxis) {
+    const step = maxSecs / 4;
+    const labels = [maxSecs, step*3, step*2, step, 0].map(s => {
+      const m = Math.floor(s/60);
+      return m > 0 ? m+'dk' : '0';
+    });
+    yAxis.innerHTML = labels.map(l=>`<span>${l}</span>`).join('');
+  }
+  chart.innerHTML = allData.map(d => `
+    <div class="bar-col">
+      <div class="bar-wrap">
+        <div style="display:flex;flex-direction:column-reverse;align-items:center;justify-content:flex-start;width:100%;height:100%;gap:0">
+          ${buildStackedBar(d.segments, d.total, maxSecs)}
+        </div>
+      </div>
+      <div class="bar-day ${d.today?'today':''}">${d.label}</div>
+    </div>
+  `).join('');
+}
+function renderSubjectTime(sessions) {
+  const cont = document.getElementById('subjectTimeChart');
+  if(sessions.length === 0) {
+    cont.innerHTML = `<div class="empty-state" style="padding:20px"><p>Henüz veri yok</p></div>`;
+    return;
+  }
+  const byDers = {};
+  sessions.forEach(s => {
+    if(!byDers[s.dersId]) byDers[s.dersId] = 0;
+    byDers[s.dersId] += s.duration;
+  });
+  const total = Object.values(byDers).reduce((a,b)=>a+b,0);
+  const sorted = Object.entries(byDers).sort((a,b)=>b[1]-a[1]);
+  cont.innerHTML = sorted.map(([id, secs]) => {
+    const d = state.dersler.find(x=>x.id===Number(id));
+    const name = d ? d.name : 'Silindi';
+    const color = d ? d.color : '#8E8E93';
+    const pct = Math.round((secs/total)*100);
+    const mins = Math.floor(secs/60);
+    return `<div class="subject-time-item">
+      <div class="subject-time-row">
+        <div class="subject-time-name"><div class="subject-time-dot" style="background:${color}"></div>${name}</div>
+        <div class="subject-time-val">${formatDuration(secs)}</div>
+      </div>
+      <div class="subject-progress"><div class="subject-progress-fill" style="width:${pct}%;background:${color}"></div></div>
+    </div>`;
+  }).join('');
+}
+function renderHedefler() {
+  const now = new Date();
+  const todayStr = now.toDateString();
+  const weekStart = new Date(now);
+  weekStart.setDate(now.getDate() - (now.getDay()+6)%7);
+  weekStart.setHours(0,0,0,0);
+  const todaySecs = state.sessions.filter(s=>new Date(s.date).toDateString()===todayStr).reduce((a,s)=>a+s.duration,0);
+  const weekSecs = state.sessions.filter(s=>new Date(s.date)>=weekStart).reduce((a,s)=>a+s.duration,0);
+  const dailyMins = Math.floor(todaySecs/60);
+  const weekMins = Math.floor(weekSecs/60);
+  const dailyPct = Math.min(Math.round((dailyMins/state.goals.daily)*100),100);
+  const weeklyPct = Math.min(Math.round((weekMins/state.goals.weekly)*100),100);
+  document.getElementById('gunlukText').textContent = `${formatDurationMins(dailyMins)} / ${formatDurationMins(state.goals.daily)}`;
+  document.getElementById('gunlukFill').style.width = dailyPct+'%';
+  document.getElementById('gunlukPct').textContent = dailyPct+'%';
+  document.getElementById('gunlukPct').style.color = dailyPct>=100 ? 'var(--green)' : 'var(--primary)';
+  document.getElementById('haftalikText').textContent = `${formatDurationMins(weekMins)} / ${formatDurationMins(state.goals.weekly)}`;
+  document.getElementById('haftalikFill').style.width = weeklyPct+'%';
+  document.getElementById('haftalikPct').textContent = weeklyPct+'%';
+  document.getElementById('haftalikPct').style.color = weeklyPct>=100 ? 'var(--green)' : 'var(--primary)';
+}
+function openHedefEdit(type) {
+  editingHedef = type;
+  const mins = type === 'daily' ? state.goals.daily : state.goals.weekly;
+  document.getElementById('hedefModalTitle').textContent = type==='daily' ? 'Günlük Hedef' : 'Haftalık Hedef';
+  document.getElementById('hedefHour').value = Math.floor(mins/60);
+  document.getElementById('hedefMin').value = mins%60;
+  openModal('hedefModal');
+}
+function saveHedef() {
+  const h = parseInt(document.getElementById('hedefHour').value)||0;
+  const m = parseInt(document.getElementById('hedefMin').value)||0;
+  const total = h*60+m;
+  if(total < 1) { showToast('En az 1 dakika gir'); return; }
+  if(editingHedef==='daily') state.goals.daily = total;
+  else state.goals.weekly = total;
+  save();
+  closeModal('hedefModal');
+  renderHedefler();
+  showToast('Hedef güncellendi');
+}
+function setHwType(type, btn) {
+  hwType = type;
+  document.getElementById('hwTypeHw').className = 'type-chip' + (type==='hw'?' active':'');
+  document.getElementById('hwTypeHw').style.cssText = '';
+  const examBtn = document.getElementById('hwTypeExam');
+  if(type==='exam') { examBtn.className='type-chip exam-active'; examBtn.style.cssText=''; }
+  else { examBtn.className='type-chip'; examBtn.style.cssText=''; }
+}
+function saveHomework() {
+  const title = document.getElementById('hwTitleInput').value.trim();
+  if(!title) { showToast('Başlık gir'); return; }
+  const dersId = parseInt(document.getElementById('hwDersSelect').value) || null;
+  const due = document.getElementById('hwDueDate').value || null;
+  state.homework.push({ id:'hw_'+Date.now(), title, type:hwType, dersId, due, done:false });
+  save();
+  renderDersler();
+  showToast('Eklendi');
+}
+function toggleHw(id) {
+  const h = state.homework.find(x=>x.id===id);
+  if(h) { h.done=!h.done; save(); renderDersler(); }
+}
+function setEventType(type, btn) {
+  currentEventType = type;
+  ['event','hw','exam'].forEach(t => {
+    const b = document.getElementById('typeChip'+t.charAt(0).toUpperCase()+t.slice(1));
+    if(!b) return;
+    b.className = 'type-chip';
+    b.style.cssText = '';
+  });
+  if(type==='exam') { btn.className='type-chip exam-active'; }
+  else { btn.className='type-chip active'; }
+}
+function setRepeat(r, btn) {
+  currentRepeat = r;
+  document.querySelectorAll('.repeat-chip').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function saveEvent() {
+  const title = document.getElementById('eventTitleInput').value.trim();
+  if(!title) { showToast('Başlık gir'); return; }
+  const startH = parseTimeInput(document.getElementById('eventStartInput').value);
+  const endH   = parseTimeInput(document.getElementById('eventEndInput').value);
+  if(endH <= startH) { showToast('Bitiş saati başlangıçtan sonra olmalı'); return; }
+  const note = document.getElementById('eventNoteInput').value.trim();
+  if(editingEventId) {
+    const ev = state.calEvents.find(e=>e.id===editingEventId);
+    if(ev) { ev.title=title; ev.startH=startH; ev.endH=endH; ev.color=editingEventColor; ev.note=note; ev.type=currentEventType; ev.repeat=currentRepeat; }
+  } else {
+    const evObj = {id:'ev_'+Date.now(), key:editingEventKey, title, startH, endH, color:editingEventColor, note, type:currentEventType, repeat:currentRepeat};
+    state.calEvents.push(evObj);
+    if(currentRepeat !== 'none') {
+      generateRepeats(evObj);
+    }
+  }
+  save(); closeModal('eventModal'); renderCalendar(); showToast('Kaydedildi');
+}
+function generateRepeats(evObj) {
+  const baseDate = new Date(evObj.key);
+  const dow = baseDate.getDay();
+  for(let i=1; i<=52; i++) {
+    const d = new Date(baseDate);
+    if(evObj.repeat === 'daily')   d.setDate(baseDate.getDate()+i);
+    else if(evObj.repeat === 'weekly') d.setDate(baseDate.getDate()+i*7);
+    else if(evObj.repeat === 'weekday') {
+      let added = 0, check = new Date(baseDate);
+      while(added < i) { check.setDate(check.getDate()+1); if(check.getDay()!==0&&check.getDay()!==6) added++; }
+      d.setTime(check.getTime());
+    } else break;
+    const k = dateKey(d.getFullYear(),d.getMonth(),d.getDate());
+    state.calEvents.push({id:'ev_'+Date.now()+'_'+i, key:k, title:evObj.title, startH:evObj.startH, endH:evObj.endH, color:evObj.color, note:evObj.note, type:evObj.type, repeat:evObj.repeat, parentId:evObj.id});
+  }
+}
+function renderWeeklySummary() {
+  const now = new Date();
+  const weekStart = new Date(now);
+  weekStart.setDate(now.getDate() - (now.getDay()+6)%7);
+  weekStart.setHours(0,0,0,0);
+  const sessions = state.sessions.filter(s=>new Date(s.date)>=weekStart);
+  const totalSecs = sessions.reduce((a,s)=>a+s.duration,0);
+  const days = new Set(sessions.map(s=>new Date(s.date).toDateString())).size;
+  const bestDay = (() => {
+    const byDay = {};
+    sessions.forEach(s=>{ const k=new Date(s.date).toDateString(); byDay[k]=(byDay[k]||0)+s.duration; });
+    const best = Object.entries(byDay).sort((a,b)=>b[1]-a[1])[0];
+    if(!best) return '—';
+    const d = new Date(best[0]);
+    return ['Paz','Pzt','Sal','Çar','Per','Cum','Cts'][d.getDay()] + ' · ' + formatDurationMins(Math.floor(best[1]/60));
+  })();
+  const cont = document.getElementById('weeklySummaryContent');
+  cont.innerHTML = [
+    ['⏱ Toplam Süre', formatDurationMins(Math.floor(totalSecs/60))],
+    ['📅 Çalışılan Gün', days + ' gün'],
+    ['🏆 En İyi Gün', bestDay],
+    ['📚 Toplam Oturum', sessions.length + ' seans'],
+  ].map(([l,v])=>`<div class="summary-row"><span class="summary-label">${l}</span><span class="summary-val">${v}</span></div>`).join('');
+}
+function togglePomoSound() {
+  state.pomodoroSound = !state.pomodoroSound;
+  document.getElementById('pomoSoundBtn').classList.toggle('on', state.pomodoroSound);
+  save();
+}
+function togglePomoVibe() {
+  state.pomodoroVibe = !state.pomodoroVibe;
+  document.getElementById('pomoVibeBtn').classList.toggle('on', state.pomodoroVibe);
+  save();
+}
+function playPomoSound() {
+  if(!state.pomodoroSound) return;
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    [0, 0.15, 0.3].forEach(delay => {
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.frequency.value = 880;
+      g.gain.setValueAtTime(0, ctx.currentTime+delay);
+      g.gain.linearRampToValueAtTime(0.3, ctx.currentTime+delay+0.05);
+      g.gain.linearRampToValueAtTime(0, ctx.currentTime+delay+0.25);
+      o.start(ctx.currentTime+delay);
+      o.stop(ctx.currentTime+delay+0.25);
+    });
+  } catch(e) {}
+}
+function vibrateDevice() {
+  if(!state.pomodoroVibe) return;
+  if(navigator.vibrate) navigator.vibrate([200, 100, 200]);
+}
+function saveReminderTime(val) {
+  state.reminderTime = val;
+  save();
+  if(val) scheduleReminder(val);
+  if(val && 'Notification' in window) Notification.requestPermission();
+  showToast(val ? `Hatırlatma: ${val}` : 'Hatırlatma kapatıldı');
+}
+function clearReminderTime() {
+  state.reminderTime = null;
+  save();
+  document.getElementById('reminderToggle').classList.remove('on');
+  document.getElementById('reminderTimePicker').style.display = 'none';
+  document.getElementById('reminderTimeDisplay').textContent = '—';
+  showToast('Hatırlatma kaldırıldı');
+}
+function toggleReminderWidget() {
+  const toggle = document.getElementById('reminderToggle');
+  const picker = document.getElementById('reminderTimePicker');
+  const isOn = toggle.classList.toggle('on');
+  picker.style.display = isOn ? 'block' : 'none';
+  if(!isOn) { clearReminderTime(); }
+}
+let drumHour = 7, drumMin = 0;
+function initDrumPicker() {
+  const hourList = document.getElementById('hourList');
+  const minList = document.getElementById('minList');
+  if(!hourList || !minList) return;
+  if(state.reminderTime) {
+    const [h,m] = state.reminderTime.split(':').map(Number);
+    drumHour = h; drumMin = m;
+  }
+  const ITEM_H = 44;
+  hourList.innerHTML = Array.from({length:24},(_,i)=>
+    `<div class="drum-item" data-val="${i}" style="height:${ITEM_H}px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;font-family:var(--font-display);color:var(--label);letter-spacing:-0.5px">${String(i).padStart(2,'0')}</div>`
+  ).join('');
+  minList.innerHTML = Array.from({length:60},(_,i)=>
+    `<div class="drum-item" data-val="${i}" style="height:${ITEM_H}px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;font-family:var(--font-display);color:var(--label);letter-spacing:-0.5px">${String(i).padStart(2,'0')}</div>`
+  ).join('');
+  const pad = document.createElement('div');
+  pad.style.height = (ITEM_H * 1.5) + 'px';
+  hourList.prepend(pad.cloneNode()); hourList.append(pad.cloneNode());
+  minList.prepend(pad.cloneNode()); minList.append(pad.cloneNode());
+  setDrumPos(hourList, drumHour, ITEM_H, false);
+  setDrumPos(minList, drumMin, ITEM_H, false);
+  updateReminderDisplay();
+  setupDrumDrag(document.getElementById('hourDrum'), hourList, 24, ITEM_H, v => { drumHour = v; updateReminderDisplay(); });
+  setupDrumDrag(document.getElementById('minDrum'), minList, 60, ITEM_H, v => { drumMin = v; updateReminderDisplay(); });
+}
+function setDrumPos(list, val, itemH, animate) {
+  if(!animate) list.style.transition = 'none';
+  list.style.transform = `translateY(-${val * itemH}px)`;
+  if(!animate) setTimeout(()=>{ list.style.transition = 'transform 0.25s cubic-bezier(.34,1.3,.64,1)'; }, 50);
+  list.querySelectorAll('.drum-item').forEach((el,i) => {
+    el.style.opacity = (i === val + 1) ? '1' : '0.35'; // +1 for padding node
+    el.style.fontWeight = (i === val + 1) ? '700' : '400';
+  });
+}
+function setupDrumDrag(container, list, count, itemH, onChange) {
+  let startY, startOffset, currentVal;
+  const getOffset = () => {
+    const t = list.style.transform;
+    return t ? -parseInt(t.replace('translateY(','').replace('px)','')) : 0;
+  };
+  container.addEventListener('touchstart', e => {
+    startY = e.touches[0].clientY;
+    startOffset = getOffset();
+    list.style.transition = 'none';
+  }, {passive:true});
+  container.addEventListener('touchmove', e => {
+    const dy = startY - e.touches[0].clientY;
+    const raw = Math.max(0, Math.min((count-1)*itemH, startOffset + dy));
+    list.style.transform = `translateY(-${raw}px)`;
+    currentVal = Math.round(raw / itemH);
+    list.querySelectorAll('.drum-item').forEach((el,i)=>{
+      el.style.opacity = (i === currentVal+1) ? '1' : '0.35';
+      el.style.fontWeight = (i === currentVal+1) ? '700' : '400';
+    });
+  }, {passive:true});
+  container.addEventListener('touchend', () => {
+    list.style.transition = 'transform 0.25s cubic-bezier(.34,1.3,.64,1)';
+    const snapped = Math.max(0, Math.min(count-1, currentVal ?? Math.round(getOffset()/itemH)));
+    list.style.transform = `translateY(-${snapped * itemH}px)`;
+    onChange(snapped);
+  });
+  let md = false, mStartY, mStartOff;
+  container.addEventListener('mousedown', e => { md=true; mStartY=e.clientY; mStartOff=getOffset(); list.style.transition='none'; });
+  window.addEventListener('mousemove', e => {
+    if(!md) return;
+    const dy = mStartY - e.clientY;
+    const raw = Math.max(0, Math.min((count-1)*itemH, mStartOff+dy));
+    list.style.transform = `translateY(-${raw}px)`;
+    currentVal = Math.round(raw/itemH);
+    list.querySelectorAll('.drum-item').forEach((el,i)=>{
+      el.style.opacity=(i===currentVal+1)?'1':'0.35';
+      el.style.fontWeight=(i===currentVal+1)?'700':'400';
+    });
+  });
+  window.addEventListener('mouseup', () => {
+    if(!md) return; md=false;
+    list.style.transition='transform 0.25s cubic-bezier(.34,1.3,.64,1)';
+    const snapped=Math.max(0,Math.min(count-1,currentVal??Math.round(getOffset()/itemH)));
+    list.style.transform=`translateY(-${snapped*itemH}px)`;
+    onChange(snapped);
+  });
+}
+function updateReminderDisplay() {
+  const val = `${String(drumHour).padStart(2,'0')}:${String(drumMin).padStart(2,'0')}`;
+  const el = document.getElementById('reminderTimeDisplay');
+  if(el) el.textContent = val;
+  saveReminderTime(val);
+}
+function exportCSV() {
+  if(state.sessions.length === 0) { showToast('Dışa aktarılacak veri yok'); return; }
+  const rows = [['Tarih','Saat','Ders','Süre (dk)','Süre (sn)']];
+  state.sessions.forEach(s => {
+    const d = state.dersler.find(x=>x.id===s.dersId);
+    const dt = new Date(s.date);
+    rows.push([
+      dt.toLocaleDateString('tr-TR'),
+      dt.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'}),
+      d ? d.name : 'Silindi',
+      Math.floor(s.duration/60),
+      s.duration
+    ]);
+  });
+  const csv = rows.map(r=>r.map(v=>`"${v}"`).join(',')).join('\n');
+  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'calisma-gecmisi.csv'; a.click();
+  URL.revokeObjectURL(url);
+  showToast('CSV indirildi');
+}
+function initSettingsUI() {
+  document.getElementById('pomoSoundBtn').classList.toggle('on', state.pomodoroSound !== false);
+  document.getElementById('pomoVibeBtn').classList.toggle('on', state.pomodoroVibe !== false);
+  buildAccentChips();
+  applyTheme();
+  applyBgVariant(themeSettings.bgVariant || 'plain');
+  applyTexVariant(themeSettings.texVariant || 'none');
+}
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  if(id === 'settingsModal') { buildAccentChips(); applyTheme(); }
+}
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', e => { if(e.target===m) m.classList.remove('open'); });
+});
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2500);
+}
+const BG_VARIANTS = ['plain','night','custom'];
+const TEX_VARIANTS = ['none','dots','lines','grid','noise'];
+function _hexRgb(hex) {
+  if (!/^#[0-9A-Fa-f]{6}$/.test(hex)) return null;
+  return {
+    r: parseInt(hex.slice(1,3),16),
+    g: parseInt(hex.slice(3,5),16),
+    b: parseInt(hex.slice(5,7),16)
+  };
+}
+function _rgbHex(r,g,b) {
+  const c = n => Math.max(0, Math.min(255, Math.round(n))).toString(16).padStart(2,'0');
+  return '#' + c(r) + c(g) + c(b);
+}
+function _luma(r,g,b) {
+  return 0.2126*r + 0.7152*g + 0.0722*b;
+}
+function _shade(hex, amount) {
+  const rgb = _hexRgb(hex); if (!rgb) return hex;
+  return _rgbHex(rgb.r + amount, rgb.g + amount, rgb.b + amount);
+}
+function _deriveTokensFromBg(bgHex) {
+  const rgb = _hexRgb(bgHex); if (!rgb) return null;
+  const luma = _luma(rgb.r, rgb.g, rgb.b);
+  const isDarkBg = luma < 110;
+  const cardDelta  = isDarkBg ? +10 : +6;
+  const card2Delta = isDarkBg ? +18 : -8;
+  const card  = _rgbHex(rgb.r+cardDelta, rgb.g+cardDelta, rgb.b+cardDelta);
+  const card2 = _rgbHex(rgb.r+card2Delta, rgb.g+card2Delta, rgb.b+card2Delta);
+  const fill  = card2;
+  const fill2 = _rgbHex(rgb.r+(isDarkBg?+24:-14), rgb.g+(isDarkBg?+24:-14), rgb.b+(isDarkBg?+24:-14));
+  const sep   = _rgbHex(rgb.r+(isDarkBg?+22:-22), rgb.g+(isDarkBg?+22:-22), rgb.b+(isDarkBg?+22:-22));
+  const label  = isDarkBg ? '#F0EDE6' : '#252320';
+  const label2 = isDarkBg ? '#C8C4BB' : '#48433D';
+  const label3 = isDarkBg ? '#8C887E' : '#7E7870';
+  const label4 = isDarkBg ? '#4A4640' : '#B8B2A8';
+  const lightShadowRgb = isDarkBg
+    ? _rgbHex(rgb.r+22, rgb.g+22, rgb.b+22)
+    : _rgbHex(Math.min(255,rgb.r+18), Math.min(255,rgb.g+18), Math.min(255,rgb.b+18));
+  const darkShadowRgb = isDarkBg
+    ? '#000000'
+    : _rgbHex(Math.max(0,rgb.r-50), Math.max(0,rgb.g-50), Math.max(0,rgb.b-50));
+  const lightAlpha = isDarkBg ? 0.45 : 0.85;
+  const darkAlpha  = isDarkBg ? 0.55 : 0.22;
+  return {
+    bg: bgHex, card, card2, fill, fill2, sep,
+    label, label2, label3, label4,
+    isDarkBg,
+    nm: {
+      lightShadow: `rgba(${_hexRgb(lightShadowRgb).r},${_hexRgb(lightShadowRgb).g},${_hexRgb(lightShadowRgb).b},${lightAlpha})`,
+      darkShadow:  isDarkBg ? `rgba(0,0,0,${darkAlpha})` : `rgba(${_hexRgb(darkShadowRgb).r},${_hexRgb(darkShadowRgb).g},${_hexRgb(darkShadowRgb).b},${darkAlpha})`
+    }
+  };
+}
+function _applyTokens(tokens) {
+  const s = document.body.style;
+  s.setProperty('--bg', tokens.bg);
+  s.setProperty('--bg-surface', tokens.bg);
+  s.setProperty('--card', tokens.card);
+  s.setProperty('--card2', tokens.card2);
+  s.setProperty('--fill', tokens.fill);
+  s.setProperty('--fill2', tokens.fill2);
+  s.setProperty('--separator', tokens.sep);
+  s.setProperty('--label', tokens.label);
+  s.setProperty('--label2', tokens.label2);
+  s.setProperty('--label3', tokens.label3);
+  s.setProperty('--label4', tokens.label4);
+  s.setProperty('--nav-bg', tokens.bg);
+  s.setProperty('--nm-light', tokens.nm.lightShadow);
+  s.setProperty('--nm-dark', tokens.nm.darkShadow);
+  s.setProperty('--nm-shadow',
+    `6px 6px 14px ${tokens.nm.darkShadow}, -6px -6px 14px ${tokens.nm.lightShadow}`);
+  s.setProperty('--nm-shadow-sm',
+    `3px 3px 7px ${tokens.nm.darkShadow}, -3px -3px 7px ${tokens.nm.lightShadow}`);
+  s.setProperty('--nm-inset',
+    `inset 3px 3px 6px ${tokens.nm.darkShadow}, inset -3px -3px 6px ${tokens.nm.lightShadow}`);
+  s.setProperty('--nm-inset-sm',
+    `inset 2px 2px 4px ${tokens.nm.darkShadow}, inset -2px -2px 4px ${tokens.nm.lightShadow}`);
+  s.setProperty('--shadow', `var(--nm-shadow)`);
+  s.setProperty('--shadow-sm', `var(--nm-shadow-sm)`);
+}
+function _clearTokens() {
+  const s = document.body.style;
+  ['--bg','--bg-surface','--card','--card2','--fill','--fill2','--separator',
+   '--label','--label2','--label3','--label4','--nav-bg',
+   '--nm-light','--nm-dark','--nm-shadow','--nm-shadow-sm','--nm-inset','--nm-inset-sm',
+   '--shadow','--shadow-sm'].forEach(p => s.removeProperty(p));
+}
+function applyBgVariant(variant) {
+  if (!BG_VARIANTS.includes(variant)) variant = 'plain';
+  BG_VARIANTS.forEach(v => document.body.classList.remove('bg-' + v));
+  document.body.classList.add('bg-' + variant);
+  document.body.classList.toggle('dark', variant === 'night');
+  let bgHex = null;
+  if (variant === 'plain') bgHex = '#F2F2F2';
+  else if (variant === 'night') bgHex = '#1F2024';
+  else if (variant === 'custom') bgHex = themeSettings.customBgHex || themeSettings.customBg || '#ECE9E4';
+  if (bgHex) {
+    const tokens = _deriveTokensFromBg(bgHex);
+    if (tokens) _applyTokens(tokens);
+  } else {
+    _clearTokens();
+  }
+  document.querySelectorAll('.bg-picker-opt').forEach(el => {
+    el.classList.toggle('active', el.dataset.bg === variant);
+  });
+  const customThumb = document.querySelector('.bg-opt-custom-thumb');
+  if (customThumb && themeSettings.customBgHex) {
+    customThumb.style.background = themeSettings.customBgHex;
+  }
+  const metaTheme = document.getElementById('metaThemeColor');
+  if (metaTheme && bgHex) metaTheme.content = bgHex;
+}
+function setBgVariant(variant) {
+  themeSettings.bgVariant = variant;
+  applyBgVariant(variant);
+  try { localStorage.setItem('dersTheme', JSON.stringify(themeSettings)); } catch(e) {}
+}
+function applyTexVariant(tex) {
+  if (!TEX_VARIANTS.includes(tex)) tex = 'none';
+  TEX_VARIANTS.forEach(t => document.body.classList.remove('tex-' + t));
+  if (tex !== 'none') document.body.classList.add('tex-' + tex);
+  document.querySelectorAll('.tex-picker-opt').forEach(el => {
+    el.classList.toggle('active', el.dataset.tex === tex);
+  });
+}
+function setTexVariant(tex) {
+  themeSettings.texVariant = tex;
+  applyTexVariant(tex);
+  try { localStorage.setItem('dersTheme', JSON.stringify(themeSettings)); } catch(e) {}
+}
+if (themeSettings.bgVariant && !BG_VARIANTS.includes(themeSettings.bgVariant)) {
+  themeSettings.bgVariant = 'plain';
+}
+themeSettings.bgVariant = themeSettings.bgVariant ?? (themeSettings.dark ? 'night' : 'plain');
+themeSettings.texVariant = themeSettings.texVariant ?? 'none';
+renderHistory        = _coalesce('renderHistory', renderHistory);
+renderStats          = _coalesce('renderStats', renderStats);
+renderHedefler       = _coalesce('renderHedefler', renderHedefler);
+updateDailyProgress  = _coalesce('updateDailyProgress', updateDailyProgress);
+renderDersler        = _coalesce('renderDersler', renderDersler);
+init();
+applyTheme();
+applyBgVariant(themeSettings.bgVariant);
+applyTexVariant(themeSettings.texVariant);
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('SW registered:', reg.scope))
+      .catch(err => console.log('SW error:', err));
+  });
+}
+function scheduleReminder(timeStr) { /* devre dışı */ }
+</script>
+</body>
+</html>
