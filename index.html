@@ -1247,6 +1247,19 @@ function confirmClearHistory() {
   updateDailyProgress();
   showToast('Geçmiş temizlendi');
 }
+// ── Global Haptic Listener ──
+document.addEventListener('touchstart', function(e) {
+  const el = e.target.closest('button, .nav-item, .cal-cell, .ders-item, .subject-select-item, .cal-vtab, .stats-tab, .timer-mode-btn, .repeat-chip, .type-chip, .bg-picker-opt, .tex-picker-opt, .accent-chip, .swatch, .settings-item, .hw-item, .hedef-edit-btn, .dark-btn, .add-btn, .takvim-nav-btn');
+  if(!el) return;
+  // Daha ağır elementler için daha güçlü titreşim
+  if(el.classList.contains('btn') || el.classList.contains('add-btn') || el.classList.contains('dark-btn')) {
+    haptic('medium');
+  } else if(el.classList.contains('nav-item')) {
+    haptic('medium');
+  } else {
+    haptic('light');
+  }
+}, { passive: true });
 function syncHtmlBg() {
   document.documentElement.style.background = getComputedStyle(document.body).getPropertyValue('--bg').trim() || '#ECE9E4';
 }
@@ -1667,6 +1680,8 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 function startTimer() {
+  haptic('success');
+  if(state.pomodoroSound) playStartSound();
   timer.running = true; timer.paused = false; timer.seconds = 0;
   timer.accumulated = 0;
   timer.startTime = Date.now();
@@ -1706,6 +1721,8 @@ function resumeTimer() {
   document.getElementById('timerCard').classList.add('running');
 }
 function stopTimer() {
+  haptic('medium');
+  if(state.pomodoroSound && timer.running) playStopSound();
   _releaseWakeLock();
   if(timer.seconds < 5) { resetTimer(); return; }
   const session = {
@@ -1764,6 +1781,7 @@ function tickTimer() {
         document.getElementById('timerStatus').textContent = 'Mola!';
         if(navigator.vibrate) navigator.vibrate([100,50,100]);
         playPomoSound(); vibrateDevice();
+        showNotif('🍅 Pomodoro Tamamlandı!', 'Harika iş! Mola zamanı.');
         showToast('🎉 Pomodoro bitti! Mola zamanı');
       } else {
         pomoPhase = 'work';
@@ -1777,7 +1795,8 @@ function tickTimer() {
         badge.className = 'pomo-badge work running-badge';
         document.getElementById('timerStatus').textContent = getDersName(state.selectedDersId)||'Çalışıyor';
         if(navigator.vibrate) navigator.vibrate(50);
-        playPomoSound(); vibrateDevice();
+        playMolaSound(); vibrateDevice();
+        showNotif('⏰ Mola Bitti', 'Çalışmaya devam zamanı!');
         showToast('Mola bitti! Çalışmaya devam');
       }
     }
@@ -2417,7 +2436,7 @@ function setRepeat(r, btn) {
 function deleteEvent() {
   if(!editingEventId) return;
   state.calEvents = state.calEvents.filter(e => e.id !== editingEventId && e.parentId !== editingEventId);
-  save(); closeModal('eventModal'); renderCalendar(); showToast('Silindi');
+  haptic('error'); save(); closeModal('eventModal'); renderCalendar(); showToast('Silindi');
 }
 function deleteEvent() {
   if(!editingEventId) return;
@@ -2428,7 +2447,7 @@ function deleteEvent() {
   } else {
     state.calEvents = state.calEvents.filter(e=>e.id!==editingEventId && e.parentId!==editingEventId);
   }
-  save(); closeModal('eventModal'); renderCalendar(); showToast('Silindi');
+  haptic('error'); save(); closeModal('eventModal'); renderCalendar(); showToast('Silindi');
 }
 function saveEvent() {
   const title = document.getElementById('eventTitleInput').value.trim();
@@ -2447,7 +2466,7 @@ function saveEvent() {
       generateRepeats(evObj);
     }
   }
-  save(); closeModal('eventModal'); renderCalendar(); showToast('Kaydedildi');
+  haptic('success'); save(); closeModal('eventModal'); renderCalendar(); showToast('Kaydedildi');
 }
 function generateRepeats(evObj) {
   const baseDate = new Date(evObj.key);
@@ -2492,6 +2511,7 @@ function renderWeeklySummary() {
 function togglePomoSound() {
   state.pomodoroSound = !state.pomodoroSound;
   document.getElementById('pomoSoundBtn').classList.toggle('on', state.pomodoroSound);
+  if(state.pomodoroSound) requestNotifPermission();
   save();
 }
 function togglePomoVibe() {
@@ -2499,26 +2519,92 @@ function togglePomoVibe() {
   document.getElementById('pomoVibeBtn').classList.toggle('on', state.pomodoroVibe);
   save();
 }
+// ── Ses Sistemi ──
+let _audioCtx = null;
+function getAudioCtx() {
+  if(!_audioCtx || _audioCtx.state === 'closed') {
+    _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if(_audioCtx.state === 'suspended') _audioCtx.resume();
+  return _audioCtx;
+}
+function playTone(freq, startDelay, duration, vol=0.25, type='sine') {
+  try {
+    const ctx = getAudioCtx();
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = type;
+    o.frequency.value = freq;
+    o.connect(g); g.connect(ctx.destination);
+    const t = ctx.currentTime + startDelay;
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(vol, t + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.001, t + duration);
+    o.start(t); o.stop(t + duration + 0.05);
+  } catch(e) {}
+}
 function playPomoSound() {
   if(!state.pomodoroSound) return;
-  try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    [0, 0.15, 0.3].forEach(delay => {
-      const o = ctx.createOscillator();
-      const g = ctx.createGain();
-      o.connect(g); g.connect(ctx.destination);
-      o.frequency.value = 880;
-      g.gain.setValueAtTime(0, ctx.currentTime+delay);
-      g.gain.linearRampToValueAtTime(0.3, ctx.currentTime+delay+0.05);
-      g.gain.linearRampToValueAtTime(0, ctx.currentTime+delay+0.25);
-      o.start(ctx.currentTime+delay);
-      o.stop(ctx.currentTime+delay+0.25);
-    });
-  } catch(e) {}
+  // Pomodoro bitti - üç inen nota
+  playTone(880, 0,    0.3, 0.28);
+  playTone(660, 0.35, 0.3, 0.28);
+  playTone(440, 0.7,  0.5, 0.28);
+}
+function playMolaSound() {
+  if(!state.pomodoroSound) return;
+  // Mola bitti - üç çıkan nota
+  playTone(440, 0,    0.25, 0.22);
+  playTone(660, 0.3,  0.25, 0.22);
+  playTone(880, 0.6,  0.4,  0.22);
+}
+function playStartSound() {
+  if(!state.pomodoroSound) return;
+  playTone(528, 0, 0.15, 0.18);
+  playTone(660, 0.18, 0.2, 0.15);
+}
+function playStopSound() {
+  if(!state.pomodoroSound) return;
+  playTone(440, 0, 0.2, 0.15);
+  playTone(330, 0.22, 0.3, 0.12);
+}
+// ── Haptic (Titreşim) ──
+function haptic(type='light') {
+  if(!navigator.vibrate) return;
+  if(type === 'light')  navigator.vibrate(8);
+  else if(type === 'medium') navigator.vibrate(18);
+  else if(type === 'heavy')  navigator.vibrate([30, 10, 30]);
+  else if(type === 'success') navigator.vibrate([10, 20, 40]);
+  else if(type === 'error')   navigator.vibrate([40, 20, 40, 20, 40]);
 }
 function vibrateDevice() {
   if(!state.pomodoroVibe) return;
   if(navigator.vibrate) navigator.vibrate([200, 100, 200]);
+}
+// ── Bildirim Sistemi ──
+async function requestNotifPermission() {
+  if(!('Notification' in window)) return false;
+  if(Notification.permission === 'granted') return true;
+  const perm = await Notification.requestPermission();
+  return perm === 'granted';
+}
+function showNotif(title, body) {
+  if(!('Notification' in window)) return;
+  if(Notification.permission !== 'granted') {
+    requestNotifPermission();
+    return;
+  }
+  try {
+    const n = new Notification(title, {
+      body,
+      icon: './icon-192.png',
+      badge: './icon-192.png',
+      vibrate: [200, 100, 200],
+      tag: 'odak-timer',
+      renotify: true,
+      silent: false
+    });
+    setTimeout(() => n.close(), 6000);
+  } catch(e) {}
 }
 function saveReminderTime(val) {
   state.reminderTime = val;
