@@ -1,0 +1,136 @@
+.stats-toggle {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.stats-tab {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--fill2);
+  color: var(--label3);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.stats-tab.active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.chart-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+}
+
+.chart-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--label);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.bar-chart-wrap {
+  display: flex;
+  gap: 8px;
+  height: 120px;
+  align-items: flex-end;
+}
+
+.bar-chart-yaxis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  font-size: 10px;
+  color: var(--label3);
+  font-weight: 600;
+  text-align: right;
+}
+
+.bar-chart {
+  display: flex;
+  flex: 1;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.bar-chart-bar {
+  flex: 1;
+  background: linear-gradient(to top, var(--primary), rgba(107,124,140,0.6));
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.bar-chart-bar:hover {
+  opacity: 0.8;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.stat-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 14px 12px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.stat-icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--label);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--label3);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.streak-card {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  border-left: 4px solid var(--orange);
+}
+
+.streak-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--label);
+  margin-bottom: 6px;
+}
+
+.streak-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--orange);
+  line-height: 1;
+}

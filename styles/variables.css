@@ -1,0 +1,40 @@
+:root{
+  --bg:#ECE9E4;
+  --bg-surface:#ECE9E4;
+  --card:#EFECE7;
+  --card2:#E6E2DC;
+  --primary:#6B7C8C;
+  --primary-light:rgba(107,124,140,0.14);
+  --green:#7A9080;
+  --red:#B8766A;
+  --orange:#B8926A;
+  --purple:#8E82A0;
+  --text-bg:#F5F5F7;
+  --border:#E5E5EA;
+  --label:#000;
+  --label2:#666;
+  --label3:#999;
+  --fill2:#F0F0F5;
+  --shadow:0 2px 8px rgba(0,0,0,0.08);
+  --nm-shadow-sm:0 1px 3px rgba(0,0,0,0.12),inset 0 1px 2px rgba(255,255,255,0.8);
+  --nm-inset-sm:inset 0 1px 3px rgba(0,0,0,0.12),inset 0 -1px 2px rgba(255,255,255,0.8);
+  --separator:#ddd;
+  --radius:16px;
+  --font:'Manrope',sans-serif;
+}
+
+body.dark-mode {
+  --bg:#1a1a1a;
+  --bg-surface:#000;
+  --card:#2a2a2a;
+  --card2:#333;
+  --primary:#fff;
+  --primary-light:rgba(255,255,255,0.1);
+  --label:#fff;
+  --label2:#ccc;
+  --label3:#999;
+  --fill2:#333;
+  --text-bg:#222;
+  --separator:#444;
+  --nm-shadow-sm:0 1px 3px rgba(0,0,0,0.5);
+}
