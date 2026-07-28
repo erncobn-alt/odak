@@ -1774,8 +1774,8 @@ function updatePomoSetRow() {
   if(bd) bd.textContent = (POMO_BREAK/60)+'dk';
   if(wl) wl.textContent = (POMO_WORK/60)+'dk';
   if(bl) bl.textContent = (POMO_BREAK/60)+'dk';
-  // Sayacı güncelle
-  if(!timer.running && !timer.paused) {
+  // Sayacı güncelle (yalnızca Pomodoro modundayken)
+  if(!timer.running && !timer.paused && timerMode === 'pomo') {
     pomoRemaining = POMO_WORK;
     const h=Math.floor(POMO_WORK/3600),m=Math.floor((POMO_WORK%3600)/60),s=POMO_WORK%60;
     const td = document.getElementById('timerDisplay');
@@ -1791,7 +1791,6 @@ function setTimerMode(mode, btn) {
   const psr = document.getElementById('pomoSetRow');
   if(psr) psr.style.display = mode==='pomo' ? 'flex' : 'none';
   updatePomoSetRow();
-  document.getElementById('timerDisplay').textContent = mode==='pomo' ? '25:00:00'.replace('25:00:00','00:25:00') : '00:00:00';
   document.getElementById('timerDisplay').textContent = mode==='pomo' ? '00:25:00' : '00:00:00';
   const badge = document.getElementById('pomoBadge');
   if(mode==='pomo') {
@@ -1803,10 +1802,22 @@ function setTimerMode(mode, btn) {
   }
   updateRing(0);
 }
+function getOrCreateUnnamedDers() {
+  let d = state.dersler.find(x => x.name === 'Adsız Ders');
+  if(!d) {
+    d = { id: Date.now(), name: 'Adsız Ders', color: COLORS[0] };
+    state.dersler.push(d);
+    save();
+    renderDersler();
+  }
+  return d.id;
+}
 function handleMainBtn() {
   if(!timer.running && !timer.paused) {
-    if(!state.selectedDersId && state.dersler.length > 0) { showToast('Lütfen ders seç'); return; }
-    if(state.dersler.length === 0) { showToast("Önce 'Dersler' sekmesinde ders ekle"); return; }
+    if(!state.selectedDersId) {
+      state.selectedDersId = getOrCreateUnnamedDers();
+      updateSelectedSubject();
+    }
     startTimer();
   } else if(timer.running) {
     pauseTimer();
@@ -2025,7 +2036,7 @@ function formatDurationMins(mins) {
   return `${m}dk`;
 }
 function openSubjectSelect() {
-  if(state.dersler.length === 0) { showToast("Önce ders ekle"); return; }
+  if(state.dersler.length === 0) { getOrCreateUnnamedDers(); }
   const list = document.getElementById('subjectSelectList');
   list.innerHTML = state.dersler.map(d => `
     <div class="subject-select-item ${d.id === state.selectedDersId ? 'selected':''}" onclick="selectSubject(${d.id})">
@@ -2616,8 +2627,7 @@ function deleteEvent() {
   haptic('error'); save(); closeModal('eventModal'); renderCalendar(); showToast('Silindi');
 }
 function saveEvent() {
-  const title = document.getElementById('eventTitleInput').value.trim();
-  if(!title) { showToast('Başlık gir'); return; }
+  const title = document.getElementById('eventTitleInput').value.trim() || 'Adsız Etkinlik';
   const startH = parseTimeInput(document.getElementById('eventStartInput').value);
   const endH   = parseTimeInput(document.getElementById('eventEndInput').value);
   if(endH <= startH) { showToast('Bitiş saati başlangıçtan sonra olmalı'); return; }
